@@ -35,7 +35,7 @@ export default function LandingPage() {
 
     var hour = date.getHours()
 
-    console.log(hour)
+   
 
     const isOpen = () =>{
         if(hour >= 18 && hour < 23){

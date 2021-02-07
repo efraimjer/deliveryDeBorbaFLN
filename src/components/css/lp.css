@@ -489,7 +489,7 @@
         width: 100vw;
     }
     .hamburger-button{display: flex;}
-    .sub-footer{position: relative; top: 1050px;}
+    .sub-footer{position: relative; top: 1060px; flex-direction: column;}
     .lp-modal{
         overflow-y: scroll;
     }
