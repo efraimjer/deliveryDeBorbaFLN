@@ -466,14 +466,17 @@
     .moto-bg{top: 300px; opacity: 1;}
     .moto-bg img{width: 70vw;}
     .video-box video{display: none;}
-    .menu-button{width: 85vw; margin-left: -20px;}
+    .menu-button{width: 85vw; height: 70vh; margin-left: -20px;}
     .about{position: relative; }
     .about-box{width: 100vw;}
     .footer-lp{position: relative;top: 1350px; height: 100vh;
     
     }
+    .grid-box{
+        height: 50vh;
+    }
     .sushi-grid-box{
-        
+
     }
      .steak-grid-box{
         margin-top: -280px;
