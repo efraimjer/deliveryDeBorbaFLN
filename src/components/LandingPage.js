@@ -38,7 +38,7 @@ export default function LandingPage() {
     console.log(hour)
 
     const isOpen = () =>{
-        if(hour > 18 && hour < 23){
+        if(hour >= 18 && hour < 23){
             return "/menu"
         }
 

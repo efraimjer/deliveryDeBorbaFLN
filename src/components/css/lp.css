@@ -475,6 +475,11 @@
     .grid-box{
         height: 50vh;
     }
+
+    .burger-grid-box{
+        margin-top: -210px;
+
+    }
     .sushi-grid-box{
         margin-top: -180px;
 
