@@ -1,24 +1,78 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React, {useEffect, useState} from 'react'
+
+
+
+import Menu from './components/Menu'
+import Login from './components/Login'
+import LandingPage from './components/LandingPage'
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams,
+  useHistory
+} from "react-router-dom";
 
 function App() {
+
+  const[user, setUser] = useState("");
+  const[x, setX] = useState("")
+
+  const history = useHistory();
+
+useEffect(()=>{
+
+  displayUser()
+
+ 
+
+})
+
+const isLogged = () =>{
+  return user ? <Menu user={user} /> : <Login foo={responseGoogle} foo2={responseFacebook} /> 
+}
+
+  const displayUser = (props) =>{
+    setUser(x)
+  }
+
+
+  const responseGoogle =(response)=>{
+
+    setX(response.profileObj);
+    console.log('logged in')
+
+  }
+
+  const responseFacebook =(response)=>{
+    setX(response)
+    console.log(x)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <div className="App">
+        <Router history={history}>
+          <Switch>
+            <Route exact path="/">
+              <LandingPage/>
+            </Route>
+            <Route path="/menu">
+              {isLogged}
+            </Route>
+          </Switch>
+
+
+
+        </Router>
+
+
+      </div>
+  
   );
 }
 
