@@ -11,6 +11,8 @@ export default function Login(props) {
         buttonText="Entrar"
         onSuccess={props.foo}
         cookiePolicy={'single_host_origin'}
+        isSignedIn={true}
+        
 
         />
 
@@ -20,6 +22,7 @@ export default function Login(props) {
       appId="715122555793895"
       autoLoad={false}
       fields="name,email,picture"
+      textButton="Entrar"
       onClick={props.foo2}
       callback={props.foo2} />
         </div>
