@@ -83,7 +83,10 @@ export default function LandingPage() {
                 </div>
 
                 <div className="nav-burger" onClick={handleBurgerClick} style={{display: showNavBurger ? "flex" : "none"}}>
-                    <Link to={isOpen} onClick={showEarlyAdvice}>
+                    {/* <Link to={isOpen} onClick={showEarlyAdvice}>
+                        Faça seu Pedido
+                    </Link> */}
+                    <Link to="/menu">
                         Faça seu Pedido
                     </Link>
                     <a href="#">
