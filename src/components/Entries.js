@@ -35,11 +35,11 @@ export default function Entries(props) {
 
     return (
         <div>
-            <div className="sushi-desc">
+            {/* <div className="sushi-desc">
                 <h3>
                     <em>Sem cream com acréscimo de 20%.</em>
                 </h3>
-            </div>
+            </div> */}
             {available.map(item =>(
                             <div className="product-box" >
                             <div className="img-box">

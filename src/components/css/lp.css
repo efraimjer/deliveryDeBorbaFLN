@@ -308,6 +308,11 @@
     height: 100%;
     background-color: var(--lines);
 }
+
+.about-box-midle p {
+    line-height: 1.2em;
+    text-align: justify;
+}
 /* Footer */
 
 .footer-lp{
@@ -469,7 +474,19 @@
     .menu-button{width: 85vw; height: 100vh; margin-left: -20px;}
     .about{position: relative; }
     .about-box{width: 100vw;}
-    .footer-lp{position: relative;top: 1060px; height: 100vh;
+    .about-box-midle{
+        
+        min-height: 125vh;
+        
+        
+    }
+    
+    .about-box-midle p {
+        line-height: 1.1em;
+        text-align: justify;
+        margin: 0 10px;
+    }
+    .footer-lp{position: relative;top: 1230px; height: 100vh;
     
     }
     .grid-box{
@@ -489,7 +506,7 @@
         width: 100vw;
     }
     .hamburger-button{display: flex;}
-    .sub-footer{position: relative; top: 1060px; flex-direction: column;}
+    .sub-footer{position: relative; top: 1230px; flex-direction: column;}
     .lp-modal{
         overflow-y: scroll;
     }

@@ -183,7 +183,16 @@ Todos os steaks são acompanhados de molho Barbecue.
                 </div>
                 <div className="about-box-midle">
                     <h1>Quem Somos</h1>
-                    <p></p>
+                    <p>Helder e Daniel - 
+Catarinenses, empreendedores, gastrônomos, empresários, primos e chefs de cozinha. Somos unidos pelo sangue e pela paixão em cozinhar.
+
+Estamos no mercado gastronômico há 18 anos, consolidando uma carreira cheia de aprendizados, ensinamentos e muitas conquistas. Nossos dois restaurantes em Criciúma nos renderam vários prêmios, incluindo troféu destaque do ano na região carbonífera, eleito pelo guia 4 rodas o melhor restaurante de Criciúma e região, sempre em primeiro e segundo lugar no trip advisor. Depois de tantas conquistas voltamos ao nosso berço e resolvemos fundar o deBorba delivery, um empreendimento gastronômico com tudo que um delivery exige mas com um toque a mais. Contando com nossas especialidades em culinária oriental, frutos do mar, cozinha brasileira e pratos  quentes, unimos o melhor dos vários mundos gastronômicos em um só lugar - Burguer, Steak e Sushi - e trazemos a você uma nova experiência em delivery.
+
+Nossa missão é atendimento com qualidade,  agilidade e muito respeito aos nossos clientes, colaboradores e todos os envolvidos em nosso empreendimento. Priorizamos um atendimento eficiente, onde você possa receber seu pedido com rapidez e ainda garantir uma comida saborosa, quentinha, feita com ingredientes nobres e rigorosamente selecionados.
+
+Tudo isso para que você posso desfrutar de boa comida no conforto da sua casa!
+
+Por isso convidamos você  a vivenciar essa deliciosa experiência gastronômica conosco. Seu paladar nunca mais será o mesmo!</p>
                 </div>
                 <div className="about-box">
                     <img alt="helder" src={helder}></img>

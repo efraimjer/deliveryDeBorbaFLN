@@ -2,9 +2,14 @@ import React from 'react'
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
+import './components.css'
+
+import hand from '../assets/67328.png'
+
 export default function Login(props) {
     return (
         <div>
+            <img className="hand" src={hand} alt="log in"/>
             <h4>Faça Login com sua conta do Google</h4>
     <GoogleLogin
         clientId="968915938754-mtvfctuiu7b7380tllgpi3cb1s8m5r6l.apps.googleusercontent.com"

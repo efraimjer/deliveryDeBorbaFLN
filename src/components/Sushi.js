@@ -33,15 +33,16 @@ export default function Sushi(props) {
 
     const available = menu.filter(prod => checkAvailability(prod))
 
-
-
     return (
         <div>
-            <div className="sushi-desc">
+            <h2 className="promo-title">Promoção</h2>
+            <h4 className="promo-body">Hot Filadelphia apenas R$ 10,99</h4>
+
+            {/* <div className="sushi-desc">
                 <h3>
                     <em>Sem cream com acréscimo de 20%.</em>
                 </h3>
-            </div>
+            </div> */}
             {available.map(item =>(
                             <div className="product-box" >
                             <div className="img-box">

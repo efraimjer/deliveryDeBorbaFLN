@@ -16,6 +16,10 @@
 
 }
 
+.hand{
+    width: 150px;
+}
+
 .box{
     display: flex;
     align-items: center;
@@ -290,6 +294,8 @@
 
 
 }
+
+.promo-title{color: var(--red); margin-bottom: -20px;}
 .burgerBox{
         display: flex;
     flex-direction: row;
@@ -443,7 +449,8 @@
     /* display: flex; */
     flex-direction: column;
     align-items: flex-end;
-    height: 80vh;
+    min-height: 90vh;
+    
     width: 80vw;
     position: absolute;
     background-color: var(--red);
@@ -557,10 +564,16 @@
 
     .card{
         width: 100vw;
+        
+       
+        
+        
     }
 
     .product-box{
         width: 90vw;
+        /* margin-left: 5%; */
+        min-height: 15vh;
     }
     .checkout{
         width: 100vw;

@@ -5,7 +5,10 @@ import { FiShoppingBag } from "react-icons/fi";
 import axios from 'axios'
 
 export default function Productmobile(props) {
-    const[burgerExtra, setBurgerExtra] = useState([])
+    const[burgerExtra, setBurgerExtra] = useState(
+        [{"_id":"601dc89114959d19f0dc691d","code":27,"name":"Bacon","short":"","long":"","photo":"","pontuation":null,"price":2,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},{"_id":"601dc8ad14959d19f0dc691e","code":28,"name":"Carne","short":"","long":"","photo":"","pontuation":null,"price":8,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},
+        {"_id":"601dc8be14959d19f0dc691f","code":29,"name":"Cheddar","short":"","long":"","photo":"","pontuation":null,"price":2,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},{"_id":"601dc8d014959d19f0dc6920","code":30,"name":"Maionese Caseira","short":"","long":"","photo":"","pontuation":null,"price":1.25,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0}]
+    )
     const[extras, setExtras] = useState([
         {
         code: 16,
@@ -118,14 +121,13 @@ export default function Productmobile(props) {
         }
     ]
 
-    useEffect(()=>{
-        axios.get('https://delivery-deborba.herokuapp.com/delivery/extraburger')
-            .then(res=>{
-                setBurgerExtra(res.data.sort())
-            })
+    const addToExtraCart = (extra)=>{
+        props.setExtrasCart(current => [...current, extra])
+        console.log(props.extrasCart)
+    }
+    
 
 
-    })
     return (
         <div className="product-mobile" style={{display: props.pMobile ? 'flex' : 'none'}}>
         <IoIosCloseCircle onClick={props.showPmobile} className="close-mobile"/>
@@ -160,7 +162,7 @@ export default function Productmobile(props) {
                         <div className="extra-span">
                                 {extra.name} R$ {extra.price.toFixed(2)}
                                 <IoAddCircleSharp className="adddecbutton" 
-                                onClick={()=>{props.addToCart(extra)}} />
+                                onClick={()=>{addToExtraCart(extra)}} />
                             </div>
                     </div>
                 ))} 
@@ -174,7 +176,7 @@ export default function Productmobile(props) {
                         <div className="extra-span">
                                 {extra.name} R$ {extra.price.toFixed(2)}
                                 <IoAddCircleSharp className="adddecbutton" 
-                                onClick={()=>{props.addToCart(extra)}} />
+                                onClick={()=>{addToExtraCart(extra)}} />
                             </div>
                     </div>
                 ))} 
@@ -187,20 +189,20 @@ export default function Productmobile(props) {
                         <div className="extra-span">
                                 {extra.name} R$ {extra.price.toFixed(2)}
                                 <IoAddCircleSharp className="adddecbutton" 
-                                onClick={()=>{props.addToCart(extra)}} />
+                                onClick={()=>{addToExtraCart(extra)}} />
                             </div>
                     </div>
                 ))} 
 
             </form>
 
-            <form>
+            <form style={{display: props.varProduct ? 'block' : 'none'}}>
             {extraAdds.map(extra =>(
                     <div>
                         <div className="extra-span">
                                 {extra.name} R$ {extra.price.toFixed(2)}
                                 <IoAddCircleSharp className="adddecbutton" 
-                                onClick={()=>{props.addToCart(extra)}} />
+                                onClick={()=>{addToExtraCart(extra)}} />
                             </div>
                     </div>
                 ))} 

@@ -34,12 +34,12 @@ export default function Burger(props) {
 
     return (
         <div >
-            <div className="burger-desc">
+            {/* <div className="burger-desc">
                 <h3>
                     <em>Todos acompanham batata e maionese.</em>
                 </h3>
 
-            </div>
+            </div> */}
             {available.map(item =>(
                         <div className="product-box" >
                             <div className="img-box">

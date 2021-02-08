@@ -6,7 +6,9 @@ import axios from 'axios';
 
 export default function Product(props) {
 
-    const[burgerExtra, setBurgerExtra] = useState([])
+    const[burgerExtra, setBurgerExtra] = useState(
+        [{"_id":"601dc89114959d19f0dc691d","code":27,"name":"Bacon","short":"","long":"","photo":"","pontuation":null,"price":2,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},{"_id":"601dc8ad14959d19f0dc691e","code":28,"name":"Carne","short":"","long":"","photo":"","pontuation":null,"price":8,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},{"_id":"601dc8be14959d19f0dc691f","code":29,"name":"Cheddar","short":"","long":"","photo":"","pontuation":null,"price":2,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},{"_id":"601dc8d014959d19f0dc6920","code":30,"name":"Maionese Caseira","short":"","long":"","photo":"","pontuation":null,"price":1.25,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0}]
+    )
     const[extras, setExtras] = useState([
         {
         code: 16,
@@ -98,7 +100,7 @@ export default function Product(props) {
             table: "Padrão",
             mode: "Todos"
         }
-    ]
+    ];
 
     const extraAdds = [
         {
@@ -117,16 +119,7 @@ export default function Product(props) {
             table: "Padrão",
             mode: "Todos"
         }
-    ]
-
-    useEffect(()=>{
-        axios.get('https://delivery-deborba.herokuapp.com/delivery/extraburger')
-            .then(res=>{
-                setBurgerExtra(res.data.sort())
-            })
-
-
-    })
+    ];
 
     const addToExtraCart = (extra)=>{
         props.setExtrasCart(current => [...current, extra])
@@ -189,7 +182,20 @@ export default function Product(props) {
 
             </form>
 
-            <form>
+            <form style={{display: props.varProduct ? 'block' : 'none'}}>
+                        <label>
+                            Escolha o ponto:
+                            <select onChange={(e)=>props.handleMeatPoint(e.target.value)}>
+                                <option value="" selected="selected">-</option>
+                                <option value="Mal Passada">Mal Passada</option>
+                                <option value="Mal para o ponto">Mal para o ponto</option>
+                                <option value="Ao ponto">Ao ponto</option>
+                                <option value="Bem Passada">Bem Passada</option>
+                            </select>
+                        </label>
+                    </form>
+
+            <form style={{display: props.varProduct ? 'block' : 'none'}}>
             {extraAdds.map(extra =>(
                     <div>
                         <div className="extra-span">

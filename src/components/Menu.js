@@ -153,7 +153,11 @@ export default function Menu(props) {
             group:""
         }
 
-        addProduct(fakeProduct)
+        if(window.innerWidth > 600){
+            addProduct(fakeProduct)
+        }
+
+        
         
         if(props === 'Burger'){
             setPlusBurger(false)
@@ -377,26 +381,12 @@ export default function Menu(props) {
 
                     </div>
                     <div className="card">
-                        <Route path="/entradas">
+                        <Switch>
+                        <Route exact path="/entradas">
                             <Entries foo={addProduct} />
                         </Route>
 
-                        {/* <Route path="/entradas"
-                                render={()=>{
-                                    return(
-                                        props.user ?
-                                        <Entries foo={addProduct}/>
-                                        :
-                                        <Redirect to="/" />
-                                    )
-                                }}
-                            
-                        /> */}
-
-                        {/* <Route path="/">
-                            <LandingPage />
-                        </Route> */}
-                        <Switch>
+                        
 
                         <Route path="/sushi">
                             <Sushi foo={addProduct} />
@@ -443,6 +433,8 @@ export default function Menu(props) {
                 plusBurger={plusBurger}
                 sushiExtra={sushiExtra}
                 click={click}
+                setExtrasCart={setExtrasCart}
+                extrasCart={extrasCart}
 
             />
 
