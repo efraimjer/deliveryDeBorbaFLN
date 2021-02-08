@@ -120,7 +120,7 @@ export default function Product(props) {
     ]
 
     useEffect(()=>{
-        axios.get('http://localhost:4000/delivery/extraburger')
+        axios.get('https://delivery-deborba.herokuapp.com/delivery/extraburger')
             .then(res=>{
                 setBurgerExtra(res.data.sort())
             })

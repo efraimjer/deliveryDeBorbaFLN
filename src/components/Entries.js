@@ -23,7 +23,7 @@ export default function Entries(props) {
     const [menu, setMenu] = useState([]);
 
     useEffect(()=>{
-        axios.get('http://localhost:4000/delivery/entries')
+        axios.get('https://delivery-deborba.herokuapp.com/delivery/entries')
             .then(res=>{
                 setMenu(res.data.sort())
             })

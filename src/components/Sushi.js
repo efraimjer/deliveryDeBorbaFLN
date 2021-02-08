@@ -23,7 +23,7 @@ export default function Sushi(props) {
     const [menu, setMenu] = useState([]);
 
     useEffect(()=>{
-        axios.get('http://localhost:4000/delivery/sushi')
+        axios.get('https://delivery-deborba.herokuapp.com/delivery/sushi')
             .then(res=>{
                 setMenu(res.data.sort())
             })

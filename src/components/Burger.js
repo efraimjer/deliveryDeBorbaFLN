@@ -15,7 +15,7 @@ export default function Burger(props) {
     const [menu, setMenu] = useState([]);
 
     useEffect(()=>{
-        axios.get('http://localhost:4000/delivery/burger')
+        axios.get('https://delivery-deborba.herokuapp.com/delivery/burger')
             .then(res=>{
                 setMenu(res.data.sort())
             })

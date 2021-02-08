@@ -12,7 +12,7 @@ export default function Grilled(props) {
     const [menu, setMenu] = useState([]);
 
     useEffect(()=>{
-        axios.get('http://localhost:4000/delivery/stakes')
+        axios.get('https://delivery-deborba.herokuapp.com/delivery/stakes')
             .then(res=>{
                 setMenu(res.data.sort())
             })

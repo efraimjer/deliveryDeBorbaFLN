@@ -104,7 +104,7 @@ export default function Payment(props) {
             option: option
         }
 
-        axios.post('http://localhost:4000/delivery/makepayment', Payment)
+        axios.post('https://delivery-deborba.herokuapp.com/delivery/makepayment', Payment)
         .then(res=>
             res.status === 200 ? placeOrder()//handle success
             : console.log('fail') //handle failure
@@ -182,7 +182,7 @@ export default function Payment(props) {
 
         handleAlert()
 
-        axios.post('http://localhost:4000/delivery/placeOrder', order)
+        axios.post('https://delivery-deborba.herokuapp.com/delivery/placeOrder', order)
 
         .then(res=>{
             console.log(res.data)
