@@ -9,13 +9,16 @@ import { IoIosRemoveCircle, IoIosCloseCircle, IoMdMenu } from "react-icons/io";
 import { FiShoppingBag } from "react-icons/fi";
 
 export default function Checkout(props) {
+    const handleAlertMinimum = () =>{
+        alert('Pedido mínimo R$ 25,00!')
+    }
 
     const HandleMinimumValue = () =>{
         if(props.total > 25){
             return <span onClick={props.handleCloseOrder}>Fechar Pedido</span>
         }
 
-        else return <p style={{color: "red"}}>Pedido Mínimo de <b>R$ 25,00</b></p>
+        else return <span onClick={handleAlertMinimum}>Fechar Pedido</span>
     }
     
     return (
