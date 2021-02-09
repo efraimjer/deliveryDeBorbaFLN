@@ -20,6 +20,13 @@
     width: 150px;
 }
 
+.facebook-login{
+    width: 100px;
+    background-color: #1673EA;
+    color: white;
+    height: 45px;
+}
+
 .box{
     display: flex;
     align-items: center;
@@ -647,6 +654,13 @@
         margin-top: -30px;
     }
     
+    .extra-span{
+        justify-content: space-around;
+    }
+
+    .extraaddbutton{
+        justify-self: right;
+    }
 
 
 }

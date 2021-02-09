@@ -72,7 +72,7 @@ export default function LandingPage() {
                     <a href="https://www.facebook.com/deborbadelivery" rel="noreferrer" target="_blank">
                        <GrFacebookOption />
                     </a>
-                    <a href="">
+                    <a href="http://bit.ly/deBorbaDelivery" rel="noreferrer" target="_blank">
                        <ImWhatsapp />
                     </a>
 
@@ -214,7 +214,7 @@ Por isso convidamos você  a vivenciar essa deliciosa experiência gastronômi
                     <a href="https://www.facebook.com/deborbadelivery" rel="noreferrer" target="_blank">
                        <GrFacebookOption />
                     </a>
-                    <a href="">
+                    <a href="http://bit.ly/deBorbaDelivery">
                        <ImWhatsapp />
                     </a>
 

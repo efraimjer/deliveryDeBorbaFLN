@@ -143,7 +143,7 @@ export default function Productmobile(props) {
 
                         </div>
                     </div>
-                    <form style={{display: props.varProduct ? 'block' : 'none'}}>
+                    <form style={{display: props.varProduct ? 'block' : 'none', marginBottom: "10px"}}>
                         <label>
                             Escolha o ponto:
                             <select onChange={(e)=>props.handleMeatPoint(e.target.value)}>
@@ -160,7 +160,7 @@ export default function Productmobile(props) {
             {extras.map(extra =>(
                     <div>
                         <div className="extra-span">
-                                {extra.name} R$ {extra.price.toFixed(2)}
+                                {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
                                 <IoAddCircleSharp className="adddecbutton" 
                                 onClick={()=>{addToExtraCart(extra)}} />
                             </div>
@@ -174,7 +174,7 @@ export default function Productmobile(props) {
             {burgerExtra.map(extra =>(
                     <div>
                         <div className="extra-span">
-                                {extra.name} R$ {extra.price.toFixed(2)}
+                                {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
                                 <IoAddCircleSharp className="adddecbutton" 
                                 onClick={()=>{addToExtraCart(extra)}} />
                             </div>
@@ -187,7 +187,7 @@ export default function Productmobile(props) {
             {sushiExtra.map(extra =>(
                     <div>
                         <div className="extra-span">
-                                {extra.name} R$ {extra.price.toFixed(2)}
+                                {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
                                 <IoAddCircleSharp className="adddecbutton" 
                                 onClick={()=>{addToExtraCart(extra)}} />
                             </div>
@@ -200,8 +200,8 @@ export default function Productmobile(props) {
             {extraAdds.map(extra =>(
                     <div>
                         <div className="extra-span">
-                                {extra.name} R$ {extra.price.toFixed(2)}
-                                <IoAddCircleSharp className="adddecbutton" 
+                                {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
+                                <IoAddCircleSharp className="adddecbutton extraaddbutton" 
                                 onClick={()=>{addToExtraCart(extra)}} />
                             </div>
                     </div>
