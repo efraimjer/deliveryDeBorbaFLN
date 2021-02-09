@@ -29,6 +29,7 @@ export default function Payment(props) {
     const[expYear, setExpYear]= useState('')
     const[method, setMethod] = useState('')
     const[option, setOption] = useState('')
+    const[nb, setNb] = useState('')
 
     const date = new Date()
 
@@ -122,12 +123,115 @@ export default function Payment(props) {
 
     const handleShipment = (price) =>{
 
+        switch (price.value[2]) {
+            case "A":
+                setNb('Take Away')
+                console.log('Take Away')
+                
+                break;
+            case 'B':
+                setNb('Centro')
+                console.log('Centro')
+                break;
+            case "C":
+                    setNb('Estreito')
+                    console.log('Estreito')
+                    
+                    break;
+            case 'D':
+                    setNb('Trindade')
+                    console.log('Trindade')
+                    break;            
+            case "E":
+                    setNb('Balneário')
+                    console.log('Balneário')
+                    
+                    break;
+            case 'F':
+                    setNb('Canto')
+                    console.log('Canto')
+                    break;            
+            case "G":
+                    setNb('Coloninha')
+                    console.log('Coloninha')
+                    
+                    break;
+            case 'H':
+                    setNb('Jardim Atlântico')
+                    console.log('jd')
+                    break;
+
+            case "I":
+                    setNb('Sapé')
+                    console.log('Sapé')
+                        
+                    break;
+            case 'J':
+                    setNb('Barreiros')
+                    console.log('Barreiros')
+                    break;
+            case 'K':
+                setNb('Campinas')
+                console.log('Camp')
+                break;
+
+            case 'M':
+                setNb('Santos Dumont')
+                console.log('st d')
+                break;
+
+            case 'N':
+                    setNb('Monte Cristo')
+                    console.log('mt c')
+                    break;
+            case 'L':
+                setNb('Kobrasol')
+                console.log('Kobra')
+                break;
+            
+            case 'P':
+                setNb('Bom Abrigo')
+                console.log('b a')
+                break;
+            
+            case 'Q':
+                setNb('Abrãao')
+                console.log(nb)
+                break;
+
+            case 'R':
+                setNb('Itaguaçu')
+                console.log(nb)
+                break;
+            
+            case 'S':
+                setNb('Coqueiros')
+                console.log(nb)
+                break;
+
+            case 'T':
+                setNb('Agronomica')
+                console.log(nb)
+                break;
+
+            case 'U':
+                setNb('Capoeiras')
+                console.log(nb)
+                break;
+        
+            default:
+
+                break;
+        }
+
+
+
         //TODO implement deliver status true or false
 
-        handleDeliver(price)
-        setFrete(parseInt(price))
+        handleDeliver(price.value[0])
+        setFrete(parseInt(price.value[0]))
 
-        setFinal(props.total + parseInt(price))
+        setFinal(props.total + parseInt(price.value[0]))
 
 
     }
@@ -170,12 +274,14 @@ export default function Payment(props) {
             name: props.user.name,
             phone: phone,
             adress: adress,
+            neighborhood: nb,
             paid: true,
             cart: props.cart,
             total: final,
             deliver: deliver,
             readyToDelivery: false,
-            onRoute: false
+            onRoute: false,
+            option: option
         }
 
         //TODO if response OK POST order to backend
@@ -219,27 +325,27 @@ export default function Payment(props) {
                     </div>
                     <div className="flex-column">
                     <label>Bairros Atendidos:</label>                    
-                        <select onChange={(e)=>handleShipment(e.target.value)}>
-                            <option value={0.0}>Take Away</option>
-                            <option value={7}>Centro</option>
-                            <option value={4}>Estreito</option>
-                            <option value={9}>Trindade</option>
-                            <option value={4}>Balneário</option>
-                            <option value={4}>Canto</option>
-                            <option value={4}>Coloninha</option>
-                            <option value={4}>Jardim Atlântico</option>
-                            <option value={5}>Sapé</option>
-                            <option value={5}>Barreiros</option>
-                            <option value={6}>Campinas</option>
-                            <option value={6}>Santos Dumont</option>
-                            <option value={6}>Monte Cristo</option>
-                            <option value={7}>Kobrasol</option>
-                            <option value={7}>Bom Abrigo</option>
-                            <option value={7}>Abrãao</option>
-                            <option value={7}>Itaguaçu</option>
-                            <option value={6}>Coqueiros</option>
-                            <option value={7}>Agronomica</option>
-                            <option value={2}>Capoeiras</option>
+                        <select onChange={(e)=>handleShipment(e.target)}>
+                            <option value={[0.0, 'A']}>Take Away</option>
+                            <option value={[7, 'B']}>Centro</option>
+                            <option value={[4, 'C']}>Estreito</option>
+                            <option value={[9, 'D']}>Trindade</option>
+                            <option value={[4, 'E']}>Balneário</option>
+                            <option value={[4, 'F']}>Canto</option>
+                            <option value={[4, 'G']}>Coloninha</option>
+                            <option value={[4, 'H']}>Jardim Atlântico</option>
+                            <option value={[5, 'I']}>Sapé</option>
+                            <option value={[5, 'J']}>Barreiros</option>
+                            <option value={[6, 'K']}>Campinas</option>
+                            <option value={[6, 'M']}>Santos Dumont</option>
+                            <option value={[6, 'N']}>Monte Cristo</option>
+                            <option value={[7, 'L']}>Kobrasol</option>
+                            <option value={[7, 'P']}>Bom Abrigo</option>
+                            <option value={[7, 'Q']}>Abrãao</option>
+                            <option value={[7, 'R']}>Itaguaçu</option>
+                            <option value={[6, 'S']}>Coqueiros</option>
+                            <option value={[7, 'T']}>Agronomica</option>
+                            <option value={[2, 'U']}>Capoeiras</option>
                     
 
 

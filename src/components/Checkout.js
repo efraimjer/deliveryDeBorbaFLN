@@ -15,7 +15,8 @@ export default function Checkout(props) {
             return <span onClick={props.handleCloseOrder}>Fechar Pedido</span>
         }
 
-        else return <p style={{color: "red"}}>Pedido Mínimo de <b>R$ 25,00</b></p>
+        else return <span onClick={props.handleCloseOrder}>Fechar Pedido</span>
+        // <p style={{color: "red"}}>Pedido Mínimo de <b>R$ 25,00</b></p>
     }
     
     return (
