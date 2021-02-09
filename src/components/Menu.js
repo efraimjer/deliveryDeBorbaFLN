@@ -13,6 +13,10 @@ import Payment from './Payment';
 import Sunday from './Sunday'
 import Desserts from './Desserts'
 
+import clock from '../assets/Foto-Loading-PNG.png'
+
+import greenArrow from '../assets/green-arrow.png'
+
 
 // import { IoAddCircleSharp, IoBasketOutline} from "react-icons/io5";
 import { IoIosRemoveCircle, IoIosCloseCircle, IoMdMenu } from "react-icons/io";
@@ -59,13 +63,24 @@ export default function Menu(props) {
     const[mobileNav, setMobileNav] = useState(false);
     const[closeOrder, setCloseOrder] = useState(false);
 
+    const[loading, setLoading] = useState(false)
+    const[arrival, setArrival] = useState(false)
+
     const history = useHistory();
     
 
     useEffect(()=>{
         displayProduct();
+        
 
     })
+
+    useEffect(()=>{
+        if(window.innerWidth < 600){
+            handleArrival()
+        }
+
+    }, [])
 
    const displayProduct = (props) =>{
         setProduct(x);
@@ -135,6 +150,8 @@ export default function Menu(props) {
 
     const handleTabClick = (props) =>{
         setTabName(props);
+
+        handleLoading()
 
         // if(props === 'Steaks'){
         //     setVarProduct(true)
@@ -302,6 +319,23 @@ export default function Menu(props) {
         else{return null}
     }
 
+    const handleLoading = () =>{
+        setLoading(true)
+
+        setTimeout(()=>{
+            setLoading(false)
+        }, 3000)
+
+
+    }
+
+    const handleArrival = () =>
+    {
+        setArrival(true)
+        setTimeout(()=>{
+            setArrival(false)
+        }, 2000)
+    }
 
     //todo default route with promo
     
@@ -467,9 +501,20 @@ export default function Menu(props) {
             </Router>
             
             <div style={{display:  show ? 'flex' : 'none'}} className="modal">
-
                 <CheckoutOrClose />
+            </div>
 
+            <div className="loading-modal" style={{display: loading ? 'flex' : 'none'}} >
+                <img src={clock} alt="loading" className="clock-loading" />
+                <h4>Só um Segundo...</h4>
+                <p>Estamos buscando o cardápio para você!</p>
+            </div>
+
+            {handleArrival}
+
+            <div className="first-arrival-modal" style={{display: arrival ? 'flex' : 'none'}} >
+                <img src={greenArrow} alt="loading" className="green-arrow" />
+                <h4>Comece por aqui!</h4>
             </div>
         </div>
 

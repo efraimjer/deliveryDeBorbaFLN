@@ -522,6 +522,61 @@
     color: white;
 }
 
+.loading-modal{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    min-height: 100vh;
+    position:absolute;
+    background-color: rgba(255,255,255,0.8);
+    backdrop-filter: blur(2px);
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-modal h4{
+    color: var(--red);
+}
+
+@keyframes rotate-clock{
+    from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+}
+
+.clock-loading{
+    width: 50px;
+    animation: rotate-clock 1s ease-in-out infinite;
+
+}
+
+.green-arrow{
+    justify-self: flex-start;
+    align-self: flex-start;
+    width: 50px;
+    margin-top: -400px;
+    margin-left: 20px;
+}
+
+.first-arrival-modal{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    min-height: 100vh;
+    position:absolute;
+    background-color: rgba(255,255,255,0.8);
+    backdrop-filter: blur(2px);
+    align-items: center;
+    justify-content: center;
+}
+
+.first-arrival-modal h4{
+    color: green;
+}
+
 
 /* Checkout */
 

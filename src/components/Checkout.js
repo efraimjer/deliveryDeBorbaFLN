@@ -9,13 +9,21 @@ import { IoIosRemoveCircle, IoIosCloseCircle, IoMdMenu } from "react-icons/io";
 import { FiShoppingBag } from "react-icons/fi";
 
 export default function Checkout(props) {
+
+    const HandleMinimumValue = () =>{
+        if(props.total > 25){
+            return <span onClick={props.handleCloseOrder}>Fechar Pedido</span>
+        }
+
+        else return <p style={{color: "red"}}>Pedido Mínimo de <b>R$ 25,00</b></p>
+    }
     
     return (
         <div>
                     <div className="checkout">
                         
                         <IoIosCloseCircle onClick={props.foo} className="adddecbutton modalclose"/>
-                        <span onClick={props.handleCloseOrder}>Fechar Pedido</span>
+                        <HandleMinimumValue />
                         <h4>Total - R$ {props.total.toFixed(2)}</h4>
                         {/* implement table of cart products */}
                         {props.cart.map(cart=>(

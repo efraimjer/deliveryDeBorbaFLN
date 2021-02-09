@@ -142,11 +142,23 @@ export default function Product(props) {
                     
                     
             </div>
+            <form style={{display: props.varProduct ? 'block' : 'none', marginBottom: '20px'}}>
+                        <label>
+                            Escolha o ponto:
+                            <select onChange={(e)=>props.handleMeatPoint(e.target.value)}>
+                                <option value="" selected="selected">-</option>
+                                <option value="Mal Passada">Mal Passada</option>
+                                <option value="Mal para o ponto">Mal para o ponto</option>
+                                <option value="Ao ponto">Ao ponto</option>
+                                <option value="Bem Passada">Bem Passada</option>
+                            </select>
+                        </label>
+                    </form>
             <form style={{display: props.varProduct ? 'block' : 'none'}}>
             {extras.map(extra =>(
                     <div>
                         <div className="extra-span">
-                                {extra.name} R$ {extra.price.toFixed(2)}
+                                {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
                                 <IoAddCircleSharp className="adddecbutton" 
                                 onClick={()=>{addToExtraCart(extra)}} />
                             </div>
@@ -160,7 +172,7 @@ export default function Product(props) {
             {burgerExtra.map(extra =>(
                     <div>
                         <div className="extra-span">
-                                {extra.name} R$ {extra.price.toFixed(2)}
+                                {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
                                 <IoAddCircleSharp className="adddecbutton" 
                                 onClick={()=>{addToExtraCart(extra)}}  />
                             </div>
@@ -173,7 +185,7 @@ export default function Product(props) {
             {sushiExtra.map(extra =>(
                     <div>
                         <div className="extra-span">
-                                {extra.name} R$ {extra.price.toFixed(2)}
+                                {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
                                 <IoAddCircleSharp className="adddecbutton" 
                                 onClick={()=>{addToExtraCart(extra)}}  />
                             </div>
@@ -182,24 +194,13 @@ export default function Product(props) {
 
             </form>
 
-            <form style={{display: props.varProduct ? 'block' : 'none'}}>
-                        <label>
-                            Escolha o ponto:
-                            <select onChange={(e)=>props.handleMeatPoint(e.target.value)}>
-                                <option value="" selected="selected">-</option>
-                                <option value="Mal Passada">Mal Passada</option>
-                                <option value="Mal para o ponto">Mal para o ponto</option>
-                                <option value="Ao ponto">Ao ponto</option>
-                                <option value="Bem Passada">Bem Passada</option>
-                            </select>
-                        </label>
-                    </form>
+
 
             <form style={{display: props.varProduct ? 'block' : 'none'}}>
             {extraAdds.map(extra =>(
                     <div>
                         <div className="extra-span">
-                                {extra.name} R$ {extra.price.toFixed(2)}
+                                {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
                                 <IoAddCircleSharp className="adddecbutton" 
                                 onClick={()=>{addToExtraCart(extra)}} />
                             </div>
