@@ -281,7 +281,7 @@ export default function Payment(props) {
             alert('Selecione um bairro')
         }
 
-        else if(props.user.name <= 1){
+        else if(props.user.name.lenght <= 1){
             alert('Você precisa estar logado para fazer um pedido')
         }
 
