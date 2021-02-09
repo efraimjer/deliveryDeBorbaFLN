@@ -326,6 +326,7 @@ export default function Payment(props) {
                     <div className="flex-column">
                     <label>Bairros Atendidos:</label>                    
                         <select onChange={(e)=>handleShipment(e.target)}>
+                            <option value="" selected="selected">-</option>
                             <option value={[0.0, 'A']}>Take Away</option>
                             <option value={[7, 'B']}>Centro</option>
                             <option value={[4, 'C']}>Estreito</option>
@@ -465,6 +466,7 @@ export default function Payment(props) {
                     <label>Vencimento:</label>
                         <div className="flex-row">
                             <select onChange={(e)=> handleExpMonthChange(e.target.value)}>
+                                <option value="" selected="selected">-</option>
                                 <option value="1">Jan</option>
                                 <option value="2">Fev</option>
                                 <option value="3">Mar</option>
@@ -479,6 +481,7 @@ export default function Payment(props) {
                                 <option value="12">Dez</option>
                             </select>
                             <select onChange={(e)=>{handleExpYearChange(e.target.value)}}>
+                                <option value="" selected="selected">-</option>
                                 <option value="2021">2021</option>
                                 <option value="2022">2022</option>
                                 <option value="2023">2023</option>
