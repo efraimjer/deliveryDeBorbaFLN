@@ -34,7 +34,7 @@ useEffect(()=>{
 })
 
 const isLogged = () =>{
-  return user ? <Menu user={user} /> : <Login foo={responseGoogle} foo2={responseFacebook} /> 
+  return user ? <Menu user={user} /> : <Menu user={user} />  
 }
 
   const displayUser = (props) =>{

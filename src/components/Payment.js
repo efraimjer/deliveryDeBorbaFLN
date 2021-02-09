@@ -23,6 +23,8 @@ export default function Payment(props) {
     const[deliver, setDeliver] = useState(false)
 
     const[name, setName]= useState('');
+
+    const[newName, setNewName]= useState('')
     const[cardNumber, setCardNumber]= useState(0);
     const[secureCode, setSecureCode]= useState('')
     const[expMonth, setExpMonth]= useState('')
@@ -77,6 +79,10 @@ export default function Payment(props) {
         setCardNumber(arr.join(""))
 
         
+    }
+
+    const handleChangeName = (name) =>{
+        setNewName(name)
     }
 
     const handleSecureCodeChange = (secureCode) =>{setSecureCode(secureCode)}
@@ -285,13 +291,17 @@ export default function Payment(props) {
             alert('Selecione um bairro')
         }
 
-        else if(props.user.name.lenght <= 1){
-            alert('Você precisa estar logado para fazer um pedido')
+        else if(newName === ""){
+            alert('Precisamos do seu nome para dar entrada no pedido')
+        }
+
+        else if(adress === ""){
+            alert('Precisamos do seu endereço para entregar seu pedido')
         }
 
         else{
             var order = {
-                name: props.user.name,
+                name: newName,
                 phone: phone,
                 adress: adress,
                 neighborhood: nb,
@@ -338,9 +348,11 @@ export default function Payment(props) {
         <div className="payment">
             <IoIosCloseCircle onClick={props.foo} className="adddecbutton modalclose" style={{color: 'white'}}/>
             <h3>Entrega e Pagamento</h3>
-            <p>Nome: <em>{props.user.name}</em></p>
-            <p>Email: <em>{props.user.email}</em></p>
+            
+            
             <form>
+                <label>Nome</label>
+                <input onChange={(e)=>{handleChangeName(e.target.value)}} type="text"></input>
                 <div className="flex-row">
                     <div className="flex-column">
                     <label>ENDEREÇO:</label>                    
