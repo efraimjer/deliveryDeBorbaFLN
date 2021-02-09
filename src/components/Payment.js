@@ -220,10 +220,14 @@ export default function Payment(props) {
                 break;
 
             case 'Z':
-                alert('Selecione um Bairro');
+                setNb('')
+                alert('Selecione um Bairro, se o Bairro não estiver na lista, infelizmente está fora da nossa zona de entrega');
                 break;
+
             case '':
+                setNb('1')
                 alert('Selecione um Bairro');
+                console.log(nb.lenght())
                 break;
         
             default:
@@ -277,7 +281,7 @@ export default function Payment(props) {
 
     const placeOrder = () =>{
 
-        if(nb.lenght <=1){
+        if(nb === ""){
             alert('Selecione um bairro')
         }
 
