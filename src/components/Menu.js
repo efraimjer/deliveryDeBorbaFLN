@@ -345,7 +345,7 @@ export default function Menu(props) {
     // console.log(cart)
     return (
         <div className="box">
-            <Router>
+            <Router history={history}>
                 
                 <div className="container" >
 
