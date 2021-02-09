@@ -218,6 +218,13 @@ export default function Payment(props) {
                 setNb('Capoeiras')
                 console.log(nb)
                 break;
+
+            case 'Z':
+                alert('Selecione um Bairro');
+                break;
+            case '':
+                alert('Selecione um Bairro');
+                break;
         
             default:
 
@@ -270,32 +277,44 @@ export default function Payment(props) {
 
     const placeOrder = () =>{
 
-        var order = {
-            name: props.user.name,
-            phone: phone,
-            adress: adress,
-            neighborhood: nb,
-            paid: true,
-            cart: props.cart,
-            total: final,
-            deliver: deliver,
-            readyToDelivery: false,
-            onRoute: false,
-            option: option
+        if(nb.lenght <=1){
+            alert('Selecione um bairro')
         }
 
-        //TODO if response OK POST order to backend
+        else if(props.user.name <= 1){
+            alert('Você precisa estar logado para fazer um pedido')
+        }
 
-        handleAlert()
+        else{
+            var order = {
+                name: props.user.name,
+                phone: phone,
+                adress: adress,
+                neighborhood: nb,
+                paid: true,
+                cart: props.cart,
+                total: final,
+                deliver: deliver,
+                readyToDelivery: false,
+                onRoute: false,
+                option: option
+            }
+    
+            //TODO if response OK POST order to backend
+    
+            handleAlert()
+    
+            axios.post('https://delivery-deborba.herokuapp.com/delivery/placeOrder', order)
+    
+            .then(res=>{
+                console.log(res.data)
+            })
+            .catch(err=>{
+                console.log(err.res)
+            })
+        }
 
-        axios.post('https://delivery-deborba.herokuapp.com/delivery/placeOrder', order)
 
-        .then(res=>{
-            console.log(res.data)
-        })
-        .catch(err=>{
-            console.log(err.res)
-        })
 
 
     }
@@ -326,7 +345,7 @@ export default function Payment(props) {
                     <div className="flex-column">
                     <label>Bairros Atendidos:</label>                    
                         <select onChange={(e)=>handleShipment(e.target)}>
-                            <option value="" selected="selected">-</option>
+                            <option value={[0, "Z"]} selected="selected">-</option>
                             <option value={[0.0, 'A']}>Take Away</option>
                             <option value={[7, 'B']}>Centro</option>
                             <option value={[4, 'C']}>Estreito</option>
