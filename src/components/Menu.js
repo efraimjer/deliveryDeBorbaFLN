@@ -200,7 +200,7 @@ export default function Menu(props) {
         }
     }
 
-    const addToCart = ( props, qyantidade) =>{
+    const addToCart = ( props) =>{
 
         props.extrasCart = extrasCart;
         let extrasPrice = 0;

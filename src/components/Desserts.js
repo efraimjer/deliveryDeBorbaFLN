@@ -13,7 +13,7 @@ export default function Desserts(props) {
             .then(res=>{
                 setMenu(res.data.sort())
             })
-    })
+    }, [])
 
     //implement a way to use filter(is available)
     const isAvailable = (prod) =>{ 

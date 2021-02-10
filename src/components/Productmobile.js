@@ -217,7 +217,7 @@ export default function Productmobile(props) {
                     <p>{props.product.long}</p>
                     <h1>R$ {props.subtotal.toFixed(2)}</h1>
 
-                    <span onClick={()=>{props.addToCart(props.product, props.quantity)}}
+                    <span onClick={()=>{props.addToCart(props.product)}}
                    >Adicionar ao pedido</span>
                                                
             

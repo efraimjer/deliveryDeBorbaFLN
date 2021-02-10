@@ -27,7 +27,7 @@ export default function Sushi(props) {
             .then(res=>{
                 setMenu(res.data.sort())
             })
-    })
+    }, [])
 
     var checkAvailability = require('../utils/utils').checkAvailability;
 
