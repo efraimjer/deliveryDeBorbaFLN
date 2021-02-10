@@ -248,6 +248,7 @@
     text-decoration: none;
     color: white;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 /* component classes */
