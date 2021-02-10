@@ -299,6 +299,8 @@ export default function Menu(props) {
         total={total}
         cart={cart}
         foo={showModal}
+        setCart={setCart}
+        setExtrasCart={setExtrasCart}
         /> 
         :
         <Checkout 
@@ -371,7 +373,7 @@ export default function Menu(props) {
                     <div className="nav-mobile" onClick={showMobileNav} style={{display:  mobileNav ? 'flex' : 'none'}}>
                         <h3><Link onClick={()=>handleTabClick("Entradas")} className="link" to="/entradas">Entradas</Link></h3>                        
                         <h3><Link onClick={()=>handleTabClick("Burger")} className="link" to="/burger">Burger</Link></h3>
-                        <h3><Link onClick={()=>handleTabClick("Steaks")} className="link" to="/grelhados">Grelhados</Link></h3>
+                        <h3><Link onClick={()=>handleTabClick("Steaks")} className="link" to="/grelhados">Steaks</Link></h3>
                         <h3><Link onClick={()=>handleTabClick("Sushi")} className="link" to="/sushi">Sushi</Link></h3>
                         <h3><Link onClick={()=>handleTabClick("Bebidas")} className="link" to="/drinks">Bebidas</Link></h3>
                         <h3><Link onClick={()=>handleTabClick("Sobremesas")} className="link" to="/sobremesas">Sobremesas</Link></h3>
@@ -423,6 +425,21 @@ export default function Menu(props) {
 
                     </div>
                     <div className="card">
+
+                        <div className="nav-on-cart">
+                            <Link onClick={()=>handleTabClick("Entradas")} className="link-nav-on-cart" to="/entradas">Entradas</Link>
+                            <Link onClick={()=>handleTabClick("Burger")} className="link-nav-on-cart" to="/burger">Burger</Link>
+                            <Link onClick={()=>handleTabClick("Steaks")} className="link-nav-on-cart" to="/grelhados">Steaks</Link>
+                            <Link onClick={()=>handleTabClick("Sushi")} className="link-nav-on-cart" to="/sushi">Sushi</Link>
+                            <Link onClick={()=>handleTabClick("Bebidas")} className="link-nav-on-cart" to="/drinks">Bebidas</Link>
+                            <Link onClick={()=>handleTabClick("Sobremesas")} className="link-nav-on-cart" to="/sobremesas">Sobremesas</Link>
+                        </div>
+
+
+
+
+
+
                         <Switch>
                         <Route exact path="/entradas">
                             <Entries foo={addProduct} />

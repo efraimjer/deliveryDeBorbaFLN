@@ -15,10 +15,10 @@ export default function Checkout(props) {
 
     const HandleMinimumValue = () =>{
         if(props.total > 25){
-            return <span onClick={props.handleCloseOrder} >Fechar Pedido</span>
+            return <span onClick={props.handleCloseOrder} >Finalizar Pedido</span>
         }
 
-        else return <span onClick={handleAlertMinimum} >Fechar Pedido</span>
+        else return <span onClick={handleAlertMinimum} >Finalizar Pedido</span>
     }
     
     return (

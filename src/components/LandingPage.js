@@ -86,9 +86,9 @@ export default function LandingPage() {
                     {/* <Link to={isOpen} onClick={showEarlyAdvice}>
                         Faça seu Pedido
                     </Link> */}
-                    <Link to="/menu">
+                    {/* <Link to="/menu">
                         Faça seu Pedido
-                    </Link>
+                    </Link> */}
                     <a href="#">
 
                         Promoções</a>
@@ -100,10 +100,10 @@ export default function LandingPage() {
                 </div>
 
                 <div className="nav-bar">
-                    <Link to={isOpen} onClick={showEarlyAdvice}>
+                    {/* <Link to={isOpen} onClick={showEarlyAdvice}>
 
                         Faça seu Pedido
-                    </Link>
+                    </Link> */}
                     <a href="#">
                         
                         Promoções</a>
@@ -168,9 +168,9 @@ Todos os steaks são acompanhados de molho Barbecue.
                     <p>Sábados e domingos você conta com <b>costela e frango assado</b> para o seu almoço, disponíveis na modalidade take away (retirados em nosso endereço).</p>
                     <p>Trabalhamos com <b>TAKE AWAY:</b> Você pode escolher retirar seus pedidos em nosso espaço, conhecer a equipe e ver a mágica acontecendo.</p>
                     <p>Conheça nossa área de pedidos exclusiva</p>
-                    <Link to={isOpen} onClick={showEarlyAdvice}>
+                    {/* <Link to={isOpen} onClick={showEarlyAdvice}>
                         Entrar
-                    </Link>
+                    </Link> */}
                 </div>
                 <video width="1366" height="800" loop autoPlay={true} muted>
                     <source src={video} type="video/mp4"/>
@@ -268,7 +268,7 @@ Por isso convidamos você  a vivenciar essa deliciosa experiência gastronômi
                         </ul>
                     </div>
 
-                    <Link to={isOpen} onClick={showEarlyAdvice} className="lp-modal-button">Fazer Pedido</Link>
+                    {/* <Link to={isOpen} onClick={showEarlyAdvice} className="lp-modal-button">Fazer Pedido</Link> */}
 
                 </div>
 

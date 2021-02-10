@@ -128,6 +128,7 @@
 
 .card{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     background-color: var(--bg);
     width: 45vw;
@@ -247,9 +248,13 @@
 
 .link{
     text-decoration: none;
-    color: white;
+    color: black;
     margin-left: 10px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* component classes */
@@ -475,6 +480,28 @@
 
 }
 
+.nav-on-cart{
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
+    align-items: center;
+    justify-content: center;
+    
+
+    
+
+}
+
+
+
+.link-nav-on-cart{
+    text-decoration: none;
+    width: 100px
+}
+
 
 .nav-mobile h3{
     color: white;
@@ -634,10 +661,19 @@
 
     .card{
         width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        
         
        
         
         
+    }
+
+    .product-column{
+
     }
 
     .product-box{
@@ -675,6 +711,9 @@
 
     .extra-span:first-child{
         text-align: left;
+    }
+    .product-column-sushi{
+        margin-top: 2300px;
     }
     
 

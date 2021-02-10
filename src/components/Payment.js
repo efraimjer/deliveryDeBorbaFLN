@@ -33,6 +33,8 @@ export default function Payment(props) {
     const[option, setOption] = useState('')
     const[nb, setNb] = useState('')
 
+    const [input, setInput] = useState({adress: '', name: '', phone: ''})
+
     const date = new Date()
 
     const[showAlert, setShowAlert] = useState(false);
@@ -43,7 +45,7 @@ export default function Payment(props) {
 
         //TODO response from payment
 
-    })
+    },[])
 
 
     const handlePaymentMethod = (method) =>{
@@ -279,6 +281,7 @@ export default function Payment(props) {
     }
 
     const handleAdress =(adress) =>{
+        
         setAdress(adress)
 
         //TODO implement sum of adress + neighborhood
@@ -302,6 +305,7 @@ export default function Payment(props) {
     }
 
     const placeOrder = () =>{
+
 
         if(nb === ""){
             alert('Selecione um bairro')
@@ -333,6 +337,11 @@ export default function Payment(props) {
             //TODO if response OK POST order to backend
     
             handleAlert()
+
+            
+
+            props.setCart([])
+            props.setExtrasCart([])
     
             axios.post('https://delivery-deborba.herokuapp.com/delivery/placeOrder', order)
     
