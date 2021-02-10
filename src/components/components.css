@@ -6,6 +6,10 @@
     
 }
 
+*{
+    cursor: pointer;
+}
+
 :root{
     --bg:#f9f9f9;
     --main: #fff;
