@@ -76,7 +76,7 @@ export default function Menu(props) {
     
 
     useEffect(()=>{
-        displayProduct();
+       
         
 
     })
@@ -97,9 +97,11 @@ export default function Menu(props) {
    }
 
     const addProduct = (props) =>{
-        setX(props);
-        setQ(1)
-        console.log(props.photo)
+        setProduct(props);
+        setQuantity(1)
+        setSubtotal(product.price? product.price * quantity : 0)
+        setCart(cart)
+        
 
         if(window.innerWidth < 600){
             setpMobile(true)
