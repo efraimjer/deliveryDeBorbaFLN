@@ -97,7 +97,20 @@ export default function Payment(props) {
 
         //todo parseint expmonth and year
 
-        e.preventDefault();
+        if(nb === ""){
+            alert('Selecione um bairro')
+        }
+
+        else if(newName === ""){
+            alert('Precisamos do seu nome para dar entrada no pedido')
+        }
+
+        else if(adress === ""){
+            alert('Precisamos do seu endereço para entregar seu pedido')
+        }
+
+        else{
+            e.preventDefault();
         let t = parseInt(final * 100);
         var Payment = {
             method: method,
@@ -120,6 +133,9 @@ export default function Payment(props) {
         .catch(err=>
             console.log(err)
         )
+        }
+
+        
             //todo catch error and display error message
         
 
@@ -346,7 +362,7 @@ export default function Payment(props) {
     
     return (
         <div className="payment">
-            <IoIosCloseCircle onClick={props.foo} className="adddecbutton modalclose" style={{color: 'white'}}/>
+            <IoIosCloseCircle onClick={props.foo} onTouchStart={props.foo} className="adddecbutton modalclose" style={{color: 'white'}}/>
             <h3>Entrega e Pagamento</h3>
             
             
@@ -473,7 +489,7 @@ export default function Payment(props) {
                 </div>
                 
 
-                <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission} />
+                <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission} onTouchStart={handlePaymentSubmission} />
 
 
             </form>
@@ -532,7 +548,7 @@ export default function Payment(props) {
 
 
 
-                <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission} />
+                <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission} onTouchStart={handlePaymentSubmission}/>
 
 
             </form>
@@ -550,7 +566,7 @@ export default function Payment(props) {
                     </label>
                 </form>
 
-                <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission} />
+                <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission} onTouchStart={handlePaymentSubmission} />
             </form>
 
             <span className="alert" style={{display: showAlert ? 'block' : 'none'}}>Pagamento Confirmado!</span>
