@@ -361,12 +361,12 @@ export default function Menu(props) {
                     </div>
 
                     <div className="nav-mobile" onTouchStart={showMobileNav} onClick={showMobileNav} style={{display:  mobileNav ? 'flex' : 'none'}}>
-                        <h3><Link onClick={()=>handleTabClick("Entradas")} onTouchStart={()=>handleTabClick("Entradas")} className="link" to="/entradas">Entradas</Link></h3>                        
-                        <h3><Link onClick={()=>handleTabClick("Burger")} onTouchStart={()=>handleTabClick("Burger")} className="link" to="/burger">Burger</Link></h3>
-                        <h3><Link onClick={()=>handleTabClick("Steaks")} onTouchStart={()=>handleTabClick("Steaks")} className="link" to="/grelhados">Grelhados</Link></h3>
-                        <h3><Link onClick={()=>handleTabClick("Sushi")} onTouchStart={()=>handleTabClick("Sushi")} className="link" to="/sushi">Sushi</Link></h3>
-                        <h3><Link onClick={()=>handleTabClick("Bebidas")} onTouchStart={()=>handleTabClick("Bebidas")} className="link" to="/drinks">Bebidas</Link></h3>
-                        <h3><Link onClick={()=>handleTabClick("Sobremesas")} onTouchStart={()=>handleTabClick("Sobremesas")} className="link" to="/sobremesas">Sobremesas</Link></h3>
+                        <h3><Link onClick={()=>handleTabClick("Entradas")}  className="link" to="/entradas">Entradas</Link></h3>                        
+                        <h3><Link onClick={()=>handleTabClick("Burger")}  className="link" to="/burger">Burger</Link></h3>
+                        <h3><Link onClick={()=>handleTabClick("Steaks")}  className="link" to="/grelhados">Grelhados</Link></h3>
+                        <h3><Link onClick={()=>handleTabClick("Sushi")}  className="link" to="/sushi">Sushi</Link></h3>
+                        <h3><Link onClick={()=>handleTabClick("Bebidas")}  className="link" to="/drinks">Bebidas</Link></h3>
+                        <h3><Link onClick={()=>handleTabClick("Sobremesas")}  className="link" to="/sobremesas">Sobremesas</Link></h3>
                         <p className="logged-two" style={{color: 'white'}}><em>Bem Vindo: </em></p>
                         <p className="logged" style={{color: 'white'}}>{props.user.name}</p>
                     </div>
