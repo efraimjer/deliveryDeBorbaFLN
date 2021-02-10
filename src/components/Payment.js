@@ -362,7 +362,7 @@ export default function Payment(props) {
     
     return (
         <div className="payment">
-            <IoIosCloseCircle onClick={props.foo} onTouchStart={props.foo} className="adddecbutton modalclose" style={{color: 'white'}}/>
+            <IoIosCloseCircle onClick={props.foo}  className="adddecbutton modalclose" style={{color: 'white', marginTop:"-10px", marginBottom: '20px'}}/>
             <h3>Entrega e Pagamento</h3>
             
             
@@ -372,7 +372,7 @@ export default function Payment(props) {
                 <div className="flex-row">
                     <div className="flex-column">
                     <label>ENDEREÇO:</label>                    
-                        <input onChange={(e)=> handleAdress(e.target.value)} type='text' />
+                        <input style={{marginRight: '-15px'}} onChange={(e)=> handleAdress(e.target.value)} type='text' />
                     </div>
                     <div className="flex-column">
                     <label>Bairros Atendidos:</label>                    
@@ -489,7 +489,7 @@ export default function Payment(props) {
                 </div>
                 
 
-                <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission} onTouchStart={handlePaymentSubmission} />
+                <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission}  />
 
 
             </form>
@@ -548,7 +548,7 @@ export default function Payment(props) {
 
 
 
-                <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission} onTouchStart={handlePaymentSubmission}/>
+                <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission} />
 
 
             </form>
@@ -566,7 +566,7 @@ export default function Payment(props) {
                     </label>
                 </form>
 
-                <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission} onTouchStart={handlePaymentSubmission} />
+                <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission}  />
             </form>
 
             <span className="alert" style={{display: showAlert ? 'block' : 'none'}}>Pagamento Confirmado!</span>

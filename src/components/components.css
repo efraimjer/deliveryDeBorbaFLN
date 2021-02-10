@@ -487,7 +487,7 @@
         align-items: center;
         
         min-height: 80vh;
-        width: 80vw;
+        width: 90vw;
         position: absolute;
         background-color: var(--bg);
         top: 80px;
@@ -506,9 +506,10 @@
 .close-mobile{
     color: var(--red);
     position: absolute;
-    top: 5px;
+    top: 10px;
     right: 20px;
     font-size: 2em;
+    
 
 }
 
@@ -640,6 +641,10 @@
         width: 90vw;
         /* margin-left: 5%; */
         min-height: 15vh;
+    }
+
+    .product-box:first-child{
+        margin-top: 50px;
     }
     .checkout{
         width: 100vw;

@@ -44,7 +44,7 @@ export default function Sushi(props) {
                 </h3>
             </div> */}
             {available.map(item =>(
-                            <div className="product-box" onTouchStart={()=>{props.foo(item)}} onClick={()=>{props.foo(item)}} >
+                            <div className="product-box" onClick={()=>{props.foo(item)}} >
                             <div className="img-box">
                                 <GiSushis className="food-icon" />
                             </div>

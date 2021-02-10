@@ -13,6 +13,10 @@ import Payment from './Payment';
 import Sunday from './Sunday'
 import Desserts from './Desserts'
 
+import initReactFastclick from 'react-fastclick';
+
+
+
 import clock from '../assets/Foto-Loading-PNG.png'
 
 import greenArrow from '../assets/green-arrow.png'
@@ -37,6 +41,8 @@ import {
 import { FaThermometerHalf } from 'react-icons/fa';
 
 export default function Menu(props) {
+
+    initReactFastclick()
     
     const [x, setX] = useState({});
     const [product, setProduct] = useState({name: '', short: '', price: '', img:'', qty: 0});
@@ -149,6 +155,8 @@ export default function Menu(props) {
     }
 
     const handleTabClick = (props) =>{
+
+        setMobileNav(false)
         setTabName(props);
 
         handleLoading()
@@ -281,7 +289,7 @@ export default function Menu(props) {
 
     const handleCloseOrder = () =>{
         setCloseOrder(true)
-        
+        console.log(props.user)
     }
 
     const CheckoutOrClose = () =>{
@@ -345,14 +353,14 @@ export default function Menu(props) {
     // console.log(cart)
     return (
         <div className="box">
-            <Router history={history}>
+            <Router>
                 
                 <div className="container" >
 
                     <div className="top-mobile">
                         <div>
-                            <IoMdMenu className="mobile-icon" onClick={showMobileNav} onTouchStart={showMobileNav} />
-                            <FiShoppingBag className="mobile-icon" onTouchStart={()=>setShow(true)} onClick={()=>{setShow(true)}}/>
+                            <IoMdMenu className="mobile-icon" onClick={showMobileNav} />
+                            <FiShoppingBag className="mobile-icon" onClick={()=>{setShow(true)}}/>
                             <p className="basket-counter-mobile">{cart.length}</p>
                         </div>
 
@@ -360,13 +368,13 @@ export default function Menu(props) {
 
                     </div>
 
-                    <div className="nav-mobile" onTouchStart={showMobileNav} onClick={showMobileNav} style={{display:  mobileNav ? 'flex' : 'none'}}>
-                        <h3><Link onClick={()=>handleTabClick("Entradas")}  className="link" to="/entradas">Entradas</Link></h3>                        
-                        <h3><Link onClick={()=>handleTabClick("Burger")}  className="link" to="/burger">Burger</Link></h3>
-                        <h3><Link onClick={()=>handleTabClick("Steaks")}  className="link" to="/grelhados">Grelhados</Link></h3>
-                        <h3><Link onClick={()=>handleTabClick("Sushi")}  className="link" to="/sushi">Sushi</Link></h3>
-                        <h3><Link onClick={()=>handleTabClick("Bebidas")}  className="link" to="/drinks">Bebidas</Link></h3>
-                        <h3><Link onClick={()=>handleTabClick("Sobremesas")}  className="link" to="/sobremesas">Sobremesas</Link></h3>
+                    <div className="nav-mobile" onClick={showMobileNav} style={{display:  mobileNav ? 'flex' : 'none'}}>
+                        <h3><Link onClick={()=>handleTabClick("Entradas")} className="link" to="/entradas">Entradas</Link></h3>                        
+                        <h3><Link onClick={()=>handleTabClick("Burger")} className="link" to="/burger">Burger</Link></h3>
+                        <h3><Link onClick={()=>handleTabClick("Steaks")} className="link" to="/grelhados">Grelhados</Link></h3>
+                        <h3><Link onClick={()=>handleTabClick("Sushi")} className="link" to="/sushi">Sushi</Link></h3>
+                        <h3><Link onClick={()=>handleTabClick("Bebidas")} className="link" to="/drinks">Bebidas</Link></h3>
+                        <h3><Link onClick={()=>handleTabClick("Sobremesas")} className="link" to="/sobremesas">Sobremesas</Link></h3>
                         <p className="logged-two" style={{color: 'white'}}><em>Bem Vindo: </em></p>
                         <p className="logged" style={{color: 'white'}}>{props.user.name}</p>
                     </div>
@@ -378,27 +386,27 @@ export default function Menu(props) {
                         <img alt="logo de Borba" src={Logo} />
 
                             <div className="entries-button">
-                                <h3><Link onClick={()=>handleTabClick("Entradas")} onTouchStart={()=>handleTabClick("Entradas")} className="link" to="/entradas">Entradas</Link></h3>
+                                <h3><Link onClick={()=>handleTabClick("Entradas")} className="link" to="/entradas">Entradas</Link></h3>
                             </div>
 
                             <div className="burger-button">
-                                <h3><Link onClick={()=>handleTabClick("Burger")} onTouchStart={()=>handleTabClick("Burger")} className="link" to="/burger">Burger</Link></h3>
+                                <h3><Link onClick={()=>handleTabClick("Burger")} className="link" to="/burger">Burger</Link></h3>
                             </div>
 
                             <div className="grilled-button">
-                                <h3><Link onClick={()=>handleTabClick("Steaks")} onTouchStart={()=>handleTabClick("Steaks")} className="link" to="/grelhados">Steaks</Link></h3>
+                                <h3><Link onClick={()=>handleTabClick("Steaks")} className="link" to="/grelhados">Steaks</Link></h3>
                             </div>
 
                             <div className="sushi-button">
-                                <h3><Link onClick={()=>handleTabClick("Sushi")} onTouchStart={()=>handleTabClick("Sushi")} className="link" to="/sushi">Sushi</Link></h3>
+                                <h3><Link onClick={()=>handleTabClick("Sushi")} className="link" to="/sushi">Sushi</Link></h3>
                             </div>
 
                             <div className="drinks-button">
-                                <h3><Link onClick={()=>handleTabClick("Bebidas")} onTouchStart={()=>handleTabClick("Bebidas")} className="link" to="/drinks">Bebidas</Link></h3>
+                                <h3><Link onClick={()=>handleTabClick("Bebidas")} className="link" to="/drinks">Bebidas</Link></h3>
                             </div>
 
                             <div className="drinks-button">
-                                <h3><Link onClick={()=>handleTabClick("Sobremesas")} onTouchStart={()=>handleTabClick("Sobremesas")} className="link" to="/sobremesas">Sobremesas</Link></h3>
+                                <h3><Link onClick={()=>handleTabClick("Sobremesas")} className="link" to="/sobremesas">Sobremesas</Link></h3>
                             </div>
 
                             <ShowSundayOffer />
@@ -408,7 +416,7 @@ export default function Menu(props) {
 
                         <div>
                             <p className="basket-counter">{cart.length}</p>
-                            <FiShoppingBag className="basket-icon" onTouchStart={showModal} onClick={showModal}/>
+                            <FiShoppingBag className="basket-icon" onClick={showModal}/>
                         </div>
                         <p className="logged-two"><em>Bem Vindo: </em></p>
                         <p className="logged">{props.user.name}</p>

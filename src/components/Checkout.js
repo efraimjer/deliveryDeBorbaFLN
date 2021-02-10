@@ -15,17 +15,17 @@ export default function Checkout(props) {
 
     const HandleMinimumValue = () =>{
         if(props.total > 25){
-            return <span onClick={props.handleCloseOrder} onTouchStart={props.handleCloseOrder}>Fechar Pedido</span>
+            return <span onClick={props.handleCloseOrder} >Fechar Pedido</span>
         }
 
-        else return <span onClick={handleAlertMinimum} onTouchStart={props.handleCloseOrder}>Fechar Pedido</span>
+        else return <span onClick={handleAlertMinimum} >Fechar Pedido</span>
     }
     
     return (
         <div>
                     <div className="checkout">
                         
-                        <IoIosCloseCircle onClick={props.foo} onTouchStart={props.foo}className="adddecbutton modalclose"/>
+                        <IoIosCloseCircle onClick={props.foo} className="adddecbutton modalclose"/>
                         <HandleMinimumValue />
                         <h4>Total - R$ {props.total.toFixed(2)}</h4>
                         {/* implement table of cart products */}
@@ -41,7 +41,7 @@ export default function Checkout(props) {
                                     {cart.price ? (parseFloat(cart.price) + parseFloat(cart.extrasPrice)).toFixed(2) : 0}</b> 
                                     <IoIosCloseCircle style={{color: '#fc4041', fontSize: '1.4em'}} 
                                     onClick={()=>{props.remove(cart)}}
-                                    onTouchStart={()=>{props.remove(cart)}}
+                                    
                                     /></p>
                                 
                             </div>

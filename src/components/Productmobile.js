@@ -130,16 +130,16 @@ export default function Productmobile(props) {
 
     return (
         <div className="product-mobile" style={{display: props.pMobile ? 'flex' : 'none'}}>
-        <IoIosCloseCircle onClick={props.showPmobile} onTouchStart={props.showPmobile} className="close-mobile"/>
+        <IoIosCloseCircle onClick={props.showPmobile}  className="close-mobile"/>
             <img alt="" src={props.product.photo} />
                 <h2>{props.product.name}</h2>
                 <div className="price-tag-mobile">
                     <p>{props.product.price ? props.product.price.toFixed(2) : " "}</p>                    
                         
                         <div>                            
-                            <IoIosRemoveCircle className="adddecbutton-mobile" onClick={props.decreaseOne}  onTouchStart={props.decreaseOne} />
+                            <IoIosRemoveCircle className="adddecbutton-mobile" onClick={props.decreaseOne}   />
                             <input type="number" value={props.quantity} />
-                            <IoAddCircleSharp className="adddecbutton" onClick={props.addOne} onTouchStart={props.addOne} />
+                            <IoAddCircleSharp className="adddecbutton" onClick={props.addOne}  />
 
                         </div>
                     </div>
@@ -162,7 +162,7 @@ export default function Productmobile(props) {
                         <div className="extra-span">
                                 {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
                                 <IoAddCircleSharp className="adddecbutton"
-                                onTouchStart={()=>{addToExtraCart(extra)}}
+                                
                                 onClick={()=>{addToExtraCart(extra)}} />
                             </div>
                     </div>
@@ -177,7 +177,7 @@ export default function Productmobile(props) {
                         <div className="extra-span">
                                 {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
                                 <IoAddCircleSharp className="adddecbutton"
-                                onTouchStart={()=>{addToExtraCart(extra)}}
+                                
                                 onClick={()=>{addToExtraCart(extra)}} />
                             </div>
                     </div>
@@ -191,7 +191,7 @@ export default function Productmobile(props) {
                         <div className="extra-span">
                                 {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
                                 <IoAddCircleSharp className="adddecbutton"
-                                onTouchStart={()=>{addToExtraCart(extra)}}
+                                
                                 onClick={()=>{addToExtraCart(extra)}} />
                             </div>
                     </div>
@@ -205,7 +205,7 @@ export default function Productmobile(props) {
                         <div className="extra-span">
                                 {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
                                 <IoAddCircleSharp className="adddecbutton extraaddbutton" 
-                                onTouchStart={()=>{addToExtraCart(extra)}}
+                               
                                 onClick={()=>{addToExtraCart(extra)}} />
                             </div>
                     </div>
@@ -218,7 +218,7 @@ export default function Productmobile(props) {
                     <h1>R$ {props.subtotal.toFixed(2)}</h1>
 
                     <span onClick={()=>{props.addToCart(props.product, props.quantity)}}
-                    onTouchStart={()=>{props.addToCart(props.product, props.quantity)}}>Adicionar ao pedido</span>
+                   >Adicionar ao pedido</span>
                                                
             
         </div>
