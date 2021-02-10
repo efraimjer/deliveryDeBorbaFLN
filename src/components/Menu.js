@@ -76,7 +76,7 @@ export default function Menu(props) {
     
 
     useEffect(()=>{
-       
+        displayProduct();
         
 
     })
@@ -97,11 +97,9 @@ export default function Menu(props) {
    }
 
     const addProduct = (props) =>{
-        setProduct(props);
-        setQuantity(1)
-        setSubtotal(product.price? product.price * quantity : 0)
-        setCart(cart)
-        
+        setX(props);
+        setQ(1)
+        console.log(props.photo)
 
         if(window.innerWidth < 600){
             setpMobile(true)
@@ -200,7 +198,7 @@ export default function Menu(props) {
         }
     }
 
-    const addToCart = ( props) =>{
+    const addToCart = ( props, qyantidade) =>{
 
         props.extrasCart = extrasCart;
         let extrasPrice = 0;
