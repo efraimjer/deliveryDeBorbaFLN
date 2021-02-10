@@ -27,7 +27,7 @@ export default function Entries(props) {
             .then(res=>{
                 setMenu(res.data.sort())
             })
-    })
+    },[])
 
     var checkAvailability = require('../utils/utils').checkAvailability;
 
