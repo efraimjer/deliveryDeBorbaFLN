@@ -44,7 +44,7 @@ export default function Sushi(props) {
                 </h3>
             </div> */}
             {available.map(item =>(
-                            <div className="product-box" >
+                            <div className="product-box" onClick={()=>{props.foo(item)}} >
                             <div className="img-box">
                                 <GiSushis className="food-icon" />
                             </div>
@@ -53,7 +53,7 @@ export default function Sushi(props) {
                                 <p>{item.short}</p>
             
                             </div>
-                            <div className="chevron" onClick={()=>{props.foo(item)}}>
+                            <div className="chevron" >
                                   <IoIosArrowDroprightCircle className="chevron-arrow-right" />        
                             </div>
                         </div>

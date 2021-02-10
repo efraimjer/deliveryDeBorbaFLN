@@ -281,7 +281,7 @@ export default function Menu(props) {
 
     const handleCloseOrder = () =>{
         setCloseOrder(true)
-        console.log(props.user)
+        
     }
 
     const CheckoutOrClose = () =>{

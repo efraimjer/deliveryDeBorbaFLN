@@ -294,6 +294,7 @@
     background-color:var(--main);
     width: 40vw;
     height: 70px;
+    cursor: pointer;
     
     text-align: left;
     margin-top: 20px;

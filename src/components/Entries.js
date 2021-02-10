@@ -41,7 +41,7 @@ export default function Entries(props) {
                 </h3>
             </div> */}
             {available.map(item =>(
-                            <div className="product-box" >
+                            <div className="product-box" onClick={()=>{props.foo(item)}} >
                             <div className="img-box">
                                 <GiTacos className="food-icon" />
                             </div>
@@ -50,7 +50,7 @@ export default function Entries(props) {
                                 <p>{item.short}</p>
             
                             </div>
-                            <div className="chevron" onClick={()=>{props.foo(item)}}>
+                            <div className="chevron" >
                                   <IoIosArrowDroprightCircle className="chevron-arrow-right" />        
                             </div>
                         </div>

@@ -33,7 +33,7 @@ export default function Grilled(props) {
 
             </div> */}
             {available.map(item =>(
-                        <div className="product-box" >
+                        <div className="product-box" onClick={()=>{props.foo(item)}}>
                             <div className="img-box">
                                 <GiSteak className="food-icon" />
                             </div>
@@ -42,7 +42,7 @@ export default function Grilled(props) {
                                 <p>{item.short}</p>
             
                             </div>
-                            <div className="chevron" onClick={()=>{props.foo(item)}}>
+                            <div className="chevron" >
                                   <IoIosArrowDropright className="chevron-arrow-right" />        
                             </div>
                         </div>
