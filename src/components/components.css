@@ -3,6 +3,7 @@
 *{
     font-family: 'Quicksand', sans-serif;
     line-height: 1.7em;
+    cursor: pointer;
     
 }
 
@@ -641,6 +642,7 @@
         width: 90vw;
         /* margin-left: 5%; */
         min-height: 15vh;
+        cursor: pointer;
     }
 
     .product-box:first-child{

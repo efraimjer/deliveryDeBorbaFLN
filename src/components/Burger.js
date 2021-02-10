@@ -10,6 +10,7 @@ import photo from '../assets/hamburguer.png'
 
 
 
+
 export default function Burger(props) {
 
     const [menu, setMenu] = useState([]);
@@ -33,7 +34,7 @@ export default function Burger(props) {
     
 
     return (
-        <div >
+        <div onCLick="">
             {/* <div className="burger-desc">
                 <h3>
                     <em>Todos acompanham batata e maionese.</em>
