@@ -133,6 +133,8 @@ export default function Productmobile(props) {
         <IoIosCloseCircle onClick={props.showPmobile}  className="close-mobile"/>
             <img alt="" src={props.product.photo} />
                 <h2>{props.product.name}</h2>
+                <p>{props.product.short}</p>
+                <p>{props.product.long}</p>
                 <div className="price-tag-mobile">
                     <p>{props.product.price ? props.product.price.toFixed(2) : " "}</p>                    
                         
@@ -213,9 +215,8 @@ export default function Productmobile(props) {
 
             </form>
 
-                    <p>{props.product.short}</p>
-                    <p>{props.product.long}</p>
-                    <h1>R$ {props.subtotal.toFixed(2)}</h1>
+
+                    <h1 style={{marginTop: "20px", textAlign: 'right', marginRight: "20px"}}>R$ {props.subtotal.toFixed(2)}</h1>
 
                     <span onClick={()=>{props.addToCart(props.product)}}
                    >Adicionar ao pedido</span>

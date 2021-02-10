@@ -42,7 +42,7 @@ import { FaThermometerHalf } from 'react-icons/fa';
 
 export default function Menu(props) {
 
-    initReactFastclick()
+    
     
     const [x, setX] = useState({});
     const [product, setProduct] = useState({name: '', short: '', price: '', img:'', qty: 0});

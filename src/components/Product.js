@@ -131,17 +131,19 @@ export default function Product(props) {
         <div className="product">
             <img alt="" src={props.product.photo} />
             <h2>{props.product.name}</h2>
+            <p>{props.product.short}</p>
+            <p>{props.product.long}</p>
             <div className="price-tag">
                 <p>{props.product.price ? props.product.price.toFixed(2) : " "}</p>
                 <div>                            
                     <IoIosRemoveCircle className="adddecbutton" onClick={props.decreaseOne} />
                     <input type="number" value={props.quantity} />
                     <IoAddCircleSharp className="adddecbutton" onClick={props.addOne} />
-                </div>
-
-                    
+                </div>              
                     
             </div>
+
+
             <form style={{display: props.varProduct ? 'block' : 'none', marginBottom: '20px'}}>
                         <label>
                             Escolha o ponto:
@@ -210,8 +212,7 @@ export default function Product(props) {
             </form>
             
             
-            <p>{props.product.short}</p>
-            <p>{props.product.long}</p>
+
             <h1>R$ {(parseFloat(props.subtotal) + parseFloat(props.extraPrice)).toFixed(2)}</h1>
 
             <span style={{boxShadow: props.click? 'inset 300px 0 0 0 #2cb978' : ''}} 
