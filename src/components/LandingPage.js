@@ -233,9 +233,9 @@ export default function LandingPage() {
                     {/* <Link to={isOpen} onClick={showEarlyAdvice}>
                         Faça seu Pedido
                     </Link> */}
-                    {/* <Link to="/menu">
+                    <Link to="/menu">
                         Faça seu Pedido
-                    </Link> */}
+                    </Link>
                     <a href="#">
 
                         Promoções</a>
