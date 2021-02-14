@@ -258,7 +258,8 @@ export default function Menu(props) {
         
 
         let cartProduct = props;
- 
+
+        console.log(cart.indexOf(cartProduct))
 
         cartProduct.extrasCart = extrasCart;
         let extrasPrice = 0;
