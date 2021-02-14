@@ -16,14 +16,13 @@
     "react-hammerjs": "^1.0.1",
     "react-icons": "^4.2.0",
     "react-input-mask": "^2.0.4",
+    "react-loading": "2.0.3",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-tappable": "^1.0.4",
     "use-sound": "^2.0.1",
-    "web-vitals": "^0.2.4",
-    "react-loading": "2.0.3"
-    
+    "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,5 +47,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.12.16",
+    "@babel/preset-react": "^7.12.13",
+    "css-loader": "^5.0.2",
+    "html-webpack-plugin": "^5.1.0",
+    "style-loader": "^2.0.0",
+    
+    "webpack-cli": "^4.5.0"
   }
 }

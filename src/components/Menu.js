@@ -38,6 +38,7 @@ import {
     
    
     Link,
+    Redirect,
  
     Switch,
     useHistory
@@ -189,12 +190,14 @@ export default function Menu(props) {
 
     const handleTabClick = (props) =>{
 
+    
+
         
 
         setMobileNav(false)
         setTabName(props);
 
-        // handleLoading()
+        handleLoading()
 
         // if(props === 'Steaks'){
         //     setVarProduct(true)
@@ -450,7 +453,7 @@ export default function Menu(props) {
     // console.log(cart)
     return (
         <div className="box">
-            <Router history={history}>
+            <Router history={props.history}>
                 
                 <div className="container" >
 
@@ -541,32 +544,34 @@ export default function Menu(props) {
 
 
                         <Switch>
-                        <Route exact path="/entradas">
+                        <Route path="/entradas">
                             <Entries foo={addProduct} />
                         </Route>
 
                         
 
-                        <Route path="/sushi">
+                        <Route exact path="/sushi">
                             <Sushi foo={addProduct} />
                         </Route>
-                        <Route path="/burger">
+                        <Route exacct path="/burger">
                             <Burger foo={addProduct} />
                         </Route>
-                        <Route path="/grelhados">
+                        <Route  exact path="/grelhados">
                             <Grilled foo={addProduct} />
                         </Route>
-                        <Route path="/drinks">
+                        <Route exact path="/drinks">
                             <Drinks foo={addProduct} />
                         </Route>
 
-                        <Route path="/sobremesas">
+                        <Route exact path="/sobremesas">
                             <Desserts foo={addProduct} />
                         </Route>
 
-                        <Route path="/sunday">
+                        <Route exact path="/sunday">
                             <Sunday foo={addProduct} />
                         </Route>
+
+                        <Redirect from="*" to="/" />
 
                         {/* <Route path="/"><LandingPage /></Route> */}
                         </Switch>

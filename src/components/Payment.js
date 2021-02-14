@@ -839,7 +839,7 @@ export default function Payment(props) {
                     <div className='flex-row' style={{ marginLeft: '20px'}}>
                         <span style={{backgroundColor: motoboyCard ? '#6b6e7e' : '#f9f9f9', color: motoboyCard ? 'white' : '#6b6e7e'}} onClick={()=>{handlePayButton('Motoboy-Cartão')}}  className="delivery-button">cartão</span>
                         <span style={{backgroundColor: motoboyMoney ? '#6b6e7e' : '#f9f9f9', color: motoboyMoney ? 'white' : '#6b6e7e'}} onClick={()=>{handlePayButton('Motoboy-Dinheiro')}} className="delivery-button">dinheiro</span>
-                    </div>fcard
+                    </div>
 
                 </div>
 
