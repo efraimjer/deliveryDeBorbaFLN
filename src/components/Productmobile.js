@@ -2,12 +2,31 @@ import {React, useState, useEffect} from 'react'
 import { IoAddCircleSharp, IoBasketOutline} from "react-icons/io5";
 import { IoIosRemoveCircle, IoIosCloseCircle, IoMdMenu } from "react-icons/io";
 import { FiShoppingBag } from "react-icons/fi";
+import {BiChevronLeftCircle} from 'react-icons/bi'
+import {HiCheck} from 'react-icons/hi'
+import {IoIosRemove} from 'react-icons/io'
+import {GrFormAdd} from 'react-icons/gr'
 import axios from 'axios'
 
+import useSound from 'use-sound';
+
+import click from '../assets/sound/487452__ranner__click.wav'
+
 export default function Productmobile(props) {
+
+    
+
+
+    const[extrasCart, setExtrasCart] = useState([])
+    const[observation, setObservation] = useState('')
+
+   
+    const[quantity, setQuantity] = useState(1)
     const[burgerExtra, setBurgerExtra] = useState(
-        [{"_id":"601dc89114959d19f0dc691d","code":27,"name":"Bacon","short":"","long":"","photo":"","pontuation":null,"price":2,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},{"_id":"601dc8ad14959d19f0dc691e","code":28,"name":"Carne","short":"","long":"","photo":"","pontuation":null,"price":8,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},
-        {"_id":"601dc8be14959d19f0dc691f","code":29,"name":"Cheddar","short":"","long":"","photo":"","pontuation":null,"price":2,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},{"_id":"601dc8d014959d19f0dc6920","code":30,"name":"Maionese Caseira","short":"","long":"","photo":"","pontuation":null,"price":1.25,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0}]
+        [{"_id":"601dc89114959d19f0dc691d","code":27,"name":"Bacon","short":"","long":"","photo":"","pontuation":null,"price":2,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},{"_id":"601dc8ad14959d19f0dc691e","code":28,"name":"Carne","short":"","long":"","photo":"","pontuation":null,"price":8,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger",
+        "onCart": false,"__v":0},
+        {"_id":"601dc8be14959d19f0dc691f","code":29,"name":"Cheddar","short":"",
+        "onCart": false,"long":"","photo":"","pontuation":null,"price":2,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},{"_id":"601dc8d014959d19f0dc6920","code":30,"name":"Maionese Caseira","short":"","long":"","photo":"","pontuation":null,"price":1.25,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0}]
     )
     const[extras, setExtras] = useState([
         {
@@ -16,7 +35,8 @@ export default function Productmobile(props) {
         price: 8.00,
         group: "Acompanhamentos",
         table: "Padrão",
-        mode: "Todos"
+        mode: "Todos",
+        onCart: false
     },
     {
         code: 17,
@@ -24,7 +44,8 @@ export default function Productmobile(props) {
         price: 8.00,
         group: "Acompanhamentos",
         table: "Padrão",
-        mode: "Todos"
+        mode: "Todos",
+        onCart: false
     },
     {
         code: 18,
@@ -32,7 +53,8 @@ export default function Productmobile(props) {
         price: 6.80,
         group: "Acompanhamentos",
         table: "Padrão",
-        mode: "Todos"
+        mode: "Todos",
+        onCart: false
     },
     {
         code: 19,
@@ -40,17 +62,19 @@ export default function Productmobile(props) {
         price: 12.80,
         group: "Acompanhamentos",
         table: "Padrão",
-        mode: "Todos"
+        mode: "Todos",
+        onCart: false
     }])
 
-    const sushiExtra = [
+    const [sushiExtra, setSushiExtra] = useState([
         {
             code: 54,
             name: "Molho Tare",
             price: 2.00,
             group: "Adicionais Sushi",
             table: "Padrão",
-            mode: "Todos"
+            mode: "Todos",
+            onCart: false
         },
         {
             code: 55,
@@ -58,7 +82,8 @@ export default function Productmobile(props) {
             price: 2.00,
             group: "Adicionais Sushi",
             table: "Padrão",
-            mode: "Todos"
+            mode: "Todos",
+            onCart: false
         },
         {
             code: 56,
@@ -66,7 +91,8 @@ export default function Productmobile(props) {
             price: 2.00,
             group: "Adicionais Sushi",
             table: "Padrão",
-            mode: "Todos"
+            mode: "Todos",
+            onCart: false
         },
         {
             code: 57,
@@ -74,7 +100,8 @@ export default function Productmobile(props) {
             price: 2.00,
             group: "Adicionais Sushi",
             table: "Padrão",
-            mode: "Todos"
+            mode: "Todos",
+            onCart: false
         },
         {
             code: 58,
@@ -82,7 +109,8 @@ export default function Productmobile(props) {
             price: 0.50,
             group: "Adicionais Sushi",
             table: "Padrão",
-            mode: "Todos"
+            mode: "Todos",
+            onCart: false
         },
         {
             code: 59,
@@ -90,7 +118,8 @@ export default function Productmobile(props) {
             price: 0.50,
             group: "Adicionais Sushi",
             table: "Padrão",
-            mode: "Todos"
+            mode: "Todos",
+            onCart: false
         },
         {
             code: 60,
@@ -98,74 +127,167 @@ export default function Productmobile(props) {
             price: 3.00,
             group: "Adicionais Sushi",
             table: "Padrão",
-            mode: "Todos"
+            mode: "Todos",
+            onCart: false
         }
-    ]
+    ])
 
-    const extraAdds = [
+
+
+    const [play] = useSound(click);
+
+    const [extraAdds, setExtraAdds] = useState([
         {
             code: 20,
             name: "Talher Descartável",
             price: 2.00,
             group: "Adicionais",
             table: "Padrão",
-            mode: "Todos"
-        },
-        {
-            code: 21,
-            name: "Guardanapo",
-            price: 0.50,
-            group: "Adicionais",
-            table: "Padrão",
-            mode: "Todos"
+            mode: "Todos",
+            onCart: false
         }
-    ]
+    ])
+
+    
+ 
+
+
+    const addOne = ()=>{
+        setQuantity(current=> current + 1)
+    }
+
+    const decreaseOne = ()=>{
+        if(quantity > 1){
+        setQuantity(current=> current - 1)
+        }
+        else setQuantity(1)
+    }
 
     const addToExtraCart = (extra)=>{
-        props.setExtrasCart(current => [...current, extra])
-        console.log(props.extrasCart)
+
+        play()
+
+        if(extra.onCart){
+            extra.onCart = false
+            props.extrasCart.splice(props.extrasCart.indexOf(extra), 1)
+        }
+        else {extra.onCart = true
+            props.setExtrasCart(current => [...current, extra])
+        }
+
+        
+
+        console.log(extrasCart)
+
+        
+
+
+
+        // if(extra.name === "Maionese"){
+        //     meatExtras.maionese ? setMeatExtras({maionese: false}) : setMeatExtras({maionese: true})        };
+        // if(props.extrasCart.indexOf(extra) >= 0){
+        //         props.extrasCart.slice(props.extrasCart.indexOf(extra), 1)
+        //     }
+        //     else{
+        //         props.setExtrasCart(current => [...current, extra])
+
+        //     }
+        
+        // console.log(props.extrasCart)
+
+        
+    }
+    
+
+    const addToCart = (product) =>{
+        //todo pass product with extrasCart already
+
+        props.product.quantity = quantity;
+
+        props.product.subTotal = quantity * props.product.price;
+
+        
+
+        
+
+        props.addToCart(product)
+
+        setQuantity(1)
+
+        extras.forEach(element=>{
+            element.onCart = false
+        })
+
+        sushiExtra.forEach(element=>{
+            element.onCart = false
+        })
+
+        burgerExtra.forEach(element=>{
+            element.onCart = false
+        })
+
+        extraAdds.forEach(element=>{
+            element.onCart = false
+        })
+
+
+
+
+        setObservation('')
+
+        // props.setExtrasCart(extrasCart)
+
+        // console.log(product)
+
+    }
+
+    const handleObs = (value) =>{
+
+        
+        
+
+        props.setObservation(value)
+        console.log(value)
+
+        
     }
     
 
 
     return (
         <div className="product-mobile" style={{display: props.pMobile ? 'flex' : 'none'}}>
-        <IoIosCloseCircle onClick={props.showPmobile}  className="close-mobile"/>
+        <BiChevronLeftCircle onClick={props.showPmobile}  className="close-mobile"/>
             <img alt="" src={props.product.photo} />
                 <h2>{props.product.name}</h2>
                 <p>{props.product.short}</p>
                 <p>{props.product.long}</p>
                 <div className="price-tag-mobile">
-                    <p>{props.product.price ? props.product.price.toFixed(2) : " "}</p>                    
+                    <p>Valor Unitário R$ {props.product.price ? props.product.price.toFixed(2) : " "}</p>                    
                         
-                        <div>                            
-                            <IoIosRemoveCircle className="adddecbutton-mobile" onClick={props.decreaseOne}   />
-                            <input type="number" value={props.quantity} />
-                            <IoAddCircleSharp className="adddecbutton" onClick={props.addOne}  />
-
-                        </div>
+                        
                     </div>
-                    <form style={{display: props.varProduct ? 'block' : 'none', marginBottom: "10px"}}>
-                        <label>
-                            Escolha o ponto:
-                            <select onChange={(e)=>props.handleMeatPoint(e.target.value)}>
+                    <form style={{display: props.varProduct ? 'flex' : 'none', justifyContent: 'center', alignItems: 'center',flexDirection: 'column', marginBottom: "10px"}}>
+                            <label>Escolha o ponto: </label>
+
+                            <select style={{width: '200px'}} onChange={(e)=>props.handleMeatPoint(e.target.value)}>
                                 <option value="" selected="selected">-</option>
                                 <option value="Mal Passada">Mal Passada</option>
                                 <option value="Mal para o ponto">Mal para o ponto</option>
                                 <option value="Ao ponto">Ao ponto</option>
                                 <option value="Bem Passada">Bem Passada</option>
                             </select>
-                        </label>
                     </form>
 
+                    <p></p>
+
                     <form style={{display: props.varProduct ? 'block' : 'none'}}>
+                    <p>Acompanhamentos</p>
             {extras.map(extra =>(
                     <div>
-                        <div className="extra-span">
+                        
+                        <div className="extra-span" onClick={()=>{addToExtraCart(extra)}}>
+                        <div><HiCheck style={{color: 'green', fontSize: '1.5em', display: extra.onCart ? 'block' : 'none'}} /></div>
                                 {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
-                                <IoAddCircleSharp className="adddecbutton"
-                                
-                                onClick={()=>{addToExtraCart(extra)}} />
                             </div>
                     </div>
                 ))} 
@@ -174,13 +296,14 @@ export default function Productmobile(props) {
             </form>
 
             <form style={{display: props.plusBurger ? 'block' : 'none'}}>
+            <p>Adicionais</p>
             {burgerExtra.map(extra =>(
                     <div>
-                        <div className="extra-span">
+                        
+                        <div className="extra-span" onClick={()=>{addToExtraCart(extra)}}>
+                        <div><HiCheck style={{color: 'green', fontSize: '1.5em', display: extra.onCart ? 'block' : 'none'}} /></div>
                                 {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
-                                <IoAddCircleSharp className="adddecbutton"
-                                
-                                onClick={()=>{addToExtraCart(extra)}} />
+
                             </div>
                     </div>
                 ))} 
@@ -188,13 +311,14 @@ export default function Productmobile(props) {
             </form>
 
             <form style={{display: props.sushiExtra ? 'block' : 'none'}}>
+            <p>Adicionais</p>
             {sushiExtra.map(extra =>(
                     <div>
-                        <div className="extra-span">
+                        
+                        <div className="extra-span" onClick={()=>{addToExtraCart(extra)}}>
+                        <div><HiCheck style={{color: 'green', fontSize: '1.5em' ,display: extra.onCart ? 'block' : 'none'}} /></div>
                                 {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
-                                <IoAddCircleSharp className="adddecbutton"
-                                
-                                onClick={()=>{addToExtraCart(extra)}} />
+
                             </div>
                     </div>
                 ))} 
@@ -202,23 +326,37 @@ export default function Productmobile(props) {
             </form>
 
             <form style={{display: props.varProduct ? 'block' : 'none'}}>
+            <p>Adicionais</p>
             {extraAdds.map(extra =>(
                     <div>
-                        <div className="extra-span">
+                        
+                        <div className="extra-span" onClick={()=>{addToExtraCart(extra)}}>
+                        <div><HiCheck style={{color: 'green', fontSize: '1.5em', display: extra.onCart ? 'block' : 'none'}} /></div>
                                 {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
-                                <IoAddCircleSharp className="adddecbutton extraaddbutton" 
-                               
-                                onClick={()=>{addToExtraCart(extra)}} />
+                                
                             </div>
                     </div>
                 ))} 
 
             </form>
+            <form className="obs-product" style={{display: props.plusBurger ? 'flex' : 'none'}}>
+                
+                <label>Observação</label>
+                <input type="text" value={props.observation} placeholder="Ex. Sem cebola..." onChange={(e)=>{handleObs(e.target.value)}}></input>
+            </form>
 
 
-                    <h1 style={{marginTop: "20px", textAlign: 'right', marginRight: "20px"}}>R$ {props.subtotal.toFixed(2)}</h1>
+                <div className="flex-row">
+                        <div className="product-mobile-quantity">                            
+                            <IoIosRemove style={{fontSize: '1.5em', marginRight: '5px'}} onClick={decreaseOne}   />
+                            <input type="number" style={{height: '20px'}} value={quantity} />
+                            <GrFormAdd style={{fontSize: '1.5em', marginLeft: '5px'}} onClick={addOne}  />
 
-                    <span onClick={()=>{props.addToCart(props.product)}}
+                        </div>
+                    <h4 style={{marginTop: "30px", textAlign: 'right', marginRight: "20px"}}> {'subtotal R$ ' + (props.subtotal * quantity).toFixed(2)}</h4>
+                    </div>
+
+                    <span style={{alignSelf: 'center', justifySelf: 'flex-end'}} onClick={()=>{addToCart(props.product)}}
                    >Adicionar ao pedido</span>
                                                
             

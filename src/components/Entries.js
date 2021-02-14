@@ -41,18 +41,19 @@ export default function Entries(props) {
                 </h3>
             </div> */}
             {available.map(item =>(
-                            <div className="product-box"  onClick={()=>{props.foo(item)}} >
+                            <div className="product-box" onClick={()=>{props.foo(item)}} >
                             <div className="img-box">
-                                <GiTacos className="food-icon" />
+                                <img src={item.photo} alt=""></img>
                             </div>
                             <div>
                                 <h4>{item.name} </h4>
                                 <p>{item.short}</p>
+                                <p ><b>R$ {item.price.toFixed(2)}</b></p>
             
                             </div>
-                            <div className="chevron" >
-                                  <IoIosArrowDroprightCircle className="chevron-arrow-right" />        
-                            </div>
+
+
+                            
                         </div>
                        
             ))}

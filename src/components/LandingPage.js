@@ -8,10 +8,13 @@ import {
     useParams
   } from "react-router-dom";
 
+  import axios from 'axios'
+
   import {GrInstagram, GrFacebookOption} from "react-icons/gr"
   import {ImWhatsapp} from "react-icons/im"
   import {MdAccountBox} from "react-icons/md"
   import {GiHamburgerMenu} from "react-icons/gi"
+  import {BiChevronLeftCircle} from 'react-icons/bi'
 
   import video from '../assets/show.mp4'
   import logo from '../assets/logo-pb-solid.png'
@@ -27,9 +30,27 @@ import {
 
 export default function LandingPage() {
 
+
+
+    const[doDeliver, setDoDeliver] = useState(false)
+    const[dontDeliver, setDontDeliver] = useState(false)
+
     const[showModal, setShowModal] = useState(false)
     const[early, setShowEarly] = useState(false)
     const[showNavBurger, setShowNavBurger] = useState(false)
+    const[cep, setCep] = useState(0)
+    const[cepRes, setCepRes] = useState({})
+
+    const[mobile, setMobile] = useState('')
+
+
+    useEffect(()=>{
+        if(window.innerWidth < 600){
+            setMobile(true)
+        }
+        
+
+    }, [])
 
     var date = new Date()
 
@@ -57,6 +78,132 @@ export default function LandingPage() {
     const handleBurgerClick = () =>{
         showNavBurger ? setShowNavBurger(false) : setShowNavBurger(true);
     }
+
+    const checkDelivery = () =>{
+        switch (cepRes.bairro) {
+            case 'Balneário':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Canto':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Coloninha':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Jardim Atlântico':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Sapé':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Barreiros':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Campinas':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Santos Dumont':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Monte Cristo':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Kobrasol':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Bom Abrigo':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Abraão':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Itaguaçu':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Coqueiros':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Capoeiras':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Centro':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Agronômica':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Trindade':                
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+            case 'Bosque das Missões':
+                setDoDeliver(true)
+                setDontDeliver(false)                
+                break;
+
+
+            
+
+
+
+
+
+            default:
+                setDontDeliver(true)
+                setDoDeliver(false)
+                break;
+        }
+    }
+
+    const checkCepAvailability = async (cep) =>{
+
+    
+
+       await axios.get('https://viacep.com.br/ws/'+ cep + '/json/')
+            .then(res => setCepRes(res.data))
+            
+    }
+
+    const ForwardToMenu = () =>{
+        return <span>Ver Cardápio</span>
+    }
+
+
 
     const handleModal = () =>{showModal ? setShowModal(false) : setShowModal(true)}
 
@@ -181,9 +328,9 @@ Todos os steaks são acompanhados de molho Barbecue.
                 <div className="about-box">
                     <img alt="daniel" src={daniel}></img>
                 </div>
-                <div className="about-box-midle">
+                <div className="about-box-midle" style={{height: '200px'}}>
                     <h1>Quem Somos</h1>
-                    <p>Helder e Daniel - 
+                    {mobile ? <p>leia mais</p> : <p>Helder e Daniel - 
 Catarinenses, empreendedores, gastrônomos, empresários, primos e chefs de cozinha. Somos unidos pelo sangue e pela paixão em cozinhar.
 
 Estamos no mercado gastronômico há 18 anos, consolidando uma carreira cheia de aprendizados, ensinamentos e muitas conquistas. Nossos dois restaurantes em Criciúma nos renderam vários prêmios, incluindo troféu destaque do ano na região carbonífera, eleito pelo guia 4 rodas o melhor restaurante de Criciúma e região, sempre em primeiro e segundo lugar no trip advisor. Depois de tantas conquistas voltamos ao nosso berço e resolvemos fundar o deBorba delivery, um empreendimento gastronômico com tudo que um delivery exige mas com um toque a mais. Contando com nossas especialidades em culinária oriental, frutos do mar, cozinha brasileira e pratos  quentes, unimos o melhor dos vários mundos gastronômicos em um só lugar - Burguer, Steak e Sushi - e trazemos a você uma nova experiência em delivery.
@@ -192,9 +339,9 @@ Nossa missão é atendimento com qualidade,  agilidade e muito respeito aos nos
 
 Tudo isso para que você posso desfrutar de boa comida no conforto da sua casa!
 
-Por isso convidamos você  a vivenciar essa deliciosa experiência gastronômica conosco. Seu paladar nunca mais será o mesmo!</p>
+Por isso convidamos você  a vivenciar essa deliciosa experiência gastronômica conosco. Seu paladar nunca mais será o mesmo!</p>}
                 </div>
-                <div className="about-box">
+                <div className="about-box" style={{display: !mobile ? 'flex' : 'none'}}>
                     <img alt="helder" src={helder}></img>
                 </div>
 
@@ -236,11 +383,24 @@ Por isso convidamos você  a vivenciar essa deliciosa experiência gastronômi
                 <p>All rights reserved <b>DH Gastronomia</b></p>
                 <p>Desenvolvido por <a href="https://www.letecacom.live"><b>Leteca Comunicação</b></a></p>
             </div>
-            <div class="lp-modal" style={{display: showModal ? 'flex' : 'none'}} onClick={handleModal}>
+            <div class="lp-modal" style={{display: showModal ? 'flex' : 'none'}}>
+            <BiChevronLeftCircle onClick={handleModal}  className="close-mobile"/>
                 <img alt="rotas" src={map}></img>
                 <div
                 className='routes-list'>
-                    <h3>Bairros e regiões atendidos pelo nosso Delivery</h3>
+                    <p>No momento atendemos em um raio fechado </p>
+                    <p>Faça a consulta abaixo se entregamos em seu cep </p>
+
+                    <form>
+                        <p style={{color: 'green', display: doDeliver ? 'block' : 'none', fontSize: '12px'}}>Yay. Nós entregamos no seu endereço!</p>
+                        <p style={{color: 'red', display: dontDeliver ? 'block' : 'none', fontSize: '12px'}}>Que pena seu cep está fora da nossa zona de atendimento!</p>
+                        <input type="number" onChange={(e)=>{checkCepAvailability(e.target.value)}} placeholder="Digite aqui seu cep"   />
+                        <span onClick={()=>{checkDelivery(cep)}} >Consultar</span>
+                        {doDeliver ? <ForwardToMenu /> : null}
+                    </form>
+
+
+                    {/* <h3>Bairros e regiões atendidos pelo nosso Delivery</h3>
                     <div>
                         <ul>
                             <li>Balneário</li>
@@ -266,7 +426,7 @@ Por isso convidamos você  a vivenciar essa deliciosa experiência gastronômi
                             <li>Trindade</li>
                             <li>Bosque das missões</li>
                         </ul>
-                    </div>
+                    </div> */}
 
                     {/* <Link to={isOpen} onClick={showEarlyAdvice} className="lp-modal-button">Fazer Pedido</Link> */}
 

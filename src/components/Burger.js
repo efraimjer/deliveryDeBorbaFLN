@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import './components.css'
-import { IoIosArrowDropright, IoIosArrowDroprightCircle } from "react-icons/io";
+
 import axios from 'axios';
-import burger from '../assets/cil_burger.png'
-import { FaHamburger } from "react-icons/fa";
-import photo from '../assets/hamburguer.png'
+import ReactLoading from 'react-loading'
+
 
 
 
@@ -14,12 +13,14 @@ import photo from '../assets/hamburguer.png'
 export default function Burger(props) {
 
     const [menu, setMenu] = useState([]);
+    const [isDone, setIsDone] = useState(false)
 
     useEffect(()=>{
         axios.get('https://delivery-deborba.herokuapp.com/delivery/burger')
             .then(res=>{
                 setMenu(res.data.sort())
             })
+            .then(setIsDone(true))
     }, [])
 
     //implement a way to use filter(is available)
@@ -41,22 +42,27 @@ export default function Burger(props) {
                 </h3>
 
             </div> */}
-            {available.map(item =>(
-                        <div className="product-box"  onClick={()=>{props.foo(item)}}>
+            {!isDone ? <ReactLoading type={"bubles"}  color={"#fa8072"} height={"32px"} width={"32px"} /> : (
+                <div>
+                {available.map(item =>(
+                            <div className="product-box" onClick={()=>{props.foo(item)}} >
                             <div className="img-box">
-                                <FaHamburger className="food-icon" />
+                                <img src={item.photo} alt=""></img>
                             </div>
                             <div>
                                 <h4>{item.name} </h4>
                                 <p>{item.short}</p>
+                                <p ><b>R$ {item.price.toFixed(2)}</b></p>
             
                             </div>
-                            <div className="chevron" >
-                                  <IoIosArrowDropright className="chevron-arrow-right" />        
-                            </div>
+
+
+                            
                         </div>
                        
             ))}
+            </div>
+            )}
             
 
                   

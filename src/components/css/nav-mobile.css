@@ -1,0 +1,44 @@
+
+:root{
+    --bg:#f9f9f9;
+    --main: #fff;
+    --second: #404355;
+    --red: #fc4041;
+    --lines: #f0f0f0;
+
+
+}
+
+.link-nav-on-cart{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-on-cart{
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20px;
+    
+
+    
+
+}
+
+.link-nav-on-cart{
+    text-decoration: none;
+    width: 100px;
+
+    color: #575151 ;
+}
+
+.link-nav-cart-active{
+    color: var(--red);
+    
+}

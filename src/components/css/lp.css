@@ -305,7 +305,8 @@
 
 .about-box-midle{
     width: 600px;
-    height: 100%;
+    overflow: hidden;
+    
     background-color: var(--lines);
 }
 
@@ -424,6 +425,31 @@
 .routes-list{
     text-align: left;
     height: 70%;
+}
+
+.routes-list p{
+    margin: 0 15px 0 15px;
+    text-align: justify;
+}
+
+.routes-list form{
+    margin: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.routes-list span{
+    border: 1px solid var(--second);
+    width: 100px;
+    padding: 5px 5px 5px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: var(--second);
+    border-radius: 5px;
 }
 
 .routes-list ul li{

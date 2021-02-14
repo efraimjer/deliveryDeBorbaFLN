@@ -13,6 +13,7 @@
     --bg:#f9f9f9;
     --main: #fff;
     --second: #404355;
+    --third: #6b6e7e;
     --red: #fc4041;
     --lines: #f0f0f0;
 
@@ -34,6 +35,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+   
 }
 
 .container{
@@ -154,13 +156,13 @@
 .product h2, .product-mobile h2{
     text-align: left;
     margin-left: 15px;
-    color: var(--red);
+    color: var(--second);
     border-top: 0.5px solid var(--lines);
 
 }
 
 .product h1, .product-mobile h1{
-    color: var(--red);
+    color: var(--third);
     border-top: 0.5px solid var(--lines);
 }
 
@@ -177,6 +179,7 @@
 .price-tag, .price-tag-mobile{
     display: flex;
     justify-content: space-between;
+    border-top: 0.5px solid var(--lines);
 
 }
 /* .price-tag-mobile{
@@ -207,7 +210,8 @@
     color: #fff;
     margin-bottom: 20px;
     box-shadow: inset 0 0 0 0 #2cb978;
-    transition: ease-out 0.3s;    
+    transition: ease-out 0.3s; 
+    min-width: 100px;
 }
 
 .extra-span{
@@ -215,6 +219,37 @@
     display: flex;
     justify-content: space-between;
     padding-left: 15px;
+    
+}
+
+.obs-product{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.obs-product label{
+    font-size: 0.7em;
+}
+.obs-product input{
+    width: 200px;
+    border: none;
+}
+
+.extras-check{
+    display: none;
+    color: green;
+    font-size: 1.5rem;
+
+}
+
+.extras-checked{
+    display: block;
+    color: green;
+    font-size: 1.5rem;
 }
 
 .btn-clicked{
@@ -289,6 +324,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    
+}
+
+.img-box img{
+    width: 150px;
 }
 
 .food-icon{
@@ -299,7 +340,7 @@
 
 .product-box{
     display: grid;
-    grid-template-columns: 0.5fr 4fr 0.5fr;
+    grid-template-columns: 1fr 4fr ;
     background-color:var(--main);
     width: 40vw;
     height: 70px;
@@ -307,7 +348,7 @@
     
     text-align: left;
     margin-top: 20px;
-    box-shadow: 0.5px 0.5px 3px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 2px 0px 0px rgba(0,0,0,0.2);
 
 
 }
@@ -351,14 +392,23 @@
 
 .product-box  h4{
     margin-top: 10px;
+    font-size: 10px;
+    line-height: 1em;
+    margin-bottom: 15px;
+    
 }
 
 .product-box p{
-    margin-top: -20px;
+    line-height: 1em;
+    margin-top: -10px;
     font-weight: 300;
     font-size: 0.8em;
     overflow: hidden;
     
+}
+
+.product-box-price{
+    margin-top: 30px;
 }
 
 
@@ -407,12 +457,13 @@
 
 .modal{
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     position:absolute;
     background-color: rgba(255,255,255,0.5);
     backdrop-filter: blur(5px);
     align-items: center;
     justify-content: center;
+    overflow-y: scroll;
 }
 
 .modal h1{
@@ -440,7 +491,7 @@
 }
 .basket-counter-mobile{
     color: white;
-    margin-left: 85px;
+    margin-left: 50px;
     margin-top: -60px;
 }
 
@@ -480,27 +531,9 @@
 
 }
 
-.nav-on-cart{
-    position: relative;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    row-gap: 10px;
-    align-items: center;
-    justify-content: center;
-    
-
-    
-
-}
 
 
 
-.link-nav-on-cart{
-    text-decoration: none;
-    width: 100px
-}
 
 
 .nav-mobile h3{
@@ -515,33 +548,77 @@
         flex-direction: column;
         /* align-items: center; */
         
-        min-height: 80vh;
-        width: 94vw;
+        min-height: 100vh;
+        width: 100vw;
         position: absolute;
         background-color: var(--bg);
-        top: 80px;
+        top: 0;
         right: 0;
-        border-bottom-right-radius: 10px;
-        border-top-right-radius: 10px;
+
+        color: var(--second);
+
         line-height: 0.8em;
         animation: slide-from-right 0.3s ease-in;
         box-shadow: -2px 2px 5px 0px rgba(0,0,0,0.4);
-        border-bottom-left-radius: 10px;
-        border-top-left-radius: 10px;
+
         padding-top: 20px;
 
 }
 
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.product-mobile > span{
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: 800;
+}
+
+.product-mobile-quantity input{
+width: 20px;
+outline: none;
+border: none;
+}
+
+.product-mobile-quantity{
+    margin-top: 33px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.product-mobile > .adddecbutton {
+    margin-bottom: -20px;
+}
+
+.product-mobile > .flex-row{
+    justify-content: space-around;
+}
+
 .close-mobile{
-    color: var(--main);
+    color: var(--second);
     position: absolute;
-    top: -50px;
-    right: 50%;
+    top: 5px;
+    left: 20px;
     font-size: 2em;
     
     
 
 }
+/* 
+.confirmation-modal{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background-color: var(--bg);
+    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
 
 @keyframes slide-up{
     from {
@@ -556,12 +633,34 @@
 
 .alert{
     position: absolute;
-    bottom: 50px;
-    padding: 10px 20px 10px 20px;
-    border-radius: 25px;
-    background-color: #2cb978;
+    bottom: 10px;
+    height: 40px;
+    font-weight: 600;
+    
+    padding:0 20px 0 20px;
+    border-radius: 10px;
+    background-color: var(--red);
     animation: slide-up 0.3s ease-in;
     color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 280px;
+
+    box-shadow: 0 3px 0 rgba(0,0,0,0.2);
+}
+
+.alert > .mobile-icon {
+    margin-top: 10px;
+    
+}
+
+.alert > .basket-counter-mobile {
+    position: absolute;
+    color: white;
+    bottom: 0;
+    left: 20px;
 }
 
 .loading-modal{
@@ -631,6 +730,11 @@
         flex-direction: column;
     }
 
+    .img-box{
+        width: 100px;
+        margin-right: 10px;
+    }
+
     .top-mobile{
         display: flex;
         width: 100vw;
@@ -665,6 +769,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+        padding-bottom: 10vh;
         
         
        
@@ -681,6 +786,7 @@
         /* margin-left: 5%; */
         min-height: 15vh;
         cursor: pointer;
+        overflow: hidden;
     }
 
     .product-box:first-child{
@@ -705,7 +811,7 @@
     
     .extra-span{
         display: grid;
-        grid-template-columns: 3fr 1fr 0.5fr;
+        grid-template-columns: 0.5fr 3fr 1fr;
         justify-content: space-between;
     }
 

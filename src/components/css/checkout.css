@@ -22,9 +22,19 @@ input[type="radio"]{
 
 }
 
+.checkout > .flex-column {
+    line-height: 1em;
+}
+
+.checkout-extras > .flex-row{
+    margin-bottom: -25px;
+}
+
 .checkout span{
     margin-bottom: -40px;
     margin-top: -20px;
+    border-radius: 5px;
+    font-weight: 800;
 }
 
 .cart-item{
@@ -55,16 +65,35 @@ input[type="radio"]{
 .payment{
     width: 40vw;
     min-height: 80vh;
-    background: var(--red);
+    background: var(--bg);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     border-radius: 10px;
-    color: white;
+    color: var(--second);
     padding: 15px 15px 15px 15px;
     line-height: 0.5em;
     margin: 170px 0 20px 0;
+}
+
+
+
+
+.delivery-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--third);
+    color: var(--third);
+    font-weight: 800;
+    padding: 0 10px 0 10px;
+    font-size: 0.8em;
+    border-radius: 5px;
+    width: 100px;
+    margin-right: 10px;
+    height: 45px;
+    
 }
 
 .payment h3{
@@ -91,7 +120,8 @@ input[type="radio"]{
     margin-bottom: 20px;
    
     width: 200px;
-    border: none;
+    
+    color: var(--second);
     
 }
 
@@ -145,6 +175,7 @@ input[type="radio"]{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    
 }
 
 .flex-column{
@@ -152,7 +183,14 @@ input[type="radio"]{
     flex-direction: column;
     align-items: flex-start;
     margin-right: 20px;
+    
 }
+
+.checkout-extras{
+    margin-top: -30px;
+}
+
+
 
 #cvv{
     width: 100px;
@@ -168,6 +206,21 @@ textarea:focus, input:focus{
 
 #credit, #debit, #motoboy, #motoboy-card, #motoboy-money{
     margin: 0 -80px 10px -95px;
+}
+
+.payment-button{
+    flex-direction: row;
+    background-color: var(--red);
+    color: white;
+    font-weight: 800;
+    width: 200px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+
 }
 
 @media(max-width: 600px){
@@ -229,12 +282,79 @@ textarea:focus, input:focus{
     }
 
     .payment{
+
+        margin-top: 50px;
+        border-radius: 0px;
+        padding-top: 100px;
+
         width: 90vw;
-        margin-top: 100px;
+        min-height: 100vh;
+        overflow: scroll;
+    }
+
+    .card-modal{
+        width: 90vw;
+        position: fixed;
+        height: 100vh;
+        overflow-y: hidden;
+        bottom: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--bg);
+        padding-top: 100px;
+        overflow-y: hidden;
+        
+        
+        
+    }
+
+    .confirmation-modal{
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        background-color: rgba(230, 230, 230, 1);
+        backdrop-filter: blur(2px);
+        
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loading-modal{
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        min-height: 100vh;
+        position:absolute;
+        background-color: rgba(255,255,255,0.8);
+        backdrop-filter: blur(2px);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .confirmation-modal p{
+        margin: 0 10px 0 10px;
+    }
+
+    .card-modal > .credit-card {
+        
     }
 
     .credit-card, .debit-card{
         width: 90%;
+    }
+
+    .credit-card input{
+        margin-left: -10px;
+
+    }
+
+    .credit-card label{
+        margin-left: -10px;
     }
     
 

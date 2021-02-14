@@ -1,5 +1,12 @@
 import {React, useState, useEffect} from 'react'
 
+import { FaHamburger, FaCandyCane } from "react-icons/fa";
+import { GiSteak, GiTacos, GiSushis } from "react-icons/gi";
+import { BiDrink } from "react-icons/bi";
+import borbaburger from '../assets/borbaburger.png'
+
+import './css/nav-mobile.css'
+
 import {
     BrowserRouter as Router,
     Route,
@@ -13,18 +20,104 @@ import {
 
 
 export default function NavMobile(props) {
+    
+
+    const[menuItem, setMenuItem] = useState({entries: false, burger: false, steaks: false, sushi: false, drinks: false, desserts: false})
+
+    const iconMenuClick = (menu) =>{
+
+        props.setShowPromo(false)
+        props.handleTabClick(menu)
+
+        switch (menu) {
+        
+        case 'Entradas':
+            setMenuItem({entries: true, burger: false, steaks: false, sushi: false, drinks: false, desserts: false })
+  
+
+            
+            break;
+        
+        case'Burger':
+        setMenuItem({entries: false, burger: true, steaks: false, sushi: false, drinks: false, desserts: false })
+
+            break;
+
+        case 'Steaks':
+            setMenuItem({entries: false, burger: false, steaks: true, sushi: false, drinks: false, desserts: false })
+
+            break;
+
+        case 'Sushi':
+            setMenuItem({entries: false, burger: false, steaks: false, sushi: true, drinks: false, desserts: false })
+            break;
+        
+        case 'Bebidas':
+            setMenuItem({entries: false, burger: false, steaks: false, sushi: false, drinks: true, desserts: false })
+            break;
+        
+        case 'Sobremesas':
+            setMenuItem({entries: false, burger: false, steaks: false, sushi: false, drinks: false, desserts: true })
+            break;
+
+
+        default: break;
+        }
+    }
+
+    const addPromo = () =>{
+        var borbaBurger = {
+            "code": 26,
+            "name": "Borba Burguer",
+            "short": "",
+            "long": "Pão brioche, blend de carne angus, queijo minas, queijo brie, molho pesto de manjericão, crocante de alho poró",
+            "photo": "https://letecacom.live/images/deborba/Frame-00014.jpg",
+            "pontuation": null,
+            "price": 28.9,
+            "isAvailable": true,
+            "table": "PADRÃO",
+            "mode": "Todos",
+            "group": "Burguers"
+            
+        }
+
+        // props.setShowPromo(false)
+
+        props.addProduct(borbaBurger)
+        setMenuItem({entries: false, burger: true, steaks: false, sushi: false, drinks: false, desserts: false })
+    }
+    
+
+
     return (
         <div>
-            <h3><Link onClick={()=>props.handleTabClick("Entradas")} className="link" to="/entradas">Entradas</Link></h3>                        
-            <h3><Link onClick={()=>props.handleTabClick("Burger")} className="link" to="/burger">Burger</Link></h3>
-            <h3><Link onClick={()=>props.handleTabClick("Steaks")} className="link" to="/grelhados">Steaks</Link></h3>
-            <h3><Link onClick={()=>props.handleTabClick("Sushi")} className="link" to="/sushi">Sushi</Link></h3>
-            <h3><Link onClick={()=>props.handleTabClick("Bebidas")} className="link" to="/drinks">Bebidas</Link></h3>
-            <h3><Link onClick={()=>props.handleTabClick("Sobremesas")} className="link" to="/sobremesas">Sobremesas</Link></h3>
-            <p className="logged-two" style={{color: 'white'}}><em>Bem Vindo: </em></p>
-            <p className="logged" style={{color: 'white'}}>{props.user}</p>
-            
-        </div>
+            <div className="nav-on-cart">
+                <Link onClick={()=>iconMenuClick("Entradas")} className={menuItem.entries ? "link-nav-on-cart link-nav-cart-active" : "link-nav-on-cart"} to="/entradas">
+                    <GiTacos className="nav-icon"/>
+                    Entradas
+                </Link>
+                <Link onClick={()=>iconMenuClick("Burger")} className={menuItem.burger ? "link-nav-on-cart link-nav-cart-active" : "link-nav-on-cart"} to="/burger">
+                    <FaHamburger className="nav-icon"/>
+                    Burger</Link>
+                <Link onClick={()=>iconMenuClick("Steaks")} className={menuItem.steaks ? "link-nav-on-cart link-nav-cart-active" : "link-nav-on-cart"} to="/grelhados">
+                    <GiSteak className="nav-icon"/>
+                    Steaks</Link>
+                <Link onClick={()=>iconMenuClick("Sushi")} className={menuItem.sushi ? "link-nav-on-cart link-nav-cart-active" : "link-nav-on-cart"} to="/sushi">
+                    <GiSushis className="nav-icon"/>
+                    Sushi</Link>
+                <Link onClick={()=>iconMenuClick("Bebidas")} className={menuItem.drinks ? "link-nav-on-cart link-nav-cart-active" : "link-nav-on-cart"} to="/drinks">
+                    <BiDrink className="nav-icon"/>
+                    Bebidas</Link>
+                <Link onClick={()=>iconMenuClick("Sobremesas")} className={menuItem.desserts ? "link-nav-on-cart link-nav-cart-active" : "link-nav-on-cart"} to="/sobremesas">
+                    <FaCandyCane className="nav-icon"/>
+                    Sobremesas</Link>
+            </div>
+
+            <div onClick={addPromo} style={{display: props.showPromo ? 'block' : 'none'}}>
+                            <h3>Promo do dia</h3>
+                            <img src={borbaburger} style={{width: '80vw'}} alt="" />
+            </div>
+    </div>
     )
 }
 

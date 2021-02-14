@@ -13,7 +13,8 @@ import Payment from './Payment';
 import Sunday from './Sunday'
 import Desserts from './Desserts'
 
-import initReactFastclick from 'react-fastclick';
+import NavMobile from './NavMobile'
+
 
 
 
@@ -22,23 +23,27 @@ import clock from '../assets/Foto-Loading-PNG.png'
 import greenArrow from '../assets/green-arrow.png'
 
 
+
+
 // import { IoAddCircleSharp, IoBasketOutline} from "react-icons/io5";
 import { IoIosRemoveCircle, IoIosCloseCircle, IoMdMenu } from "react-icons/io";
 import { FiShoppingBag } from "react-icons/fi";
+import {FaArrowLeft} from 'react-icons/fa'
 import Logo from '../assets/logo-pb-solid.png'
-
+import checked from '../assets/checked.png'
 
 import {
     BrowserRouter as Router,
     Route,
-    Redirect,
+    
+   
     Link,
-    BrowserHistory,
+ 
     Switch,
     useHistory
 
   } from "react-router-dom";
-import { FaThermometerHalf } from 'react-icons/fa';
+// import { FaThermometerHalf } from 'react-icons/fa';
 
 export default function Menu(props) {
 
@@ -46,8 +51,8 @@ export default function Menu(props) {
     
     const [x, setX] = useState({});
     const [product, setProduct] = useState({name: '', short: '', price: '', img:'', qty: 0});
-    const [cart, setCart] = useState([]);
-    const [total, setTotal] = useState(0);
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : [] );
+    const [total, setTotal] = useState(JSON.parse(localStorage.getItem('total')) ? JSON.parse(localStorage.getItem('total')) : 0);
     const [show, setShow] = useState(false);
     const [subtotal, setSubtotal] = useState(0);
     const [quantity, setQuantity] = useState(0);
@@ -72,19 +77,43 @@ export default function Menu(props) {
     const[loading, setLoading] = useState(false)
     const[arrival, setArrival] = useState(false)
 
+    const[test, setTest] = useState([])
+
+    const[observation, setObservation] = useState('')
+
+    const [success, setSuccess] = useState(false)
+
+    const [showPromo, setShowPromo] = useState(true)
+
+    
+
+    
+
+    
+
+   
+
     const history = useHistory();
     
 
     useEffect(()=>{
         displayProduct();
+        setLocalStorage('cart', cart)
+        setLocalStorage('total', total)
+
         
+        
+
 
     })
 
     useEffect(()=>{
+        
         if(window.innerWidth < 600){
             handleArrival()
         }
+
+        
 
     }, [])
 
@@ -93,13 +122,17 @@ export default function Menu(props) {
         setQuantity(q);
         setSubtotal(product.price? product.price * quantity : 0)
         setCart(cart)
-        console.log("quantity " + quantity)
+        console.log("quantity crazy " + quantity)
    }
 
     const addProduct = (props) =>{
+        console.log(props)
+        setExtrasCart([])
+        setObservation('')
+
         setX(props);
         setQ(1)
-        console.log(props.photo)
+        console.log(props)
 
         if(window.innerWidth < 600){
             setpMobile(true)
@@ -156,10 +189,12 @@ export default function Menu(props) {
 
     const handleTabClick = (props) =>{
 
+        
+
         setMobileNav(false)
         setTabName(props);
 
-        handleLoading()
+        // handleLoading()
 
         // if(props === 'Steaks'){
         //     setVarProduct(true)
@@ -185,7 +220,7 @@ export default function Menu(props) {
         
         
         if(props === 'Burger'){
-            setPlusBurger(false)
+            setPlusBurger(true)
             setVarProduct(false)
             setSushiExtra(false)
             console.log(x)
@@ -198,49 +233,96 @@ export default function Menu(props) {
         }
     }
 
-    const addToCart = ( props, qyantidade) =>{
+ 
+    const setLocalStorage = (key, value) =>{
+        
+        localStorage.setItem(key, JSON.stringify(value));
 
-        props.extrasCart = extrasCart;
+        localStorage.setItem(key, JSON.stringify(value))
+
+        
+        
+
+        
+
+        
+    }
+
+
+    const addToCart = (props) =>{
+        
+
+        let cartProduct = props;
+ 
+
+        cartProduct.extrasCart = extrasCart;
         let extrasPrice = 0;
 
-        for(let i=0; i < props.extrasCart.length; i++){
-            extrasPrice += props.extrasCart[i].price;
-            console.log(extrasPrice)
+        for(let i=0; i < cartProduct.extrasCart.length; i++){
+            cartProduct.extrasCart[i].quantity = cartProduct.quantity;
         }
 
-        props.extrasPrice = extrasPrice;
+        
 
-        if(varProduct || plusBurger){
-            props.point = p;
-        }
-        else{props.point = ""}
-
-        for(let i = 0; i < quantity; i++){
-            setCart(current => [...current, props])
-            setTotal(current=> current + props.price + extrasPrice)
-            console.log("type total " + total)
+        for(let i=0; i < cartProduct.extrasCart.length; i++){
+            extrasPrice += cartProduct.extrasCart[i].price * cartProduct.extrasCart[i].quantity;
+            
+            
         }
 
+        cartProduct.extrasPrice = extrasPrice;
+       
+
+        if(varProduct){
+            cartProduct.point = p;
+            
+        }
+        if(plusBurger){
+            cartProduct.observation = observation;
+            
+        }  
+
+        setCart(current => [...current, cartProduct])
+        setTotal(current=> current + cartProduct.subTotal + extrasPrice )
+        
         if(window.innerWidth < 600){
             setpMobile(false)
-        }
+        }      
+
 
         handleButtonClicked()
 
         handleAlert()
 
-        setExtrasCart([])
     }
 
     const removeFromCart = (props) =>{
         cart.splice(cart.indexOf(props), 1)
+        // cart.extrasCart = []
 
-        setTotal(current => current-props.price-props.extrasPrice)
+        setTotal(current => current-props.subTotal - props.extrasPrice)
 
         if(total < 0){
             setTotal(0)
         }
 
+    }
+
+    const removeExtra = (cart, checkCart, extra) =>{
+        //todo correct bug on delete value
+        cart.subTotal -= checkCart[checkCart.indexOf(extra)].price * checkCart[checkCart.indexOf(extra)].quantity;
+        
+        setTotal(current => current - (checkCart[checkCart.indexOf(extra)].price * checkCart[checkCart.indexOf(extra)].quantity))
+
+        checkCart.splice(checkCart.indexOf(extra), 1)
+
+        
+
+        
+
+       
+
+        
     }
 
     const addOne = ()=>{
@@ -271,9 +353,9 @@ export default function Menu(props) {
     const handleAlert = () =>{
         setShowAlert(true)
 
-        setTimeout(()=>{
-            setShowAlert(false)
-        }, 3000)
+        // setTimeout(()=>{
+        //     setShowAlert(false)
+        // }, 3000)
     }
 
     const handleButtonClicked = () =>{
@@ -292,6 +374,15 @@ export default function Menu(props) {
         console.log(props.user)
     }
 
+    const handleSuccess = ()=>{
+        setSuccess(true)
+
+        setTimeout(() => {
+            
+            setSuccess(false)
+        }, 3000);
+    }
+
     const CheckoutOrClose = () =>{
         return closeOrder ?     
         <Payment 
@@ -301,6 +392,8 @@ export default function Menu(props) {
         foo={showModal}
         setCart={setCart}
         setExtrasCart={setExtrasCart}
+        setTotal={setTotal}
+        handleSuccess={handleSuccess}
         /> 
         :
         <Checkout 
@@ -308,6 +401,7 @@ export default function Menu(props) {
         cart={cart}
         foo={showModal}
         remove={removeFromCart}
+        removeExtra={removeExtra}
         handleCloseOrder={handleCloseOrder}/>   
 
     }
@@ -348,22 +442,24 @@ export default function Menu(props) {
     }
 
     //todo default route with promo
-    
+
+
 
     
     
     // console.log(cart)
     return (
         <div className="box">
-            <Router>
+            <Router history={history}>
                 
                 <div className="container" >
 
                     <div className="top-mobile">
                         <div>
-                            <IoMdMenu className="mobile-icon" onClick={showMobileNav} />
+                            {/* <IoMdMenu className="mobile-icon" onClick={showMobileNav} />
                             <FiShoppingBag className="mobile-icon" onClick={()=>{setShow(true)}}/>
-                            <p className="basket-counter-mobile">{cart.length}</p>
+                            <p className="basket-counter-mobile">{cart.length}</p> */}
+                            <Link to="/menu" ><FaArrowLeft className="mobile-icon" style={{color: 'white'}} /></Link>
                         </div>
 
                         <h2>{tabName}</h2>
@@ -426,17 +522,21 @@ export default function Menu(props) {
                     </div>
                     <div className="card">
 
-                        <div className="nav-on-cart">
-                            <Link onClick={()=>handleTabClick("Entradas")} className="link-nav-on-cart" to="/entradas">Entradas</Link>
-                            <Link onClick={()=>handleTabClick("Burger")} className="link-nav-on-cart" to="/burger">Burger</Link>
-                            <Link onClick={()=>handleTabClick("Steaks")} className="link-nav-on-cart" to="/grelhados">Steaks</Link>
-                            <Link onClick={()=>handleTabClick("Sushi")} className="link-nav-on-cart" to="/sushi">Sushi</Link>
-                            <Link onClick={()=>handleTabClick("Bebidas")} className="link-nav-on-cart" to="/drinks">Bebidas</Link>
-                            <Link onClick={()=>handleTabClick("Sobremesas")} className="link-nav-on-cart" to="/sobremesas">Sobremesas</Link>
-                        </div>
+                        <NavMobile
+                            handleTabClick={handleTabClick}
+                            addProduct={addProduct}
+                            showPromo={showPromo}
+                            setShowPromo={setShowPromo}
+                            
+                            />
+
+
+                        
 
 
 
+                        
+                        {/* todo promo banner */}
 
 
 
@@ -471,7 +571,12 @@ export default function Menu(props) {
                         {/* <Route path="/"><LandingPage /></Route> */}
                         </Switch>
 
-                        <span className="alert" style={{display: showAlert ? 'block' : 'none'}}>Item adicionado com sucesso!</span>
+                        <div className="alert" style={{display: cart.length > 0 ? 'flex' : 'none'}} onClick={()=>{setShow(true)}}>
+                            <FiShoppingBag className="mobile-icon" />
+                            <p className="basket-counter-mobile">{cart.length}</p>
+                            <p>VER CARRINHO</p>
+                            <p>{'R$ ' + total.toFixed(2)}</p>
+                        </div>
                         
       
                     </div>
@@ -494,6 +599,8 @@ export default function Menu(props) {
                 click={click}
                 setExtrasCart={setExtrasCart}
                 extrasCart={extrasCart}
+                setObservation={setObservation}
+                observation={observation}
 
             />
 
@@ -523,7 +630,7 @@ export default function Menu(props) {
             
             
 
-            </Router>
+            
             
             <div style={{display:  show ? 'flex' : 'none'}} className="modal">
                 <CheckoutOrClose />
@@ -537,10 +644,19 @@ export default function Menu(props) {
 
             {handleArrival}
 
+            </Router>
+
+            <div className="confirmation-modal" style={{display: success ? 'flex' : 'none'}} >
+                <img src={checked} alt="" style={{width: '100px'}} />
+                <p>seu pedido foi enviado com sucesso</p>
+                <p>logo enviaremos a confirmação quando ele estiver pronto</p>
+
+            </div>
+{/* 
             <div className="first-arrival-modal" style={{display: arrival ? 'flex' : 'none'}} >
                 <img src={greenArrow} alt="loading" className="green-arrow" />
                 <h4>Comece por aqui!</h4>
-            </div>
+            </div> */}
         </div>
 
     )
