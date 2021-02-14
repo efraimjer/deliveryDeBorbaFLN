@@ -34,7 +34,7 @@ useEffect(()=>{
 })
 
 const isLogged = () =>{
-  return user ? <Menu user={user} history={history} /> : <Menu user={user} />  
+  // return user ?  : <Menu user={user} />  
 }
 
   const displayUser = (props) =>{
@@ -62,7 +62,7 @@ const isLogged = () =>{
               <LandingPage/>
             </Route>
             <Route exact path="/menu">
-              {isLogged}
+              <Menu user={user} history={history} />
             </Route>
           </Switch>
 

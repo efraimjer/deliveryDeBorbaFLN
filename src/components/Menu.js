@@ -190,6 +190,8 @@ export default function Menu(props) {
 
     const handleTabClick = (props) =>{
 
+        console.log( history)
+
     
 
         
@@ -453,7 +455,7 @@ export default function Menu(props) {
     // console.log(cart)
     return (
         <div className="box">
-            <Router history={props.history}>
+            <Router history={history}>
                 
                 <div className="container" >
 
