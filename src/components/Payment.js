@@ -319,9 +319,12 @@ export default function Payment(props) {
         setLoading(true)
 
         //todo parseint expmonth and year
+        if(deliver && newName === ""){
+            alert('Precisamos do seu nome para dar entrada no pedido')
+        }
 
-        if(deliver && nb === ""){
-            alert('Selecione um bairro')
+        else if(deliver && nb === ""){
+            alert('Digite um cep válido')
         }
 
         else if(newName === ""){
@@ -548,6 +551,18 @@ export default function Payment(props) {
 
         if(newName === ""){
             alert('Precisamos do seu nome para dar entrada no pedido')
+        }
+
+        else if(deliver && nb === ""){
+            alert('Digite um cep válido')
+        }
+
+        else if(newName === ""){
+            alert('Precisamos do seu nome para dar entrada no pedido')
+        }
+
+        else if(deliver && adress === ""){
+            alert('Precisamos do seu endereço para entregar seu pedido')
         }
 
         // else if(houseNumber === ""){

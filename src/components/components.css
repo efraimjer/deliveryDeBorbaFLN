@@ -459,6 +459,7 @@
     width: 100%;
     min-height: 100%;
     position:absolute;
+    top:0;
     
     backdrop-filter: blur(5px);
     align-items: center;
@@ -798,6 +799,7 @@ border: none;
 
     .cart-item{
         width: 95%;
+        min-height: 5vh;
     }
 
     .product-box h4{

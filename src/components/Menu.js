@@ -35,6 +35,7 @@ import checked from '../assets/checked.png'
 import {
     BrowserRouter as Router,
     Route,
+    HashRouter,
     
    
     Link,
@@ -128,7 +129,7 @@ export default function Menu(props) {
 
     const addProduct = (props) =>{
         console.log(props)
-        setExtrasCart([])
+        // setExtrasCart([])
         setObservation('')
 
         setX(props);
@@ -255,15 +256,20 @@ export default function Menu(props) {
 
 
     const addToCart = (props) =>{
-        
+
 
         let cartProduct = props;
-
-        console.log(cart.indexOf(cartProduct))
-
-        cartProduct.extrasCart = extrasCart;
         let extrasPrice = 0;
 
+
+
+      
+
+        console.log(cart.indexOf(props))
+  
+        if(cart.indexOf(props) < 0){
+        cartProduct.extrasCart = extrasCart;
+        
         for(let i=0; i < cartProduct.extrasCart.length; i++){
             cartProduct.extrasCart[i].quantity = cartProduct.quantity;
         }
@@ -293,12 +299,42 @@ export default function Menu(props) {
         
         if(window.innerWidth < 600){
             setpMobile(false)
-        }      
+        }
+        
+        
 
 
         handleButtonClicked()
 
         handleAlert()
+    }
+
+    else 
+   {
+         cart[cart.indexOf(cartProduct)].quantity += quantity;
+         cart[cart.indexOf(cartProduct)].subTotal += props.subtotal
+         cartProduct.extrasCart = extrasCart;
+
+         
+        for(let i=0; i < cartProduct.extrasCart.length; i++){
+            extrasPrice += cartProduct.extrasCart[i].price * cartProduct.extrasCart[i].quantity;
+            
+            
+        }
+
+        setTotal(current=> current + cartProduct.subTotal + extrasPrice )
+
+
+         handleButtonClicked()
+
+         if(window.innerWidth < 600){
+            setpMobile(false)
+        }
+
+         
+
+    }
+    
 
     }
 
@@ -456,7 +492,7 @@ export default function Menu(props) {
     // console.log(cart)
     return (
         <div className="box">
-            <Router history={props.history}>
+            <HashRouter history={props.history}>
                 
                 <div className="container" >
 
@@ -652,7 +688,7 @@ export default function Menu(props) {
 
             {handleArrival}
 
-            </Router>
+            </HashRouter>
 
             <div className="confirmation-modal" style={{display: success ? 'flex' : 'none'}} >
                 <img src={checked} alt="" style={{width: '100px'}} />
