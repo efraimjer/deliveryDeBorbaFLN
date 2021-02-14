@@ -58,10 +58,10 @@ const isLogged = () =>{
       <div className="App">
         <Router history={history}>
           <Switch>
-            <Route exact path="/">
+            {/* <Route exact path="/">
               <LandingPage/>
-            </Route>
-            <Route exact path="/menu">
+            </Route> */}
+            <Route exact path="/">
               <Menu user={user} history={history} />
             </Route>
           </Switch>
