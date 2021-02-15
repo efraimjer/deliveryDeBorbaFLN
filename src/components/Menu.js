@@ -129,7 +129,7 @@ export default function Menu(props) {
 
     const addProduct = (props) =>{
         console.log(props)
-        // setExtrasCart([])
+        setExtrasCart([])
         setObservation('')
 
         setX(props);
@@ -260,14 +260,18 @@ export default function Menu(props) {
 
         let cartProduct = props;
         let extrasPrice = 0;
+        var hereQty = 0
+        
 
 
 
       
 
         console.log(cart.indexOf(props))
+
+        cartProduct.quantity += hereQty;
   
-        if(cart.indexOf(props) < 0){
+        
         cartProduct.extrasCart = extrasCart;
         
         for(let i=0; i < cartProduct.extrasCart.length; i++){
@@ -307,33 +311,9 @@ export default function Menu(props) {
         handleButtonClicked()
 
         handleAlert()
-    }
-
-    else 
-   {
-         cart[cart.indexOf(cartProduct)].quantity += quantity;
-         cart[cart.indexOf(cartProduct)].subTotal += props.subtotal
-         cartProduct.extrasCart = extrasCart;
-
-         
-        for(let i=0; i < cartProduct.extrasCart.length; i++){
-            extrasPrice += cartProduct.extrasCart[i].price * cartProduct.extrasCart[i].quantity;
-            
-            
-        }
-
-        setTotal(current=> current + cartProduct.subTotal + extrasPrice )
+  
 
 
-         handleButtonClicked()
-
-         if(window.innerWidth < 600){
-            setpMobile(false)
-        }
-
-         
-
-    }
     
 
     }

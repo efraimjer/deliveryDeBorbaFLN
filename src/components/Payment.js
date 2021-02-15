@@ -705,7 +705,7 @@ export default function Payment(props) {
     return (
 
         <div className="payment">
-            <BiChevronLeftCircle onClick={props.foo}  className="adddecbutton modalclose" style={{color: '#fc4041', position: 'fixed', top: '80px', left: '15px'}}/>
+            <BiChevronLeftCircle onClick={props.foo}  className="adddecbutton modalclose" style={{color: '#fc4041', position: 'fixed', top: '40px', left: '15px'}}/>
             <div className="flex-column">
                 
                 <p>{'seu total até aqui R$' + props.total.toFixed(2)}</p>
