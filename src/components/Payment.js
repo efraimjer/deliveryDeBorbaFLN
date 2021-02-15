@@ -84,6 +84,9 @@ export default function Payment(props) {
     },[])
 
     const checkDelivery = () =>{
+        setTimeout(() => {
+            
+
         switch (cepRes.bairro) {
             case 'Balneário':                
                 setDoDeliver(true)
@@ -250,6 +253,8 @@ export default function Payment(props) {
                 setDeliver(false)
                 break;
         }
+
+    }, 1000);
 
         console.log(cep.length)
 
@@ -636,10 +641,10 @@ export default function Payment(props) {
 
     const handleCep = (cep) =>{
         
-        setTimeout(() => {
+        
             axios.get('https://viacep.com.br/ws/'+ cep + '/json/')
             .then(res => setCepRes(res.data))
-        }, 2000);
+        
 
        
 
