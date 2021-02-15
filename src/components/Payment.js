@@ -58,7 +58,7 @@ export default function Payment(props) {
     const [input, setInput] = useState({adress: '', name: '', phone: ''})
 
     const[motoboyCard, setMotoboyCard] = useState(false)
-    const[motoboyMoney, setMotoboyMoney] = useState(true)
+    const[motoboyMoney, setMotoboyMoney] = useState(false)
 
     const[change, setChange] = useState('')
 
@@ -250,6 +250,8 @@ export default function Payment(props) {
                 setDeliver(false)
                 break;
         }
+
+        console.log(cep.length)
 
         setFinal(parseFloat(props.total) + parseInt(frete))
         console.log(final)
@@ -634,8 +636,12 @@ export default function Payment(props) {
 
     const handleCep = (cep) =>{
         
-       axios.get('https://viacep.com.br/ws/'+ cep + '/json/')
-       .then(res => setCepRes(res.data))
+        setTimeout(() => {
+            axios.get('https://viacep.com.br/ws/'+ cep + '/json/')
+            .then(res => setCepRes(res.data))
+        }, 1000);
+
+       
 
     }
 
