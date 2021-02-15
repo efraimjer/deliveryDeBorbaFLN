@@ -256,7 +256,7 @@ export default function Payment(props) {
 
     }, 1000);
 
-        console.log(cep.length)
+        
 
         setFinal(parseFloat(props.total) + parseInt(frete))
         console.log(final)
@@ -640,6 +640,8 @@ export default function Payment(props) {
     }
 
     const handleCep = (cep) =>{
+
+            setCep(cep)
         
         
             axios.get('https://viacep.com.br/ws/'+ cep + '/json/')
@@ -829,7 +831,7 @@ export default function Payment(props) {
                     <label>Telefone</label>
                     <InputMask onChange={(e)=>{handlePhone(e.target.value)}} mask="+55 (99) 9 9999 9999" />
                     <label>CEP</label>
-                    <input onChange={(e)=>{handleCep(e.target.value)}} />
+                    <input value={cep} onChange={(e)=>{handleCep(e.target.value)}} />
                     <p onClick={checkDelivery} style={{color: '#fc4041'}}>+ adicionar cep</p>
                     <div className="flex-column" style={{display: doDeliver ? 'flex' : 'none'}}>
                         <p style={{width: '200px', textAlign: 'left'}}>{adress}</p>
