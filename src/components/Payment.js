@@ -263,7 +263,7 @@ export default function Payment(props) {
                 break;
         }
 
-    }, 1000);
+    }, 3000);
 
         
 
