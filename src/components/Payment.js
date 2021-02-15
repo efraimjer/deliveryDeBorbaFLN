@@ -639,7 +639,7 @@ export default function Payment(props) {
         setTimeout(() => {
             axios.get('https://viacep.com.br/ws/'+ cep + '/json/')
             .then(res => setCepRes(res.data))
-        }, 1000);
+        }, 2000);
 
        
 
