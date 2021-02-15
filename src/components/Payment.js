@@ -241,6 +241,15 @@ export default function Payment(props) {
                 break;
 
 
+            case 'Estreito':
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro) 
+                setFrete(4)               
+                break;
+
+
             
 
 
