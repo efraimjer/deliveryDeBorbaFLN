@@ -42,7 +42,7 @@ export default function Checkout(props) {
                         <h4>Total - R$ {props.total.toFixed(2)}</h4>
                         {/* implement table of cart products */}
                         {props.cart? props.cart.map(cart=>(
-                            <div className="cart-item">
+                            <div className="cart-item" style={{width: '90vw'}}>
                                 <p>{cart.quantity + 'x'}</p>
                                 <div className="flex-column" >
                                     <p><b>{cart.name}</b></p>

@@ -250,6 +250,11 @@ export default function Payment(props) {
                 setDeliver(false)
                 break;
         }
+
+        setFinal(parseFloat(props.total) + parseInt(frete))
+        console.log(final)
+
+
     }
 
 
@@ -337,7 +342,7 @@ export default function Payment(props) {
 
         else{
         e.preventDefault();
-        let t = parseInt(final * 100);
+        let t = (parseFloat(props.total) + parseInt(frete)) * 100;
 
         var Payment = {
             method: method,
@@ -495,7 +500,7 @@ export default function Payment(props) {
         handleDeliver(price.value[0])
         setFrete(parseInt(price.value[0]))
 
-        setFinal(props.total + parseInt(price.value[0]))
+        
 
 
     }
@@ -573,15 +578,15 @@ export default function Payment(props) {
             var order = {
                 name: newName,
                 phone: phone,
-                adress: adress + houseNumber,
+                adress: adress +' '+ houseNumber + ' ' + reference,
                 neighborhood: nb,
                 paid: true,
                 cart: props.cart,
-                total: final,
+                total: parseFloat(props.total) + parseInt(frete),
                 deliver: deliver,
                 readyToDelivery: false,
                 onRoute: false,
-                option: option
+                option: option === 'Motoboy-Dinheiro' ? option + ' Troco ' + change : option 
             }
     
             //TODO if response OK POST order to backend
@@ -641,6 +646,8 @@ export default function Payment(props) {
     }
 
     const handlePayButton = (payoption) =>{
+        setFinal(parseFloat(props.total) + parseInt(frete))
+        console.log(final)
 
         if(payoption === 'Credit'){
             setPayButtonText('Pagar e enviar')

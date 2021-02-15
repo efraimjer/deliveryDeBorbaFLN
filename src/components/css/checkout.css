@@ -27,7 +27,10 @@ input[type="radio"]{
 }
 
 .checkout-extras > .flex-row{
-    margin-bottom: -25px;
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 0.5fr;
+    width: 60vw;
+    
 }
 
 .checkout span{
