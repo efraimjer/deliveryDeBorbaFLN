@@ -202,6 +202,7 @@ export default function Productmobile(props) {
     const addToCart = (product) =>{
         //todo pass product with extrasCart already
 
+
         props.product.quantity = quantity;
 
         props.product.subTotal = quantity * props.product.price;

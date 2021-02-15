@@ -258,7 +258,18 @@ export default function Menu(props) {
     const addToCart = (props) =>{
 
 
-        let cartProduct = props;
+        let cartProduct = {
+            name: props.name,
+            subTotal: props.subTotal,
+            quantity: props.quantity,
+            table: props.table,
+            mode: props.mode,
+            group: props.group,
+            extrasCart: extrasCart,
+            point: p,
+            observation: observation
+        };
+
         let extrasPrice = 0;
         var hereQty = 0
         
@@ -625,6 +636,8 @@ export default function Menu(props) {
                 extrasCart={extrasCart}
                 setObservation={setObservation}
                 observation={observation}
+                cart={cart}
+                setCart={setCart}
 
             />
 
