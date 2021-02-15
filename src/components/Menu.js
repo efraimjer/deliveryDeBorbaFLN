@@ -131,6 +131,7 @@ export default function Menu(props) {
         console.log(props)
         setExtrasCart([])
         setObservation('')
+        setP('')
 
         setX(props);
         setQ(1)

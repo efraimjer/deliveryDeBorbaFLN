@@ -865,7 +865,7 @@ export default function Payment(props) {
                 fontSize: "0.8em",
                 marginTop: "20px",
                 marginBottom: "0",
-                marginLeft: '-30px'}}>
+                marginLeft: '-20px'}}>
                     o método de pagamento será?
                 </p>
 
