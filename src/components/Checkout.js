@@ -46,14 +46,14 @@ export default function Checkout(props) {
                         {props.cart? props.cart.map(cart=>(
                             <div className="cart-item" style={{width: '90vw'}}>
                                 <p>{cart.quantity + 'x'}</p>
-                                <div className="flex-column" style={{width: '225px'}}>
+                                <div className="flex-column" style={{width: '215px'}}>
                                     <p><b>{cart.name}</b></p>
                                     <div className="checkout-extras">
                                     {cart.extrasCart.map(extra=>(
                                             <div className="flex-row" style={{marginBottom: '-30px', marginTop: '0px'}}>
                                                 <p style={{lineHeight: '18px'}}key={extra.quantity}>{extra.quantity + 'x'}</p>
-                                                <p style={{marginBottom: "-20px", lineHeight: '18px', marginRight: '-30px'}} key={extra.name}>{extra.name}</p>
-                                                <p style={{marginLeft: '25px', lineHeight: '18px', marginRight: '-20px'}}>{'R$ '+(extra.price * extra.quantity).toFixed(2)}</p>
+                                                <p style={{marginBottom: "-20px", lineHeight: '18px', marginRight: '-30px', fontSize: '0.8em'}} key={extra.name}>{extra.name}</p>
+                                                <p style={{marginLeft: '25px', lineHeight: '18px', marginRight: '-20px', fontSize: '0.8em'}}>{'R$ '+(extra.price * extra.quantity).toFixed(2)}</p>
                                                 
                                                 <IoIosCloseCircle style={{color: '#fc4041', fontSize: '1em', marginTop: '15px', marginLeft: '20px', lineHeight: '10px'}} 
                                                 onClick={()=>{props.removeExtra(cart, cart.extrasCart, extra)}}
