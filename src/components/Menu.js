@@ -261,6 +261,7 @@ export default function Menu(props) {
 
         let cartProduct = {
             name: props.name,
+            code: props.code,
             subTotal: props.subTotal,
             quantity: props.quantity,
             table: props.table,
@@ -639,6 +640,7 @@ export default function Menu(props) {
                 observation={observation}
                 cart={cart}
                 setCart={setCart}
+                p={p}
 
             />
 

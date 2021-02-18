@@ -17,6 +17,7 @@ export default function Productmobile(props) {
 
     
     const[observation, setObservation] = useState('')
+    const[missingPoint , setMissingPoint] = useState(false)
 
    
     const[quantity, setQuantity] = useState(1)
@@ -185,8 +186,16 @@ export default function Productmobile(props) {
     }
 
     const addToCart = (product) =>{
+        if(props.plusBurger && props.p === ""){
+            setMissingPoint(true)
+        }
+
+        else if(props.varProduct && props.p === ""){
+            setMissingPoint(true)
+        }
+
         
-        props.product.quantity = quantity;
+        else{        props.product.quantity = quantity;
 
         props.product.subTotal = quantity * props.product.price;
 
@@ -209,8 +218,8 @@ export default function Productmobile(props) {
         extraAdds.forEach(element=>{
             element.onCart = false
         })
-        setObservation('')
-    }
+        setObservation('')}
+        }
 
     const handleObs = (value) =>{
 
@@ -240,13 +249,14 @@ export default function Productmobile(props) {
                     <form style={{display: props.varProduct || props.plusBurger? 'flex' : 'none', justifyContent: 'center', alignItems: 'center',flexDirection: 'column', marginBottom: "10px"}}>
                             <label>Escolha o ponto: </label>
 
-                            <select style={{width: '200px'}} onChange={(e)=>props.handleMeatPoint(e.target.value)}>
+                            <select style={{width: '200px'}} onFocus={()=>{setMissingPoint(false)}}onChange={(e)=>props.handleMeatPoint(e.target.value)}>
                                 <option value="" selected="selected">-</option>
                                 <option value="Mal Passada">Mal Passada</option>
                                 <option value="Mal para o ponto">Mal para o ponto</option>
                                 <option value="Ao ponto">Ao ponto</option>
                                 <option value="Bem Passada">Bem Passada</option>
                             </select>
+                            <p style={{display: missingPoint ? 'block' : 'none', color: 'red'}}>escolha o ponto da sua carne</p>
                     </form>
 
                     <p></p>

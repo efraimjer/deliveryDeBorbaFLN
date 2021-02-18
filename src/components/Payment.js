@@ -279,30 +279,6 @@ export default function Payment(props) {
 
 
 
-    const handlePaymentMethod = (method) =>{
-        if(method === 'credit'){
-            setCredit(true)
-            setDebit(false)
-            setMotoboy(false)
-            setMethod('credit')
-        }
-        else if(method === 'debit'){
-            setDebit(true)
-            setCredit(false)
-            setMotoboy(false)
-            setMethod('debit')
-        }
-
-        else if(method ==='motoboy'){
-            setDebit(false)
-            setCredit(false)
-            setMotoboy(true)
-            setMethod('motoboy')
-        }
-
-        else{setCredit(false)
-            setDebit(false)}
-    }
 
     const handleNameChange = (name) =>{setName(name)}
 
@@ -331,9 +307,7 @@ export default function Payment(props) {
 
 
 
-    const handleExpYearChange = (expYear) =>{setExpYear(expYear)}
-
-    const handleMotoboyOption = (option) =>{setOption(option)}
+   
 
     const handlePaymentError = () =>{
         setPaymentError(true)
@@ -399,131 +373,7 @@ export default function Payment(props) {
 
     }
 
-    const handleShipment = (price) =>{
-
-        switch (price.value[2]) {
-            case "A":
-                setNb('Take Away')
-                console.log('Take Away')
-                
-                break;
-            case 'B':
-                setNb('Centro')
-                console.log('Centro')
-                break;
-            case "C":
-                    setNb('Estreito')
-                    console.log('Estreito')
-                    
-                    break;
-            case 'D':
-                    setNb('Trindade')
-                    console.log('Trindade')
-                    break;            
-            case "E":
-                    setNb('Balneário')
-                    console.log('Balneário')
-                    
-                    break;
-            case 'F':
-                    setNb('Canto')
-                    console.log('Canto')
-                    break;            
-            case "G":
-                    setNb('Coloninha')
-                    console.log('Coloninha')
-                    
-                    break;
-            case 'H':
-                    setNb('Jardim Atlântico')
-                    console.log('jd')
-                    break;
-
-            case "I":
-                    setNb('Sapé')
-                    console.log('Sapé')
-                        
-                    break;
-            case 'J':
-                    setNb('Barreiros')
-                    console.log('Barreiros')
-                    break;
-            case 'K':
-                setNb('Campinas')
-                console.log('Camp')
-                break;
-
-            case 'M':
-                setNb('Santos Dumont')
-                console.log('st d')
-                break;
-
-            case 'N':
-                    setNb('Monte Cristo')
-                    console.log('mt c')
-                    break;
-            case 'L':
-                setNb('Kobrasol')
-                console.log('Kobra')
-                break;
-            
-            case 'P':
-                setNb('Bom Abrigo')
-                console.log('b a')
-                break;
-            
-            case 'Q':
-                setNb('Abrãao')
-                console.log(nb)
-                break;
-
-            case 'R':
-                setNb('Itaguaçu')
-                console.log(nb)
-                break;
-            
-            case 'S':
-                setNb('Coqueiros')
-                console.log(nb)
-                break;
-
-            case 'T':
-                setNb('Agronomica')
-                console.log(nb)
-                break;
-
-            case 'U':
-                setNb('Capoeiras')
-                console.log(nb)
-                break;
-
-            case 'Z':
-                setNb('')
-                alert('Selecione um Bairro, se o Bairro não estiver na lista, infelizmente está fora da nossa zona de entrega');
-                break;
-
-            case '':
-                setNb('1')
-                alert('Selecione um Bairro');
-                console.log(nb.lenght())
-                break;
-        
-            default:
-
-                break;
-        }
-
-
-
-        //TODO implement deliver status true or false
-
-        handleDeliver(price.value[0])
-        setFrete(parseInt(price.value[0]))
-
-        
-
-
-    }
+   
 
     const handlePhone = (phoneNumber) =>{       
 
@@ -534,13 +384,7 @@ export default function Payment(props) {
 
     }
 
-    const handleAdress =(adress) =>{
-        
-        setNb(adress.bairro)
-        setAdress(adress.logradouro)
-
-        //TODO implement sum of adress + neighborhood
-    }
+    
 
     const handleHouseNumber = (houseNumber) =>{
         setHouseNumber(houseNumber)
@@ -559,16 +403,7 @@ export default function Payment(props) {
 
 
 
-    const handleAlert = () =>{
-        setShowAlert(true);
-
-        setTimeout(() => {
-            setShowAlert(false)
-            
-        }, 3000);
-
-
-    }
+    
 
     const placeOrder = () =>{
 
@@ -590,9 +425,6 @@ export default function Payment(props) {
             alert('Precisamos do seu endereço para entregar seu pedido')
         }
 
-        // else if(houseNumber === ""){
-        //     alert('Precisamos do número de sua casa para entregar seu pedido')
-        // }
 
         else{
             var order = {

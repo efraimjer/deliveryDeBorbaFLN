@@ -51,7 +51,7 @@ export default function Sushi(props) {
                             <div>
                                 <h4>{item.name} </h4>
                                 <p>{item.short}</p>
-                                <p style={{textDecoration: item.oldPrice ? 'line-through': 'none', fontSize: '0.8em'}}>{item.oldPrice ? 'R$' + item.oldPrice.toFixed(2): ''}  </p>
+                                <p style={{textDecoration: item.oldPrice ? 'line-through #6b6e7e': 'none', fontSize: '0.8em'}}>{item.oldPrice ? 'R$' + item.oldPrice.toFixed(2): ''}  </p>
                                 <p ><b>R$ {item.price.toFixed(2)}</b></p>
             
                             </div>
