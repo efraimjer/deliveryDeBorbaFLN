@@ -87,7 +87,7 @@ export default function Menu(props) {
 
     const [showPromo, setShowPromo] = useState(true)
 
-    
+    const[pcAlert, setPcAlert] = useState(false)
 
     
 
@@ -103,7 +103,9 @@ export default function Menu(props) {
         setLocalStorage('cart', cart)
         setLocalStorage('total', total)
 
-        
+        if(window.innerWidth > 800){
+            setPcAlert(true)
+        }
         
 
 
@@ -692,6 +694,13 @@ export default function Menu(props) {
                 <p>logo enviaremos a confirmação quando ele estiver pronto</p>
 
             </div>
+
+            <div className="pcALertModal" style={{display: pcAlert ? 'flex' : 'none'}}>
+                <img src={Logo} alt=""></img>
+                <h1>Esse aplicativo só é acessível por dispositivos móveis</h1>
+
+            </div>
+
 {/* 
             <div className="first-arrival-modal" style={{display: arrival ? 'flex' : 'none'}} >
                 <img src={greenArrow} alt="loading" className="green-arrow" />

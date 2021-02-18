@@ -442,6 +442,7 @@ export default function Payment(props) {
                 cep: cep,
                 neighborhood: nb,
                 paid: true,
+                frete: frete,
                 cart: props.cart,
                 total: parseFloat(props.total) + parseInt(frete),
                 deliver: deliver,
