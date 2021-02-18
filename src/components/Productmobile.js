@@ -249,8 +249,8 @@ export default function Productmobile(props) {
                     <form style={{display: props.varProduct || props.plusBurger? 'flex' : 'none', justifyContent: 'center', alignItems: 'center',flexDirection: 'column', marginBottom: "10px"}}>
                             <label>Escolha o ponto: </label>
 
-                            <select style={{width: '200px'}} onFocus={()=>{setMissingPoint(false)}}onChange={(e)=>props.handleMeatPoint(e.target.value)}>
-                                <option value="" selected="selected">-</option>
+                            <select style={{width: '200px'}} value={props.p} onFocus={()=>{setMissingPoint(false)}}onChange={(e)=>props.handleMeatPoint(e.target.value)}>
+                                <option value="">-</option>
                                 <option value="Mal Passada">Mal Passada</option>
                                 <option value="Mal para o ponto">Mal para o ponto</option>
                                 <option value="Ao ponto">Ao ponto</option>
