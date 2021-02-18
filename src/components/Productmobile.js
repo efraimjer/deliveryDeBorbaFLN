@@ -333,6 +333,8 @@ export default function Productmobile(props) {
                 <input type="text" value={props.observation} placeholder="Ex. Sem cebola..." onChange={(e)=>{handleObs(e.target.value)}}></input>
             </form>
 
+            <p style={{textDecoration: props.oldPrice ? 'line-through': 'none', fontSize: '0.8em'}}>{props.oldPrice ? 'R$' + props.oldPrice.toFixed(2): ''}  </p>
+
 
                 <div className="flex-row">
                         <div className="product-mobile-quantity">                            
@@ -341,6 +343,7 @@ export default function Productmobile(props) {
                             <GrFormAdd style={{fontSize: '1.5em', marginLeft: '5px'}} onClick={addOne}  />
 
                         </div>
+                    
                     <h4 style={{marginTop: "30px", textAlign: 'right', marginRight: "20px"}}> {'subtotal R$ ' + (props.subtotal * quantity).toFixed(2)}</h4>
                     </div>
 

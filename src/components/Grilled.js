@@ -32,6 +32,9 @@ export default function Grilled(props) {
                 </h3>
 
             </div> */}
+
+            <h4 style={{width: '90vw', textAlign: 'justify'}}>Todos os Steaks são acompanhados de molho barbacue, fritas e farofa. 
+            A gramatura dos produtos equivale ao peso in natura.</h4>
             {available.map(item =>(
                             <div className="product-box" onClick={()=>{props.foo(item)}} >
                             <div className="img-box">

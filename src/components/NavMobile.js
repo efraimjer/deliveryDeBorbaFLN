@@ -86,6 +86,8 @@ export default function NavMobile(props) {
         props.addProduct(borbaBurger)
         setMenuItem({entries: false, burger: false, steaks: false, sushi: true, drinks: false, desserts: false })
     }
+
+    var date = new Date()
     
 
 
@@ -116,6 +118,42 @@ export default function NavMobile(props) {
             <div onClick={addPromo} style={{display: props.showPromo ? 'block' : 'none'}}>
                             <h3>Promo do dia</h3>
                             <img src={'https://letecacom.live/images/deborba/banner%20site.jpg'} style={{width: '80vw'}} alt="" />
+            </div>
+
+            <div className='flex-column' style={{display: props.showPromo ? 'flex' : 'none',justifyContent: 'space-between', alignItems: 'center', width: '90vw'}}>
+                <h3>Horário de Atendimento</h3>
+                <p style={{display: date.getHours() < 18 || date.getHours() > 22 ? 'block' : 'none', color: 'red', margin: '0px -10px 0px -10px' }}>fechado agora</p>
+
+                <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
+                    <p>Segunda Feira</p>
+                    <p>18:30 às 23:30</p>
+                </div>
+                <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
+                    <p>Terça Feira</p>
+                    <p>18:30 às 23:30</p>
+                </div>
+                <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
+                    <p>Quarta Feira</p>
+                    <p>18:30 às 23:30</p>
+                </div>
+                <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
+                    <p>Quinta Feira</p>
+                    <p>18:30 às 23:30</p>
+                </div>
+                <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
+                    <p>Sexta Feira</p>
+                    <p>18:30 às 23:30</p>
+                </div>
+                <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
+                    <p>Sábado</p>
+                    <p>11:30 às 14:00</p>
+                    <p>18:30 às 23:30</p>
+                </div>
+                <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
+                    <p>Domingo</p>
+                    <p>11:30 às 14:00</p>
+                </div>
+
             </div>
     </div>
     )

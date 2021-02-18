@@ -36,12 +36,9 @@ export default function Burger(props) {
 
     return (
         <div onCLick="">
-            {/* <div className="burger-desc">
-                <h3>
-                    <em>Todos acompanham batata e maionese.</em>
-                </h3>
 
-            </div> */}
+            <h4 style={{width: '90vw', textAlign: 'justify'}}>Todos os Burgers vão acompanhados de fritas, maionese e molho agridoce</h4>
+
             {!isDone ? <ReactLoading type={"bubles"}  color={"#fa8072"} height={"32px"} width={"32px"} /> : (
                 <div>
                 {available.map(item =>(
