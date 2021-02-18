@@ -785,10 +785,12 @@ border: none;
     .product-box{
         width: 90vw;
         /* margin-left: 5%; */
-        min-height: 15vh;
+        min-height: 18vh;
         cursor: pointer;
         overflow: hidden;
     }
+
+
 
     .product-box:first-child{
         margin-top: 50px;
