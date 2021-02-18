@@ -813,9 +813,20 @@ border: none;
     
     .extra-span{
         display: grid;
-        grid-template-columns: 0.5fr 3fr 1fr;
+        grid-template-columns: 0.8fr 2fr 1fr;
         justify-content: space-between;
+        
     }
+
+.extra-mobile-quantity{
+    margin-top: 5px;
+
+ 
+    }
+
+.extra-mobile-quantity input{
+    margin-top: 0px;
+}
 
     .extra-span:first-child{
         text-align: left;

@@ -67,24 +67,24 @@ export default function NavMobile(props) {
 
     const addPromo = () =>{
         var borbaBurger = {
-            "code": 26,
-            "name": "Borba Burguer",
-            "short": "",
-            "long": "Pão brioche, blend de carne angus, queijo minas, queijo brie, molho pesto de manjericão, crocante de alho poró",
-            "photo": "https://letecacom.live/images/deborba/Frame-00014.jpg",
+            "code": 51,
+            "name": "Hot Filadelphia",
+            "short": "08un",
+            "long": "",
+            "photo": "https://letecacom.live/images/deborba/hot.jpeg",
             "pontuation": null,
-            "price": 28.9,
+            "price": 10.99,
             "isAvailable": true,
             "table": "PADRÃO",
             "mode": "Todos",
-            "group": "Burguers"
+            "group": "Especiais Sushi"
             
         }
 
         // props.setShowPromo(false)
 
         props.addProduct(borbaBurger)
-        setMenuItem({entries: false, burger: true, steaks: false, sushi: false, drinks: false, desserts: false })
+        setMenuItem({entries: false, burger: false, steaks: false, sushi: true, drinks: false, desserts: false })
     }
     
 
@@ -115,7 +115,7 @@ export default function NavMobile(props) {
 
             <div onClick={addPromo} style={{display: props.showPromo ? 'block' : 'none'}}>
                             <h3>Promo do dia</h3>
-                            <img src={borbaburger} style={{width: '80vw'}} alt="" />
+                            <img src={'https://letecacom.live/images/deborba/banner%20site.jpg'} style={{width: '80vw'}} alt="" />
             </div>
     </div>
     )

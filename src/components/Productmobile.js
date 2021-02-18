@@ -1,12 +1,10 @@
 import {React, useState, useEffect} from 'react'
-import { IoAddCircleSharp, IoBasketOutline} from "react-icons/io5";
-import { IoIosRemoveCircle, IoIosCloseCircle, IoMdMenu } from "react-icons/io";
-import { FiShoppingBag } from "react-icons/fi";
+
 import {BiChevronLeftCircle} from 'react-icons/bi'
 import {HiCheck} from 'react-icons/hi'
-import {IoIosRemove} from 'react-icons/io'
+import {IoIosRemove, IoIosCloseCircle} from 'react-icons/io'
 import {GrFormAdd} from 'react-icons/gr'
-import axios from 'axios'
+
 
 import useSound from 'use-sound';
 
@@ -17,16 +15,20 @@ export default function Productmobile(props) {
     
 
 
-    const[extrasCart, setExtrasCart] = useState([])
+    
     const[observation, setObservation] = useState('')
 
    
     const[quantity, setQuantity] = useState(1)
     const[burgerExtra, setBurgerExtra] = useState(
-        [{"_id":"601dc89114959d19f0dc691d","code":27,"name":"Bacon","short":"","long":"","photo":"","pontuation":null,"price":2,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},{"_id":"601dc8ad14959d19f0dc691e","code":28,"name":"Carne","short":"","long":"","photo":"","pontuation":null,"price":8,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger",
+        [{"_id":"601dc89114959d19f0dc691d","code":27,"name":"Bacon","short":"","long":"","photo":"","pontuation":null,"price":2,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},
+        {"_id":"601dc8ad14959d19f0dc691e","code":28,"name":"Carne","short":"","long":"","photo":"","pontuation":null,"price":8,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger",
         "onCart": false,"__v":0},
         {"_id":"601dc8be14959d19f0dc691f","code":29,"name":"Cheddar","short":"",
-        "onCart": false,"long":"","photo":"","pontuation":null,"price":2,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},{"_id":"601dc8d014959d19f0dc6920","code":30,"name":"Maionese Caseira","short":"","long":"","photo":"","pontuation":null,"price":1.25,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0}]
+        "onCart": false,"long":"","photo":"","pontuation":null,"price":2,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},
+        {"_id":"601dc8d014959d19f0dc6920","code":30,"name":"Maionese Caseira","short":"","long":"","photo":"","pontuation":null,"price":1.25,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},
+        {"_id":"601dc8d014959d19f0dc6920","code":101,"name":"Catupiry","short":"","long":"","photo":"","pontuation":null,"price":2.00,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0}]
+
     )
     const[extras, setExtras] = useState([
         {
@@ -103,24 +105,7 @@ export default function Productmobile(props) {
             mode: "Todos",
             onCart: false
         },
-        {
-            code: 58,
-            name: "Shoyu",
-            price: 0.50,
-            group: "Adicionais Sushi",
-            table: "Padrão",
-            mode: "Todos",
-            onCart: false
-        },
-        {
-            code: 59,
-            name: "Hashi",
-            price: 0.50,
-            group: "Adicionais Sushi",
-            table: "Padrão",
-            mode: "Todos",
-            onCart: false
-        },
+
         {
             code: 60,
             name: "Molho de Ostra",
@@ -144,11 +129,10 @@ export default function Productmobile(props) {
             group: "Adicionais",
             table: "Padrão",
             mode: "Todos",
-            onCart: false
+            onCart: false,
+            quantity: 0
         }
-    ])
-
-    
+    ]) 
  
 
 
@@ -163,8 +147,32 @@ export default function Productmobile(props) {
         else setQuantity(1)
     }
 
+    function getOccurrence(array, value) {
+        var count = 0;
+        array.forEach((v) => (v === value && count++));
+        return count;
+    }
+
     const addToExtraCart = (extra)=>{
 
+        play()
+
+        props.setExtrasCart(current => [...current, extra])
+       
+
+   
+    }
+
+
+
+    const decreaseOneExtra = (extra) =>{
+        play()
+        props.extrasCart.splice(props.extrasCart.indexOf(extra), 1)
+        console.log(props.extrasCart)
+
+    }
+
+    const addOneExtra = (extra) =>{
         play()
 
         if(extra.onCart){
@@ -174,42 +182,13 @@ export default function Productmobile(props) {
         else {extra.onCart = true
             props.setExtrasCart(current => [...current, extra])
         }
-
-        
-
-        console.log(extrasCart)
-
-        
-
-
-
-        // if(extra.name === "Maionese"){
-        //     meatExtras.maionese ? setMeatExtras({maionese: false}) : setMeatExtras({maionese: true})        };
-        // if(props.extrasCart.indexOf(extra) >= 0){
-        //         props.extrasCart.slice(props.extrasCart.indexOf(extra), 1)
-        //     }
-        //     else{
-        //         props.setExtrasCart(current => [...current, extra])
-
-        //     }
-        
-        // console.log(props.extrasCart)
-
-        
     }
-    
 
     const addToCart = (product) =>{
-        //todo pass product with extrasCart already
-
-
+        
         props.product.quantity = quantity;
 
         props.product.subTotal = quantity * props.product.price;
-
-        
-
-        
 
         props.addToCart(product)
 
@@ -230,16 +209,7 @@ export default function Productmobile(props) {
         extraAdds.forEach(element=>{
             element.onCart = false
         })
-
-
-
-
         setObservation('')
-
-        // props.setExtrasCart(extrasCart)
-
-        // console.log(product)
-
     }
 
     const handleObs = (value) =>{
@@ -267,7 +237,7 @@ export default function Productmobile(props) {
                         
                         
                     </div>
-                    <form style={{display: props.varProduct ? 'flex' : 'none', justifyContent: 'center', alignItems: 'center',flexDirection: 'column', marginBottom: "10px"}}>
+                    <form style={{display: props.varProduct || props.plusBurger? 'flex' : 'none', justifyContent: 'center', alignItems: 'center',flexDirection: 'column', marginBottom: "10px"}}>
                             <label>Escolha o ponto: </label>
 
                             <select style={{width: '200px'}} onChange={(e)=>props.handleMeatPoint(e.target.value)}>
@@ -286,9 +256,15 @@ export default function Productmobile(props) {
             {extras.map(extra =>(
                     <div>
                         
-                        <div className="extra-span" onClick={()=>{addToExtraCart(extra)}}>
-                        <div><HiCheck style={{color: 'green', fontSize: '1.5em', display: extra.onCart ? 'block' : 'none'}} /></div>
-                                {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
+                        <div className="extra-span" >
+                                    <p style={{marginLeft: '0px', marginTop: '0px'}} >
+                                    <IoIosRemove onClick={()=>{decreaseOneExtra(extra)}} style={{ fontSize: '1.5em', marginTop: '0px', marginRight: '5px'}} />
+                                    {/* {getOccurrence(props.extrasCart, extra)} */}
+                                    {getOccurrence(props.extrasCart, extra)}
+                                    <GrFormAdd style={{fontSize: '1.5em', marginLeft: '5px'}} onClick={()=>{addToExtraCart(extra)}}  />
+                                    
+                                </p>
+                                {extra.name } <b>R$ {extra.price.toFixed(2)}</b>
                             </div>
                     </div>
                 ))} 
@@ -301,7 +277,7 @@ export default function Productmobile(props) {
             {burgerExtra.map(extra =>(
                     <div>
                         
-                        <div className="extra-span" onClick={()=>{addToExtraCart(extra)}}>
+                        <div className="extra-span" onClick={()=>{addOneExtra(extra)}}>
                         <div><HiCheck style={{color: 'green', fontSize: '1.5em', display: extra.onCart ? 'block' : 'none'}} /></div>
                                 {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
 
@@ -316,10 +292,14 @@ export default function Productmobile(props) {
             {sushiExtra.map(extra =>(
                     <div>
                         
-                        <div className="extra-span" onClick={()=>{addToExtraCart(extra)}}>
-                        <div><HiCheck style={{color: 'green', fontSize: '1.5em' ,display: extra.onCart ? 'block' : 'none'}} /></div>
-                                {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
-
+                        <div className="extra-span" >
+                                    <p style={{marginLeft: '0px', marginTop: '0px'}} >
+                                    <IoIosRemove onClick={()=>{decreaseOneExtra(extra)}} style={{ fontSize: '1.5em', marginTop: '0px', marginRight: '5px'}} />
+                                    {getOccurrence(props.extrasCart, extra)}
+                                    <GrFormAdd style={{fontSize: '1.5em', marginLeft: '5px'}} onClick={()=>{addToExtraCart(extra)}}  />
+                                    
+                                </p>
+                                {extra.name } <b>R$ {extra.price.toFixed(2)}</b>
                             </div>
                     </div>
                 ))} 
@@ -331,9 +311,16 @@ export default function Productmobile(props) {
             {extraAdds.map(extra =>(
                     <div>
                         
-                        <div className="extra-span" onClick={()=>{addToExtraCart(extra)}}>
-                        <div><HiCheck style={{color: 'green', fontSize: '1.5em', display: extra.onCart ? 'block' : 'none'}} /></div>
-                                {extra.name} <b>R$ {extra.price.toFixed(2)}</b>
+                        <div className="extra-span"  >
+                        {/* <div><HiCheck style={{color: 'green', fontSize: '1.5em', display: extra.onCart ? 'block' : 'none'}} /></div> */}
+                                <p style={{marginLeft: '0px', marginTop: '0px'}}>
+                                    <IoIosRemove onClick={()=>{decreaseOneExtra(extra)}} style={{ fontSize: '1.5em', marginTop: '0px', marginRight: '5px'}} />
+                                    {/* {getOccurrence(props.extrasCart, extra)} */}
+                                    {getOccurrence(props.extrasCart, extra)}
+                                    <GrFormAdd style={{fontSize: '1.5em', marginLeft: '5px'}} onClick={()=>{addToExtraCart(extra)}}  />
+                                    
+                                </p>
+                                <div >{extra.name}</div> <b>R$ {extra.price.toFixed(2)}</b>
                                 
                             </div>
                     </div>

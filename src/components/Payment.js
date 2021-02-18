@@ -73,6 +73,8 @@ export default function Payment(props) {
 
     const[paymentError, setPaymentError] = useState(false)
 
+    const[invalidCep, setInvalidCep] = useState(false)
+
     
 
     // const[confirmation, setConfirmation] = useState(false)
@@ -84,7 +86,9 @@ export default function Payment(props) {
     },[])
 
     const checkDelivery = () =>{
-        setTimeout(() => {
+
+        setInvalidCep(false)
+        
             
 
         switch (cepRes.bairro) {
@@ -263,7 +267,7 @@ export default function Payment(props) {
                 break;
         }
 
-    }, 3000);
+    
 
         
 
@@ -648,6 +652,10 @@ export default function Payment(props) {
         setPayButton(false)
     }
 
+    const handleInvalidCep = () =>{
+        invalidCep ? setInvalidCep(false) : setInvalidCep(true)
+    }
+
     const handleCep = (cep) =>{
 
             setCep(cep)
@@ -655,6 +663,8 @@ export default function Payment(props) {
         
             axios.get('https://viacep.com.br/ws/'+ cep + '/json/')
             .then(res => setCepRes(res.data))
+
+            console.log(cepRes)
         
 
        
@@ -794,27 +804,7 @@ export default function Payment(props) {
                        <p style={{marginLeft: '20px', marginTop: '10px'}} onClick={props.foo}>voltar ao menu?</p>
 
                    </div>
-                {/* <p style={{
-                alignSelf: "flex-start", 
-                fontSize: "0.8em",
-                marginTop: "20px",
-                marginBottom: "0",
-                marginLeft: '10px'
-                
-                }}>você prefere pagar...</p>
-                <p>{'Total geral R$ ' + (parseFloat(props.total)).toFixed(2)}</p>
-                <div className='flex-row' style={{marginLeft: '20px'}}>
-                    <span onClick={handlePayByApp} style={{backgroundColor: payByApp ? '#6b6e7e' : '#f9f9f9', color: payByApp ? 'white' : '#6b6e7e'}}  className="delivery-button">pelo app</span>
-                    <span onClick={()=>handlePayButton('Take Away')} className="delivery-button">na retirada</span>
-                </div> */}
 
-                {/* <div style={{display: payButton ? 'flex' : 'none'}} className="flex-column">                    
-                    <span className="payment-button" onClick={placeOrder} style={{display: payButton ? 'flex' : 'none'}} >
-                       {payButtonText}
-                       </span>
-   
-                       <p onClick={props.foo}>voltar ao menu?</p>
-                </div> */}
                 
 
 
@@ -841,7 +831,8 @@ export default function Payment(props) {
                     <InputMask onChange={(e)=>{handlePhone(e.target.value)}} mask="+55 (99) 9 9999 9999" />
                     <label>CEP</label>
                     <input value={cep} onChange={(e)=>{handleCep(e.target.value)}} />
-                    <p onClick={checkDelivery} style={{color: '#fc4041'}}>+ adicionar cep</p>
+                    <p style={{fontSize: '0.7em', marginTop: '-10px'}}>{invalidCep ? 'Cep Inválido' : ''}</p>
+                    <p onClick={cepRes.bairro ? checkDelivery : handleInvalidCep} style={{color: cepRes.bairro ? '#fc4041' : '#6b6e7e'}}>+ adicionar cep</p>
                     <div className="flex-column" style={{display: doDeliver ? 'flex' : 'none'}}>
                         <p style={{width: '200px', textAlign: 'left'}}>{adress}</p>
                         <p>{'Bairro '+ nb}</p>
@@ -955,7 +946,6 @@ export default function Payment(props) {
 
              </form>      
             </div>
-
 
 
             <div style={{display: cardNumber ? 'flex' : 'none'}} className="flex-column">
