@@ -19,8 +19,6 @@ export default function Payment(props) {
     
     // const[cardFinal, setCardFinal] = useState(0)
 
-    const[debit, setDebit]= useState(false)    
-    const[credit, setCredit] = useState(false)
     const[motoboy, setMotoboy] = useState(false)
 
     const[phone, setPhone] = useState('')
@@ -64,7 +62,7 @@ export default function Payment(props) {
 
     const date = new Date()
 
-    const[showAlert, setShowAlert] = useState(false);
+   
 
     const [payButton, setPayButton] = useState(false)
     const[payButtonText, setPayButtonText] = useState('')
@@ -326,12 +324,14 @@ export default function Payment(props) {
             alert('Digite um cep válido')
         }
 
-        else if(newName === ""){
-            alert('Precisamos do seu nome para dar entrada no pedido')
-        }
+
 
         else if(deliver && adress === ""){
             alert('Precisamos do seu endereço para entregar seu pedido')
+        }
+
+        else if(phone === "" || phone === "55" || phone === " " || !phone){
+            alert('Precisamos do seu telefone para dar entrada no pedido')
         }
 
         else{
@@ -388,6 +388,7 @@ export default function Payment(props) {
 
     const handleHouseNumber = (houseNumber) =>{
         setHouseNumber(houseNumber)
+        console.log(houseNumber)
     }
 
     const handleReference = (reference) =>{
@@ -407,10 +408,16 @@ export default function Payment(props) {
 
     const placeOrder = () =>{
 
+        
+
 
 
         if(newName === ""){
             alert('Precisamos do seu nome para dar entrada no pedido')
+        }
+
+        else if(phone === "" || phone === "55" || phone === " " || !phone){
+            alert('Precisamos do seu telefone para dar entrada no pedido')
         }
 
         else if(deliver && nb === ""){
@@ -669,6 +676,7 @@ export default function Payment(props) {
                         <p style={{width: '200px', textAlign: 'left'}}>{adress}</p>
                         <p>{'Bairro '+ nb}</p>
                         <label>número</label>
+                        <p style={{fontSize: '0.8em'}}>* importante</p>
                         <input onChange={(e)=>{handleHouseNumber(e.target.value)}} placeholder="Ex. 123-b" />
                         <label>referência</label>
                         <input onChange={(e)=>{handleReference(e.target.value)}} placeholder="Ex. apto 201" />
