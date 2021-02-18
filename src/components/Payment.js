@@ -439,6 +439,7 @@ export default function Payment(props) {
                 name: newName,
                 phone: phone,
                 adress: adress +' '+ houseNumber + ' ' + reference,
+                cep: cep,
                 neighborhood: nb,
                 paid: true,
                 cart: props.cart,
