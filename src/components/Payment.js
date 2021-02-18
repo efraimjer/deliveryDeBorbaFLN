@@ -262,6 +262,7 @@ export default function Payment(props) {
                 setDontDeliver(true)
                 setDoDeliver(false)
                 setDeliver(false)
+                setPayButton(false)
                 break;
         }
 
@@ -670,7 +671,7 @@ export default function Payment(props) {
                     <InputMask onChange={(e)=>{handlePhone(e.target.value)}} mask="+55 (99) 9 9999 9999" />
                     <label>CEP</label>
                     <input value={cep} onChange={(e)=>{handleCep(e.target.value)}} />
-                    <p style={{fontSize: '0.7em', marginTop: '-10px'}}>{invalidCep ? 'Cep Inválido' : ''}</p>
+                    <p style={{fontSize: '0.7em', marginTop: '-10px'}}>{invalidCep ? 'Cep Inválido ou você está fora da nossa área de entrega' : ''}</p>
                     <p onClick={cepRes.bairro ? checkDelivery : handleInvalidCep} style={{color: cepRes.bairro ? '#fc4041' : '#6b6e7e'}}>+ adicionar cep</p>
                     <div className="flex-column" style={{display: doDeliver ? 'flex' : 'none'}}>
                         <p style={{width: '200px', textAlign: 'left'}}>{adress}</p>
