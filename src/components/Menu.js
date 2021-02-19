@@ -95,10 +95,7 @@ export default function Menu(props) {
         setLocalStorage('cart', cart)
         setLocalStorage('total', total)
 
-        if(window.innerWidth > 800){
-            setPcAlert(true)
-        }
-        
+
 
 
     })
