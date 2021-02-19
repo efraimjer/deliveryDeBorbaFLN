@@ -32,6 +32,18 @@ export default function Checkout(props) {
         else return <span onClick={handleAlertMinimum} >Finalizar Pedido</span>
     }
 
+    const HandleHours = () =>{
+        var date = new Date()
+
+        if(date.getHours() < 18 || date.getHours() > 22 ){
+            return <p style={{color: 'red'}}>Agora estamos fechados</p>
+        }
+
+        else {
+            return <HandleMinimumValue />
+        }
+    }
+
 
 
     
@@ -40,7 +52,7 @@ export default function Checkout(props) {
                     <div className="checkout">
                         
                         <IoIosCloseCircle onClick={props.foo} className="adddecbutton modalclose"/>
-                        <HandleMinimumValue />
+                        <HandleHours />
                         <h4>Total - R$ {props.total.toFixed(2)}</h4>
                         {/* implement table of cart products */}
                         {props.cart? props.cart.map(cart=>(
