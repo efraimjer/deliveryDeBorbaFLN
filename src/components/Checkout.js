@@ -1,12 +1,11 @@
-import {React, useEffect, useState} from 'react';
+import {React, useEffect} from 'react';
 import './css/checkout.css';
 import './components.css';
 
 
 
-import { IoAddCircleSharp, IoBasketOutline} from "react-icons/io5";
-import { IoIosRemoveCircle, IoIosCloseCircle, IoMdMenu } from "react-icons/io";
-import { FiShoppingBag } from "react-icons/fi";
+import { IoIosCloseCircle } from "react-icons/io";
+
 
 export default function Checkout(props) {
 

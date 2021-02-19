@@ -271,7 +271,7 @@ export default function Payment(props) {
         
 
         setFinal(parseFloat(props.total) + parseInt(frete))
-        console.log(final)
+        
 
 
     }
@@ -298,7 +298,7 @@ export default function Payment(props) {
     const handleExpMonthChange = (expMonth) =>{
         let arr = expMonth.split('/')
 
-        console.log(arr)
+        
         
         setExpMonth(arr[0])
         setExpYear(arr[1])
@@ -379,7 +379,7 @@ export default function Payment(props) {
     const handlePhone = (phoneNumber) =>{       
 
         let str = phoneNumber.replace(/[^\d.-]/g, '')
-        console.log(str)
+        
         
         setPhone(parseInt(str))
 
@@ -389,7 +389,7 @@ export default function Payment(props) {
 
     const handleHouseNumber = (houseNumber) =>{
         setHouseNumber(houseNumber)
-        console.log(houseNumber)
+        
     }
 
     const handleReference = (reference) =>{
@@ -448,6 +448,7 @@ export default function Payment(props) {
                 deliver: deliver,
                 readyToDelivery: false,
                 onRoute: false,
+                time: date.toLocaleString(),
                 option: option === 'Motoboy-Dinheiro' ? option + ' Troco ' + change : option 
             }
     
@@ -506,7 +507,7 @@ export default function Payment(props) {
             axios.get('https://viacep.com.br/ws/'+ cep + '/json/')
             .then(res => setCepRes(res.data))
 
-            console.log(cepRes)
+           
         
 
        
@@ -521,14 +522,14 @@ export default function Payment(props) {
 
     const handlePayButton = (payoption) =>{
         setFinal(parseFloat(props.total) + parseInt(frete))
-        console.log(final)
+        
 
         if(payoption === 'Credit'){
             setPayButtonText('Pagar e enviar')
             setPayButton(true)
             setOption(payoption)
             setMethod('credit')
-            console.log(payByApp)
+            
             setCardPayment(true)
         }
 

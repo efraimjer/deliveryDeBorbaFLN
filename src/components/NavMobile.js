@@ -155,6 +155,12 @@ export default function NavMobile(props) {
                 </div>
 
             </div>
+            <div className='flex-column' style={{display: props.showPromo ? 'flex' : 'none',justifyContent: 'space-between', alignItems: 'center', width: '90vw'}}>
+                <h4>Dh Gastronomia Ltda</h4>
+                <a href="https://bit.ly/deBorbaDelivery">whatsapp 48 3206 3826 </a>
+                <a href="mailto:deborbadelivery.com.br">deborbadelivery.com.br</a>
+
+            </div>
 
             
     </div>

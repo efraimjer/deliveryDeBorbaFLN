@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './components.css';
 import Sushi from './Sushi'
-import LandingPage from './LandingPage'
+
 import Burger from './Burger'
 import Entries from './Entries'
 import Grilled from './Grilled'
@@ -20,20 +20,13 @@ import NavMobile from './NavMobile'
 
 import clock from '../assets/Foto-Loading-PNG.png'
 
-import greenArrow from '../assets/green-arrow.png'
 
-
-
-
-// import { IoAddCircleSharp, IoBasketOutline} from "react-icons/io5";
-import { IoIosRemoveCircle, IoIosCloseCircle, IoMdMenu } from "react-icons/io";
 import { FiShoppingBag } from "react-icons/fi";
 import {FaArrowLeft} from 'react-icons/fa'
 import Logo from '../assets/logo-pb-solid.png'
 import checked from '../assets/checked.png'
 
 import {
-    BrowserRouter as Router,
     Route,
     HashRouter,
     
@@ -45,7 +38,6 @@ import {
     useHistory
 
   } from "react-router-dom";
-// import { FaThermometerHalf } from 'react-icons/fa';
 
 export default function Menu(props) {
 
@@ -79,7 +71,7 @@ export default function Menu(props) {
     const[loading, setLoading] = useState(false)
     const[arrival, setArrival] = useState(false)
 
-    const[test, setTest] = useState([])
+    
 
     const[observation, setObservation] = useState('')
 
@@ -126,18 +118,18 @@ export default function Menu(props) {
         setQuantity(q);
         setSubtotal(product.price? product.price * quantity : 0)
         setCart(cart)
-        console.log("quantity crazy " + quantity)
+        
    }
 
     const addProduct = (props) =>{
-        console.log(props)
+        
         setExtrasCart([])
         setObservation('')
         setP('')
 
         setX(props);
         setQ(1)
-        console.log(props)
+        
 
         if(window.innerWidth < 600){
             setpMobile(true)
@@ -159,7 +151,7 @@ export default function Menu(props) {
             setPlusBurger(true)
             setVarProduct(false)
             setSushiExtra(false)
-            console.log(x)
+            
         }
 
         else if(props.group === 'Combinados Sushi' || props.group === "Especiais Sushi" ){
@@ -194,7 +186,7 @@ export default function Menu(props) {
 
     const handleTabClick = (props) =>{
 
-        console.log( history)
+        
 
     
 
@@ -205,13 +197,6 @@ export default function Menu(props) {
 
         handleLoading()
 
-        // if(props === 'Steaks'){
-        //     setVarProduct(true)
-        //     setPlusBurger(false)
-        //     setSushiExtra(false)
-            
-        //     console.log(x)
-        // }
 
         let fakeProduct = {
             name: "",
@@ -232,7 +217,7 @@ export default function Menu(props) {
             setPlusBurger(true)
             setVarProduct(false)
             setSushiExtra(false)
-            console.log(x)
+            
         }
         
         else { 
@@ -282,7 +267,7 @@ export default function Menu(props) {
 
       
 
-        console.log(cart.indexOf(props))
+        
 
         cartProduct.quantity += hereQty;
   
@@ -398,7 +383,7 @@ export default function Menu(props) {
     const handleButtonClicked = () =>{
 
         setClick(true)
-        console.log("click")
+        
 
         setTimeout(()=>{
             setClick(false)
@@ -408,7 +393,7 @@ export default function Menu(props) {
 
     const handleCloseOrder = () =>{
         setCloseOrder(true)
-        console.log(props.user)
+        
     }
 
     const handleSuccess = ()=>{
@@ -445,7 +430,7 @@ export default function Menu(props) {
 
     const ShowSundayOffer = () =>{
         var date = new Date()
-        console.log("day"+date.getDay())
+        
 
 
 
@@ -484,7 +469,7 @@ export default function Menu(props) {
 
     
     
-    // console.log(cart)
+    
     return (
         <div className="box">
             <HashRouter history={props.history}>
@@ -493,9 +478,7 @@ export default function Menu(props) {
 
                     <div className="top-mobile">
                         <div>
-                            {/* <IoMdMenu className="mobile-icon" onClick={showMobileNav} />
-                            <FiShoppingBag className="mobile-icon" onClick={()=>{setShow(true)}}/>
-                            <p className="basket-counter-mobile">{cart.length}</p> */}
+
                             <Link to="/menu" ><FaArrowLeft className="mobile-icon" style={{color: 'white'}} /></Link>
                         </div>
 
@@ -607,7 +590,7 @@ export default function Menu(props) {
 
                         <Redirect from="*" to="/" />
 
-                        {/* <Route path="/"><LandingPage /></Route> */}
+                        
                         </Switch>
 
                         <div className="alert" style={{display: cart.length > 0 ? 'flex' : 'none'}} onClick={()=>{setShow(true)}}>
@@ -701,11 +684,6 @@ export default function Menu(props) {
 
             </div>
 
-{/* 
-            <div className="first-arrival-modal" style={{display: arrival ? 'flex' : 'none'}} >
-                <img src={greenArrow} alt="loading" className="green-arrow" />
-                <h4>Comece por aqui!</h4>
-            </div> */}
         </div>
 
     )
