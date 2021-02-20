@@ -122,7 +122,7 @@ export default function NavMobile(props) {
 
             <div className='flex-column' style={{display: props.showPromo ? 'flex' : 'none',justifyContent: 'space-between', alignItems: 'center', width: '90vw'}}>
                 <h3>Horário de Atendimento</h3>
-                <p style={{display: date.getHours() < 18 || date.getHours() > 22 ? 'block' : 'none', color: 'red', margin: '0px -10px 0px -10px' }}>fechado agora</p>
+                <p style={{display: date.getHours() < 18 || date.getHours() > 23 ? 'block' : 'none', color: 'red', margin: '0px -10px 0px -10px' }}>fechado agora</p>
 
                 <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
                     <p>Segunda Feira</p>
