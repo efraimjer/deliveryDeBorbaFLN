@@ -35,7 +35,7 @@ export default function Checkout(props) {
         var date = new Date()
 
         if(date.getHours() < 18 || date.getHours() > 23 ){
-            return <p style={{color: 'red'}}>Estamos fechados <br></br>Volte entre as 18:30 e as 23:30</p>
+            return <p style={{color: 'red'}}>Estamos fechados <br></br>Volte entre 18:30 e 23:30</p>
         }
 
         else {

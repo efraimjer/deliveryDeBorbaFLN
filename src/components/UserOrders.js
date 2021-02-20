@@ -53,7 +53,7 @@ export default function UserOrders() {
             </div>
             <div className="flex-column"
             style={{display: JSON.parse(!localStorage.getItem('order')) ? 'flex' : 'none'}}>
-                <h3>Ops, aparentemente você não fez nenhuma pedido ainda</h3>
+                <h3>Ops, aparentemente você não fez nenhum pedido ainda</h3>
             </div>
 
         </div>
