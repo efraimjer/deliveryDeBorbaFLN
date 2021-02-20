@@ -12,6 +12,7 @@ import Productmobile from './Productmobile'
 import Payment from './Payment';
 import Sunday from './Sunday'
 import Desserts from './Desserts'
+import UserOrders from './UserOrders'
 
 import NavMobile from './NavMobile'
 
@@ -19,10 +20,13 @@ import NavMobile from './NavMobile'
 
 
 import clock from '../assets/Foto-Loading-PNG.png'
+import cluck from '../assets/sound/487452__ranner__click.wav'
+import useSound from 'use-sound';
 
 
 import { FiShoppingBag } from "react-icons/fi";
 import {FaArrowLeft} from 'react-icons/fa'
+import {RiUser3Line} from 'react-icons/ri'
 import Logo from '../assets/logo-pb-solid.png'
 import checked from '../assets/checked.png'
 
@@ -94,6 +98,8 @@ export default function Menu(props) {
         displayProduct();
         setLocalStorage('cart', cart)
         setLocalStorage('total', total)
+        
+        
 
 
 
@@ -462,6 +468,13 @@ export default function Menu(props) {
 
     //todo default route with promo
 
+    const [play] = useSound(cluck);
+
+    const handleShowPromo = () =>{
+        play()
+        setShowPromo(false)
+    }
+
 
 
     
@@ -475,11 +488,25 @@ export default function Menu(props) {
 
                     <div className="top-mobile">
                         <div>
+                            
 
                             <Link to="/menu" ><FaArrowLeft className="mobile-icon" style={{color: 'white'}} /></Link>
+                            
+
+                                
+
+                            
+                            
                         </div>
 
-                        <h2>{tabName}</h2>
+                        <Link to ='/userorders'className="link-nav-on-cart" style={{color: 'white', marginTop: '10px', marginRight: '20px'}}>
+                            <RiUser3Line onClick={handleShowPromo}style={{color: 'white', fontSize: '2em', textAlign: 'center', alignSelf: 'center'}} />
+                            seus pedidos
+                                
+                        </Link>
+
+
+                        
 
                     </div>
 
@@ -560,6 +587,9 @@ export default function Menu(props) {
                         <Switch>
                         <Route path="/entradas">
                             <Entries foo={addProduct} />
+                        </Route>
+                        <Route exact path="/userorders">
+                            <UserOrders />
                         </Route>
 
                         

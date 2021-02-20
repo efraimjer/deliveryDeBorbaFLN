@@ -276,6 +276,13 @@ export default function Payment(props) {
 
     }
 
+    const setLocalStorage = (key, value) =>{
+        
+        localStorage.setItem(key, JSON.stringify(value));
+
+          
+    }
+
 
 
 
@@ -458,6 +465,8 @@ export default function Payment(props) {
     
             props.handleSuccess()
 
+            setLocalStorage('order', order)
+
             
 
             props.setCart([])
@@ -614,7 +623,7 @@ export default function Payment(props) {
                 
                 <form>
                     <label>Nome</label>
-                    <input style={{marginBottom: '0px'}} onChange={(e)=>{handleChangeName(e.target.value)}} type="text"></input>
+                    <input style={{marginBottom: '0px'}} onChange={(e)=>{handleChangeName(e.target.value)}} placeholder="Nome Completo" type="text"></input>
                     <label>Telefone</label>
                     <InputMask onChange={(e)=>{handlePhone(e.target.value)}} mask="+55 (99) 9 9999 9999" />
 
@@ -669,7 +678,7 @@ export default function Payment(props) {
                 
                 <form>
                     <label>Nome</label>
-                    <input style={{marginBottom: '0px'}} onChange={(e)=>{handleChangeName(e.target.value)}} type="text"></input>
+                    <input style={{marginBottom: '0px'}} onChange={(e)=>{handleChangeName(e.target.value)}} placeholder="Nome Completo" type="text"></input>
                     <label>Telefone</label>
                     <InputMask onChange={(e)=>{handlePhone(e.target.value)}} mask="+55 (99) 9 9999 9999" />
                     <label>CEP</label>
