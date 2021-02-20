@@ -34,8 +34,13 @@ export default function Checkout(props) {
     const HandleHours = () =>{
         var date = new Date()
 
+<<<<<<< HEAD
         if(date.getHours() < 18 || date.getHours() > 23 ){
             return <p style={{color: 'red'}}>Estamos fechados <br></br>Volte entre as 18:30 e as 23:30</p>
+=======
+        if(date.getHours() < 18 || date.getHours() > 22 ){
+            return <p style={{color: 'red'}}>Agora estamos fechados</p>
+>>>>>>> 99f06334924a3b8642fb19473515b35f89c7ed42
         }
 
         else {
