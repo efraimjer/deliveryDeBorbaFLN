@@ -6,19 +6,19 @@ export default function UserOrders() {
 
     const [orders, setOrders] = useState(JSON.parse(localStorage.getItem('order')) ? JSON.parse(localStorage.getItem('order')) : {
         _id: 0,
-        name: 'joão',
-        time: '2021 23:21',
-        total: 150,
+        name: '',
+        time: '',
+        total: 0,
         cart: [{
-            name: 'frango frito', 
+            name: '', 
             subTotal: 0,
-            point: 'mal',
+            point: '',
             extrasCart: [{
-                name: 'palito de dente'
+                name: ''
             }]
         }],
-        option: "Motoboy-dinheiro",
-        method: "motoboy"
+        option: "",
+        method: ""
 
 
     } )
