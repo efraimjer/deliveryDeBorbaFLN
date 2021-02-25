@@ -25,13 +25,15 @@ export default function Sushi(props) {
     useEffect(()=>{
         axios.get('https://delivery-deborba.herokuapp.com/delivery/sushi')
             .then(res=>{
-                setMenu(res.data.sort())
+                setMenu(res.data)
             })
     }, [])
 
     var checkAvailability = require('../utils/utils').checkAvailability;
 
-    const available = menu.filter(prod => checkAvailability(prod))
+    const availableAble = menu.filter(prod => checkAvailability(prod))
+
+    const available = availableAble.sort((a, b) => (a.code > b.code) ? 1 : -1)
 
     return (
         <div >
