@@ -73,7 +73,6 @@ export default function Payment(props) {
 
     const[invalidCep, setInvalidCep] = useState(false)
 
-    
 
     // const[confirmation, setConfirmation] = useState(false)
 
@@ -127,7 +126,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(5)             
+                setFrete(4)             
                 break;
 
             case 'Barreiros':                
@@ -135,7 +134,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(5)         
+                setFrete(4)         
                 break;
 
             case 'Campinas':                
@@ -143,7 +142,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(6)             
+                setFrete(5)             
                 break;
 
             case 'Santos Dumont':                
@@ -151,7 +150,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro) 
-                setFrete(6)             
+                setFrete(5)             
                 break;
 
             case 'Monte Cristo':                
@@ -159,7 +158,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro) 
-                setFrete(6)              
+                setFrete(5)              
                 break;
 
             case 'Kobrasol':                
@@ -167,7 +166,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(7)             
+                setFrete(6)             
                 break;
 
             case 'Bom Abrigo':                
@@ -175,7 +174,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro) 
-                setFrete(7)              
+                setFrete(6)              
                 break;
 
             case 'Abraão':                
@@ -183,7 +182,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro) 
-                setFrete(6)              
+                setFrete(5)              
                 break;
 
             case 'Itaguaçu':                
@@ -191,7 +190,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)    
-                setFrete(7)            
+                setFrete(6)            
                 break;
 
             case 'Coqueiros':                
@@ -199,7 +198,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)  
-                setFrete(6)              
+                setFrete(5)              
                 break;
 
             case 'Capoeiras':                
@@ -207,7 +206,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(5)              
+                setFrete(4)              
                 break;
 
             case 'Centro':                
@@ -215,7 +214,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(7)               
+                setFrete(6)               
                 break;
 
             case 'Agronômica':                
@@ -231,7 +230,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)  
-                setFrete(9)              
+                setFrete(7)              
                 break;
 
             case 'Bosque das Missões':
@@ -410,7 +409,6 @@ export default function Payment(props) {
 
         props.handleSuccess()
 
-        
 
 
     }
@@ -418,7 +416,7 @@ export default function Payment(props) {
 
 
     const placeOrder = () =>{
-       
+
 
         if(newName === ""){
             alert('Precisamos do seu nome para dar entrada no pedido')
