@@ -250,6 +250,94 @@ export default function Payment(props) {
                 setFrete(4)               
                 break;
 
+            case 'Saco dos Limões':
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro) 
+                setFrete(7)               
+                break;
+
+            case 'Córrego Grande':
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro) 
+                setFrete(8)               
+                break;
+
+            case 'Itacorubi':
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro) 
+                setFrete(8)               
+                break;
+
+            case 'Santa Mônica':
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro) 
+                setFrete(7)               
+                break;
+            
+            case 'Pantanal':
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro) 
+                setFrete(8)               
+                break;
+
+            case 'Carvoeira':
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro) 
+                setFrete(7)               
+                break;
+
+            case 'Roçado':
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro) 
+                setFrete(6)               
+                break;
+
+            case 'Bela Vista':
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro) 
+                setFrete(6)               
+                break;
+
+            case 'Ipiranga':
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro) 
+                setFrete(7)               
+                break;
+
+            case 'Jardim Cidade de Florianópolis':
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro) 
+                setFrete(6)               
+                break;
+
+            case 'Nossa Senhora do Rosário':
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro) 
+                setFrete(5)               
+                break;
+
 
             
 
