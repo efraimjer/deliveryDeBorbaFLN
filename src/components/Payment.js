@@ -283,9 +283,6 @@ export default function Payment(props) {
           
     }
 
-
-
-
     const handleNameChange = (name) =>{setName(name)}
 
     const handleCardNumberChange = (cardNumber) =>{
@@ -310,11 +307,6 @@ export default function Payment(props) {
         setExpMonth(arr[0])
         setExpYear(arr[1])
         }
-
-
-
-   
-
     const handlePaymentError = () =>{
         setPaymentError(true)
         setLoading(false)
@@ -381,8 +373,6 @@ export default function Payment(props) {
 
     }
 
-   
-
     const handlePhone = (phoneNumber) =>{       
 
         let str = phoneNumber.replace(/[^\d.-]/g, '')
@@ -391,8 +381,6 @@ export default function Payment(props) {
         setPhone(parseInt(str))
 
     }
-
-    
 
     const handleHouseNumber = (houseNumber) =>{
         setHouseNumber(houseNumber)
@@ -410,15 +398,27 @@ export default function Payment(props) {
 
     }
 
+    const orderSuccess = (order) =>{
 
 
-    
+        setLocalStorage('order', order)
+        props.setCart([])
+        props.setExtrasCart([])
+        props.setTotal(0)
 
-    const placeOrder = () =>{
+        props.foo()
+
+        props.handleSuccess()
 
         
 
 
+    }
+
+
+
+    const placeOrder = () =>{
+       
 
         if(newName === ""){
             alert('Precisamos do seu nome para dar entrada no pedido')
@@ -461,26 +461,18 @@ export default function Payment(props) {
     
             //TODO if response OK POST order to backend
 
-            props.foo()
-    
-            props.handleSuccess()
 
-            setLocalStorage('order', order)
-
-            
-
-            props.setCart([])
-            props.setExtrasCart([])
-            props.setTotal(0)
     
             axios.post('https://delivery-deborba.herokuapp.com/delivery/placeOrder', order)
     
-            .then(res=>{
-                console.log(res.data)
+            .then(()=>{
+                orderSuccess(order)
             })
-            .catch(err=>{
-                console.log(err.res)
+            .catch(()=>{
+                alert('Ops... algo deu errado, tente novamente!')
             })
+
+
         }
 
 
