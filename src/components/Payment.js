@@ -338,6 +338,14 @@ export default function Payment(props) {
                 setFrete(5)               
                 break;
 
+            case 'Areias':
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro) 
+                setFrete(8)               
+                break;
+
 
             
 
