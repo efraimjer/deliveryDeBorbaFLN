@@ -214,7 +214,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(6)               
+                setFrete(7)               
                 break;
 
             case 'Agronômica':                
@@ -222,7 +222,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)  
-                setFrete(7)             
+                setFrete(8)             
                 break;
 
             case 'Trindade':                
@@ -230,7 +230,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)  
-                setFrete(7)              
+                setFrete(8)              
                 break;
 
             case 'Bosque das Missões':
@@ -255,7 +255,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro) 
-                setFrete(7)               
+                setFrete(8)               
                 break;
 
             case 'Córrego Grande':
@@ -279,7 +279,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro) 
-                setFrete(7)               
+                setFrete(8)               
                 break;
             
             case 'Pantanal':
@@ -295,7 +295,7 @@ export default function Payment(props) {
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro) 
-                setFrete(7)               
+                setFrete(8)               
                 break;
 
             case 'Roçado':
