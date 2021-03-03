@@ -115,10 +115,10 @@ export default function NavMobile(props) {
                     Sobremesas</Link>
             </div>
 
-            <div onClick={addPromo} style={{display: props.showPromo ? 'block' : 'none'}}>
+            {/* <div onClick={addPromo} style={{display: props.showPromo ? 'block' : 'none'}}>
                             <h3>Promo do dia</h3>
                             <img src={'https://letecacom.live/images/deborba/banner%20site.jpg'} style={{width: '80vw'}} alt="" />
-            </div>
+            </div> */}
 
             <div className='flex-column' style={{display: props.showPromo ? 'flex' : 'none',justifyContent: 'space-between', alignItems: 'center', width: '90vw'}}>
                 <h3>Horário de Atendimento</h3>

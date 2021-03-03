@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import  {React,useEffect, useState} from 'react';
 import './components.css';
 import './css/checkout.css';
 import InputMask from 'react-input-mask';
@@ -8,8 +8,8 @@ import clock from '../assets/Foto-Loading-PNG.png'
 import denied from '../assets/denied.png'
 
 
-// import { IoAddCircleSharp, IoBasketOutline} from "react-icons/io5";
-import { IoIosRemoveCircle, IoIosCloseCircle, IoMdMenu, IoIosPricetag } from "react-icons/io";
+
+
 import {BiChevronLeftCircle} from 'react-icons/bi'
 
 export default function Payment(props) {
@@ -345,13 +345,6 @@ export default function Payment(props) {
                 setAdress(cepRes.logradouro) 
                 setFrete(8)               
                 break;
-
-
-            
-
-
-
-
 
             default:
                 setDontDeliver(true)
