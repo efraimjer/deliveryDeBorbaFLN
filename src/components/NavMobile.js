@@ -67,17 +67,17 @@ export default function NavMobile(props) {
 
     const addPromo = () =>{
         var borbaBurger = {
-            "code": 51,
-            "name": "Hot Filadelphia",
-            "short": "08un",
-            "long": "",
-            "photo": "https://letecacom.live/images/deborba/hot.jpeg",
+            "code": 33,
+            "name": "Combo 03",
+            "short": "60 peças",
+            "long": "Filadelphia de salmão(10un), Sashimi de salmão(10un), Folha de Arroz, salmão, palmito, cheese e cebolinha(10un), Folha de Arroz, salmão, atum, cheese e cebolinha(10un), Niguiri de Salmão(10un), Gunkan jow(10un)",
+            "photo": "http://efraimjer.tk/deborba/app/combo3.jpg",
             "pontuation": null,
-            "price": 10.99,
+            "price": 149.9,
             "isAvailable": true,
             "table": "PADRÃO",
             "mode": "Todos",
-            "group": "Especiais Sushi"
+            "group": "Combinados Sushi"
             
         }
 
@@ -115,10 +115,10 @@ export default function NavMobile(props) {
                     Sobremesas</Link>
             </div>
 
-            {/* <div onClick={addPromo} style={{display: props.showPromo ? 'block' : 'none'}}>
-                            <h3>Promo do dia</h3>
-                            <img src={'https://letecacom.live/images/deborba/banner%20site.jpg'} style={{width: '80vw'}} alt="" />
-            </div> */}
+            <div onClick={addPromo} style={{display: props.showPromo ? 'block' : 'none'}}>
+                            <h3>Mais Recomendados</h3>
+                            <img src={'http://efraimjer.tk/deborba/app/banner%20site.jpg'} style={{width: '80vw'}} alt="" />
+            </div>
 
             <div className='flex-column' style={{display: props.showPromo ? 'flex' : 'none',justifyContent: 'space-between', alignItems: 'center', width: '90vw'}}>
                 <h3>Horário de Atendimento</h3>

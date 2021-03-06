@@ -36,6 +36,7 @@ export default function Payment(props) {
     const[method, setMethod] = useState('')
     const[option, setOption] = useState('')
     const[nb, setNb] = useState('')
+    const[city, setCity] = useState('')
     const[houseNumber, setHouseNumber] = useState('')
     const[reference, setReference] = useState('')
 
@@ -90,124 +91,322 @@ export default function Payment(props) {
 
         switch (cepRes.bairro) {
             case 'Balneário':                
+            if(cepRes.localidade === 'Florianópolis'){
                 setDoDeliver(true)
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
                 setFrete(4)
+                setCity(cepRes.localidade)               
                 break;
+                
+            }
+
+            else{
+                setDontDeliver(true)
+                setDoDeliver(false)
+                setDeliver(false)
+                setPayButton(false)
+                break;
+
+            }
 
             case 'Canto':                
+            if(cepRes.localidade === 'Florianópolis'){
                 setDoDeliver(true)
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(4)              
+                setFrete(7)
+                setCity(cepRes.localidade)               
                 break;
+                
+            }
+
+            else{
+                setDontDeliver(true)
+                setDoDeliver(false)
+                setDeliver(false)
+                setPayButton(false)
+                break;
+
+            }
 
             case 'Coloninha':                
+            if(cepRes.localidade === 'Florianópolis'){
                 setDoDeliver(true)
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(4)              
+                setFrete(4)
+                setCity(cepRes.localidade)               
                 break;
+                
+            }
+
+            else{
+                setDontDeliver(true)
+                setDoDeliver(false)
+                setDeliver(false)
+                setPayButton(false)
+                break;
+
+            }
 
             case 'Jardim Atlântico':                
+            if(cepRes.localidade === 'Florianópolis'){
                 setDoDeliver(true)
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
+                setCity(cepRes.localidade)
                 setFrete(4)               
                 break;
+                
+            }
+
+            else{
+                setDontDeliver(true)
+                setDoDeliver(false)
+                setDeliver(false)
+                setPayButton(false)
+                break;
+
+            }
 
             case 'Sapé':                
+            if(cepRes.localidade === 'Florianópolis'){
                 setDoDeliver(true)
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(4)             
+                setFrete(4)
+                setCity(cepRes.localidade)               
                 break;
+                
+            }
+
+            else{
+                setDontDeliver(true)
+                setDoDeliver(false)
+                setDeliver(false)
+                setPayButton(false)
+                break;
+
+            }
 
             case 'Barreiros':                
+            if(cepRes.localidade === 'São José'){
                 setDoDeliver(true)
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(4)         
+                setFrete(4)
+                setCity(cepRes.localidade)               
                 break;
+                
+            }
+
+            else{
+                setDontDeliver(true)
+                setDoDeliver(false)
+                setDeliver(false)
+                setPayButton(false)
+                break;
+
+            }
 
             case 'Campinas':                
+            if(cepRes.localidade === 'São José'){
                 setDoDeliver(true)
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(5)             
+                setFrete(5) 
+                setCity(cepRes.localidade)              
                 break;
+                
+            }
+
+            else{
+                setDontDeliver(true)
+                setDoDeliver(false)
+                setDeliver(false)
+                setPayButton(false)
+                break;
+
+            }
 
             case 'Santos Dumont':                
+            if(cepRes.localidade === 'Florianópolis'){
                 setDoDeliver(true)
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(5)             
+                setAdress(cepRes.logradouro)
+                setFrete(5)    
+                setCity(cepRes.localidade)           
                 break;
+                
+            }
+
+            else{
+                setDontDeliver(true)
+                setDoDeliver(false)
+                setDeliver(false)
+                setPayButton(false)
+                break;
+
+            }
 
             case 'Monte Cristo':                
+            if(cepRes.localidade === 'Florianópolis'){
                 setDoDeliver(true)
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(5)              
+                setAdress(cepRes.logradouro)
+                setFrete(5)    
+                setCity(cepRes.localidade)           
                 break;
+                
+            }
+
+            else{
+                setDontDeliver(true)
+                setDoDeliver(false)
+                setDeliver(false)
+                setPayButton(false)
+                break;
+
+            }
 
             case 'Kobrasol':                
+            if(cepRes.localidade === 'São José'){
                 setDoDeliver(true)
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(6)             
+                setFrete(5)
+                setCity(cepRes.localidade)               
                 break;
+                
+            }
+
+            else{
+                setDontDeliver(true)
+                setDoDeliver(false)
+                setDeliver(false)
+                setPayButton(false)
+                break;
+
+            }
 
             case 'Bom Abrigo':                
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(6)              
-                break;
-
-            case 'Abraão':                
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(5)              
-                break;
-
-            case 'Itaguaçu':                
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro)    
-                setFrete(6)            
-                break;
-
-            case 'Coqueiros':                
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro)  
-                setFrete(5)              
-                break;
-
-            case 'Capoeiras':                
+            if(cepRes.localidade === 'Florianópolis'){
                 setDoDeliver(true)
                 setDontDeliver(false)
                 setNb(cepRes.bairro)                
                 setAdress(cepRes.logradouro)
-                setFrete(4)              
+                setFrete(6)     
+                setCity(cepRes.localidade)          
                 break;
+                
+            }
+
+            else{
+                setDontDeliver(true)
+                setDoDeliver(false)
+                setDeliver(false)
+                setPayButton(false)
+                break;
+
+            }
+
+            case 'Abraão':                
+            if(cepRes.localidade === 'Florianópolis'){
+                setDoDeliver(true)
+                setDontDeliver(false)
+                setNb(cepRes.bairro)                
+                setAdress(cepRes.logradouro)
+                setFrete(5)     
+                setCity(cepRes.localidade)          
+                break;
+                
+            }
+
+            else{
+                setDontDeliver(true)
+                setDoDeliver(false)
+                setDeliver(false)
+                setPayButton(false)
+                break;
+
+            }
+
+            case 'Itaguaçu':                
+
+                if(cepRes.localidade === 'Florianópolis'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)    
+                    setFrete(6)      
+                    setCity(cepRes.localidade)      
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
+
+            case 'Coqueiros':                
+             
+                if(cepRes.localidade === 'Florianópolis'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)  
+                    setFrete(5)   
+                    setCity(cepRes.localidade)            
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
+
+            case 'Capoeiras':                
+             
+                
+                if(cepRes.localidade === 'Florianópolis'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(4) 
+                    setCity(cepRes.localidade)
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+                }
 
             case 'Centro':  
                 
@@ -216,7 +415,8 @@ export default function Payment(props) {
                     setDontDeliver(false)
                     setNb(cepRes.bairro)                
                     setAdress(cepRes.logradouro)
-                    setFrete(7)               
+                    setFrete(7)    
+                    setCity(cepRes.localidade)           
                     break;
                     
                 }
@@ -232,133 +432,348 @@ export default function Payment(props) {
 
 
             case 'Agronômica':                
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro)  
-                setFrete(8)             
-                break;
+
+                if(cepRes.localidade === 'Florianópolis'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(8)  
+                    setCity(cepRes.localidade)             
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             case 'Trindade':                
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro)  
-                setFrete(8)              
-                break;
+          
+                if(cepRes.localidade === 'Florianópolis'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(8)   
+                    setCity(cepRes.localidade)            
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             case 'Bosque das Missões':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(7)               
-                break;
+           
+                if(cepRes.localidade === 'São José'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(7)   
+                    setCity(cepRes.localidade)            
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
 
-            case 'Estreito':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(4)               
-                break;
+            case 'Estreito':              
+                if(cepRes.localidade === 'Florianópolis'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(4)  
+                    setCity(cepRes.localidade)             
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             case 'Saco dos Limões':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(8)               
-                break;
+       
+                if(cepRes.localidade === 'Florianópolis'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(8)    
+                    setCity(cepRes.localidade)          
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             case 'Córrego Grande':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(8)               
-                break;
+              
+                if(cepRes.localidade === 'Florianópolis'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(8)      
+                    setCity(cepRes.localidade)         
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             case 'Itacorubi':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(8)               
-                break;
+               
+                if(cepRes.localidade === 'Florianópolis'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(8)       
+                    setCity(cepRes.localidade)        
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             case 'Santa Mônica':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(8)               
-                break;
+             
+                if(cepRes.localidade === 'Florianópolis'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(8)          
+                    setCity(cepRes.localidade)     
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
             
             case 'Pantanal':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(8)               
-                break;
+                if(cepRes.localidade === 'Florianópolis'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(8)       
+                    setCity(cepRes.localidade)        
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             case 'Carvoeira':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(8)               
-                break;
+                if(cepRes.localidade === 'Florianópolis'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(8)     
+                    setCity(cepRes.localidade)          
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             case 'Roçado':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(6)               
-                break;
+                if(cepRes.localidade === 'São José'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(6)      
+                    setCity(cepRes.localidade)         
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             case 'Bela Vista':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(6)               
-                break;
+                if(cepRes.localidade === 'São José'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(6)      
+                    setCity(cepRes.localidade)         
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             case 'Ipiranga':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(7)               
-                break;
+                if(cepRes.localidade === 'São José'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(7)    
+                    setCity(cepRes.localidade)           
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             case 'Jardim Cidade de Florianópolis':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(6)               
-                break;
+                if(cepRes.localidade === 'São José'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(6)    
+                    setCity(cepRes.localidade)           
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             case 'Nossa Senhora do Rosário':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(5)               
-                break;
+                if(cepRes.localidade === 'São José'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(5)  
+                    setCity(cepRes.localidade)             
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             case 'Areias':
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro) 
-                setFrete(8)               
-                break;
+                if(cepRes.localidade === 'São José'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(8)       
+                    setCity(cepRes.localidade)        
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
 
             default:
                 setDontDeliver(true)
@@ -546,7 +961,7 @@ export default function Payment(props) {
             var order = {
                 name: newName,
                 phone: phone,
-                adress: adress +' '+ houseNumber + ' ' + reference,
+                adress: adress +' '+ houseNumber + ' ' + reference+' ' + city,
                 cep: cep,
                 neighborhood: nb,
                 paid: true,
@@ -779,6 +1194,7 @@ export default function Payment(props) {
                     <p style={{fontSize: '0.7em', marginTop: '-10px'}}>{invalidCep ? 'Cep Inválido ou você está fora da nossa área de entrega' : ''}</p>
                     <p onClick={cepRes.bairro ? checkDelivery : handleInvalidCep} style={{color: cepRes.bairro ? '#fc4041' : '#6b6e7e'}}>+ adicionar cep</p>
                     <div className="flex-column" style={{display: doDeliver ? 'flex' : 'none'}}>
+                        <p>{city}</p>
                         <p style={{width: '200px', textAlign: 'left'}}>{adress}</p>
                         <p>{'Bairro '+ nb}</p>
                         <label>número</label>
