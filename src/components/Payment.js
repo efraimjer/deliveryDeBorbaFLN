@@ -209,13 +209,27 @@ export default function Payment(props) {
                 setFrete(4)              
                 break;
 
-            case 'Centro':                
-                setDoDeliver(true)
-                setDontDeliver(false)
-                setNb(cepRes.bairro)                
-                setAdress(cepRes.logradouro)
-                setFrete(7)               
-                break;
+            case 'Centro':  
+                
+                if(cepRes.localidade === 'Florianópolis'){
+                    setDoDeliver(true)
+                    setDontDeliver(false)
+                    setNb(cepRes.bairro)                
+                    setAdress(cepRes.logradouro)
+                    setFrete(7)               
+                    break;
+                    
+                }
+
+                else{
+                    setDontDeliver(true)
+                    setDoDeliver(false)
+                    setDeliver(false)
+                    setPayButton(false)
+                    break;
+
+                }
+
 
             case 'Agronômica':                
                 setDoDeliver(true)
