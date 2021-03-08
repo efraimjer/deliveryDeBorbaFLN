@@ -74,6 +74,9 @@ export default function Payment(props) {
 
     const[invalidCep, setInvalidCep] = useState(false)
 
+    const[discount, setDiscount] = useState(0)
+    const[coupon, setCoupon] = useState(false)
+
 
     // const[confirmation, setConfirmation] = useState(false)
 
@@ -967,7 +970,7 @@ export default function Payment(props) {
                 paid: true,
                 frete: frete,
                 cart: props.cart,
-                total: parseFloat(props.total) + parseInt(frete),
+                total: (parseFloat(props.total) - parseFloat(discount)) + parseInt(frete),
                 deliver: deliver,
                 readyToDelivery: false,
                 onRoute: false,
@@ -1088,6 +1091,22 @@ export default function Payment(props) {
 
     }
 
+    const handleCoupon = (coupon) =>{
+        switch (coupon.toUpperCase()) {
+            case 'MULHER21':
+                setDiscount((props.total/100)*10)
+                setCoupon(true)
+
+                
+                break;
+        
+            default:
+                break;
+        }
+
+
+    }
+
     
 
 
@@ -1108,6 +1127,12 @@ export default function Payment(props) {
             <div className="flex-column">
                 
                 <p>{'seu total até aqui R$' + props.total.toFixed(2)}</p>
+                {/* <form>
+                    <label>Você possui cupom de desconto?</label>
+                    <input onChange={(e)=>{handleCoupon(e.target.value)}}></input>
+                    <p style={{display: coupon ? 'block' : 'none'}}>Cupom Encontrado! </p>
+                    <p style={{display: coupon ? 'block' : 'none', color: '#fc4041', fontWeight: '800'}}>Total: R$ {props.total - discount} </p>
+                </form> */}
             </div>
             <p style={{alignSelf: "flex-start", fontSize: "0.8em"}}>Como você quer receber seu pedido?</p>
             <div className='flex-row'>
@@ -1203,7 +1228,7 @@ export default function Payment(props) {
                         <label>referência</label>
                         <input onChange={(e)=>{handleReference(e.target.value)}} placeholder="Ex. apto 201" />
                         <p>{'Entrega R$ ' + (parseFloat(frete)).toFixed(2)}</p>
-                        <p>{'Total geral R$ ' + (parseFloat(frete) + parseFloat(props.total)).toFixed(2)}</p>
+                        <p>{'Total geral R$ ' + (parseFloat(frete) + (parseFloat(props.total)-parseFloat(discount))).toFixed(2)}</p>
 
                     </div>
 

@@ -122,32 +122,28 @@ export default function NavMobile(props) {
 
             <div className='flex-column' style={{display: props.showPromo ? 'flex' : 'none',justifyContent: 'space-between', alignItems: 'center', width: '90vw'}}>
                 <h3>Horário de Atendimento</h3>
-                <p style={{display: date.getHours() < 18 || date.getHours() > 23 ? 'block' : 'none', color: 'red', margin: '0px -10px 0px -10px' }}>fechado agora</p>
+                <p style={{display: date.getHours() < 18 || date.getHours() > 23 || date.getDay() < 2 ? 'block' : 'none', color: 'red', margin: '0px -10px 0px -10px' }}>fechado agora</p>
 
                 <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
-                    <p>Segunda Feira</p>
-                    <p>18:30 às 23:30</p>
-                </div>
-                <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
                     <p>Terça Feira</p>
-                    <p>18:30 às 23:30</p>
+                    <p>18:30 às 23:00</p>
                 </div>
                 <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
                     <p>Quarta Feira</p>
-                    <p>18:30 às 23:30</p>
+                    <p>18:30 às 23:00</p>
                 </div>
                 <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
                     <p>Quinta Feira</p>
-                    <p>18:30 às 23:30</p>
+                    <p>18:30 às 23:00</p>
                 </div>
                 <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
                     <p>Sexta Feira</p>
-                    <p>18:30 às 23:30</p>
+                    <p>18:30 às 23:00</p>
                 </div>
                 <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
                     <p>Sábado</p>
                     <p>11:30 às 14:00</p>
-                    <p>18:30 às 23:30</p>
+                    <p>18:30 às 23:00</p>
                 </div>
                 <div className="flex-row" style={{marginLeft: '20px',justifyContent: 'space-between', width: '90vw', height: '25px'}}>
                     <p>Domingo</p>
