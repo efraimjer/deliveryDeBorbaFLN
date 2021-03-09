@@ -110,9 +110,9 @@ export default function NavMobile(props) {
                 <Link onClick={()=>iconMenuClick("Bebidas")} className={menuItem.drinks ? "link-nav-on-cart link-nav-cart-active" : "link-nav-on-cart"} to="/drinks">
                     <BiDrink className="nav-icon"/>
                     Bebidas</Link>
-                <Link onClick={()=>iconMenuClick("Sobremesas")} className={menuItem.desserts ? "link-nav-on-cart link-nav-cart-active" : "link-nav-on-cart"} to="/sobremesas">
+                {/* <Link onClick={()=>iconMenuClick("Sobremesas")} className={menuItem.desserts ? "link-nav-on-cart link-nav-cart-active" : "link-nav-on-cart"} to="/sobremesas">
                     <FaCandyCane className="nav-icon"/>
-                    Sobremesas</Link>
+                    Sobremesas</Link> */}
             </div>
 
             <div onClick={addPromo} style={{display: props.showPromo ? 'block' : 'none'}}>
