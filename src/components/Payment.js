@@ -77,6 +77,8 @@ export default function Payment(props) {
     const[discount, setDiscount] = useState(0)
     const[coupon, setCoupon] = useState(false)
 
+    const[payBtnClass, setPayBtnClass] = useState("payment-button")
+
 
     // const[confirmation, setConfirmation] = useState(false)
 
@@ -920,6 +922,9 @@ export default function Payment(props) {
 
     const orderSuccess = (order) =>{
 
+        
+        
+
 
         setLocalStorage('order', order)
         props.setCart([])
@@ -937,6 +942,8 @@ export default function Payment(props) {
 
 
     const placeOrder = () =>{
+
+        
 
 
         if(newName === ""){
@@ -961,6 +968,7 @@ export default function Payment(props) {
 
 
         else{
+            
             var order = {
                 name: newName,
                 phone: phone,
@@ -1169,7 +1177,7 @@ export default function Payment(props) {
 
                 <div style={{display: takeAway ? 'flex' : 'none'}} className="flex-column">
                     
-                    <span className="payment-button" 
+                    <span className={payBtnClass} 
                     onClick={cardPayment? handlePaymentSubmission : placeOrder} >
                        {payButtonText}
                        </span>

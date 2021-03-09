@@ -28,7 +28,7 @@ export default function Productmobile(props) {
         {"_id":"601dc8be14959d19f0dc691f","code":29,"name":"Cheddar","short":"",
         "onCart": false,"long":"","photo":"","pontuation":null,"price":2,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},
         {"_id":"601dc8d014959d19f0dc6920","code":30,"name":"Maionese Caseira","short":"","long":"","photo":"","pontuation":null,"price":1.25,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0},
-        {"_id":"601dc8d014959d19f0dc6920","code":101,"name":"Catupiry","short":"","long":"","photo":"","pontuation":null,"price":2.00,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0}]
+        {"_id":"601dc8d014959d19f0dc6920","code":84,"name":"Ovo","short":"","long":"","photo":"","pontuation":null,"price":2.00,"isAvailable":true,"table":"PADRÃO","mode":"Todos","group":"Adicional Burger","__v":0}]
 
     )
     const[extras, setExtras] = useState([

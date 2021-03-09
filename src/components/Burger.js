@@ -37,7 +37,7 @@ export default function Burger(props) {
     return (
         <div onCLick="">
 
-            <h4 style={{width: '90vw', textAlign: 'justify'}}>Todos os Burgers vão acompanhados de fritas, maionese e molho agridoce</h4>
+            {/* <h4 style={{width: '90vw', textAlign: 'justify'}}>Todos os Burgers vão acompanhados de fritas, maionese e molho agridoce</h4> */}
 
             {!isDone ? <ReactLoading type={"bubles"}  color={"#fa8072"} height={"32px"} width={"32px"} /> : (
                 <div>
