@@ -29,7 +29,7 @@ export default function Payment(props) {
     const[name, setName]= useState('');
 
     const[newName, setNewName]= useState('')
-    const[cardNumber, setCardNumber]= useState(0);
+    const[cardNumber, setCardNumber]= useState("");
     const[secureCode, setSecureCode]= useState('')
     const[expMonth, setExpMonth]= useState('')
     const[expYear, setExpYear]= useState('')
@@ -832,6 +832,9 @@ export default function Payment(props) {
     const handlePaymentError = () =>{
         setPaymentError(true)
         setLoading(false)
+        setTimeout(() => {
+            props.foo()
+        }, 5000);
     }
 
     const handlePaymentSubmission = (e) =>{
@@ -858,7 +861,7 @@ export default function Payment(props) {
 
         else{
         e.preventDefault();
-        let t = (parseFloat(props.total) + parseInt(frete)) * 100;
+        let t = Math.round((parseFloat(props.total) + parseInt(frete)) * 100);
 
         var Payment = {
             method: method,
@@ -922,7 +925,7 @@ export default function Payment(props) {
 
     const orderSuccess = (order) =>{
 
-        
+        setLoading(false)
         
 
 
@@ -936,6 +939,12 @@ export default function Payment(props) {
         props.handleSuccess()
 
 
+
+    }
+
+    const orderError = ()=>{
+        alert('Ops... algo deu errado, tente novamente!');
+        
 
     }
 
@@ -968,6 +977,7 @@ export default function Payment(props) {
 
 
         else{
+            setLoading(true)
             
             var order = {
                 name: newName,
@@ -996,7 +1006,8 @@ export default function Payment(props) {
                 orderSuccess(order)
             })
             .catch(()=>{
-                alert('Ops... algo deu errado, tente novamente!')
+                orderError()
+                
             })
 
 
@@ -1013,6 +1024,14 @@ export default function Payment(props) {
         // setOption('Take Away')
         setDontDeliver(false)
         handlePayButton('Take Away')
+    }
+
+    const addCardNumber = () =>{
+        if(cardNumber.length < 16){
+            alert("Número de cartão inválido!")
+        }
+        else{handlePayByApp() }
+
     }
 
     const handlePayByApp = () =>{
@@ -1177,14 +1196,14 @@ export default function Payment(props) {
 
                 <div style={{display: takeAway ? 'flex' : 'none'}} className="flex-column">
                     
-                    <span className={payBtnClass} 
+                    <span className="payment-button" 
                     onClick={cardPayment? handlePaymentSubmission : placeOrder} >
                        {payButtonText}
                        </span>
                        <div className="flex-column" style={{display: loading ? 'flex' : 'none', width: '220px', alignItems: 'center'}}>
                             <img src={clock} alt="loading" className="clock-loading" />
                             <h4>Só um Segundo...</h4>
-                            <p>enquanto validamos o seu pagamento</p>
+                            <p>enquanto validamos o seu pedido</p>
                         </div>
                         <div className="flex-column" style={{display: paymentError ? 'flex' : 'none', width: '220px', alignItems: 'center', marginLeft: '20px'}}>
                             <img src={denied} style={{width: '50px', marginTop: '20px'}} alt="loading"  />
@@ -1336,7 +1355,7 @@ export default function Payment(props) {
 
                  {/* <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission}  /> */}
 
-                 <p style={{color: '#fc4041'}} onClick={handlePayByApp} >+ adicionar cartão</p>
+                 <p style={{color: '#fc4041'}} onClick={addCardNumber} >+ adicionar cartão</p>
 
 
              </form>      
@@ -1379,7 +1398,7 @@ export default function Payment(props) {
                        <div className="flex-column" style={{display: loading ? 'flex' : 'none', width: '220px', alignItems: 'center'}}>
                             <img src={clock} alt="loading" className="clock-loading" />
                             <h4>Só um Segundo...</h4>
-                            <p>enquanto validamos o seu pagamento</p>
+                            <p>enquanto validamos o seu pedido</p>
                         </div>
                         <div className="flex-column" style={{display: paymentError ? 'flex' : 'none', width: '220px', alignItems: 'center', marginLeft: '20px'}}>
                             <img src={denied} style={{width: '50px', marginTop: '20px'}} alt="loading"  />
