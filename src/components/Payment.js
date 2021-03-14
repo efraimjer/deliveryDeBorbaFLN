@@ -838,7 +838,7 @@ export default function Payment(props) {
     }
 
     const handlePaymentSubmission = (e) =>{
-        setLoading(true)
+        
 
         //todo parseint expmonth and year
         if(deliver && newName === ""){
@@ -860,6 +860,8 @@ export default function Payment(props) {
         }
 
         else{
+        setLoading(true);
+        
         e.preventDefault();
         let t = Math.round((parseFloat(props.total) + parseInt(frete)) * 100);
 

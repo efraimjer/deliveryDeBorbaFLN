@@ -37,8 +37,8 @@ export default function Sushi(props) {
 
     return (
         <div >
-            {/* <h2 className="promo-title">Promoção</h2>
-            <h4 className="promo-body">Hot Filadelphia apenas R$ 10,99</h4> */}
+            <h2 className="promo-title">Desculpe!</h2>
+            <h4 className="promo-body">Produto Indisponível</h4>
 
             {/* <div className="sushi-desc">
                 <h3>
