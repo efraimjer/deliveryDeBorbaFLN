@@ -37,8 +37,10 @@ export default function Sushi(props) {
 
     return (
         <div >
-            <h2 className="promo-title">Desculpe!</h2>
-            <h4 className="promo-body">Produto Indisponível</h4>
+            <div style={{display: available.length === 0 ? 'block' : 'none'}}>
+                <h2 className="promo-title">Desculpe!</h2>
+                <h4 className="promo-body">Produto Indisponível</h4>
+            </div>
 
             {/* <div className="sushi-desc">
                 <h3>

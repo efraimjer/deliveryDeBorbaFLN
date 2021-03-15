@@ -744,7 +744,7 @@ export default function Payment(props) {
                     setDontDeliver(false)
                     setNb(cepRes.bairro)                
                     setAdress(cepRes.logradouro)
-                    setFrete(5)  
+                    setFrete(8)  
                     setCity(cepRes.localidade)             
                     break;
                     
@@ -888,15 +888,7 @@ export default function Payment(props) {
         .catch(err =>
            !err ? setLoading(false) : handlePaymentError()
         )
-        }
-
-        
-
-        
-            //todo catch error and display error message
-        
-
-        
+        }       
 
     }
 
@@ -1425,128 +1417,7 @@ export default function Payment(props) {
         </div>
 
         // <div className="payment">
-        //     <IoIosCloseCircle onClick={props.foo}  className="adddecbutton modalclose" style={{color: 'white', marginTop:"-10px", marginBottom: '20px'}}/>
-        //     <h3>Entrega e Pagamento</h3>
-            
-            
-        //     <form>
-        //         <label>Nome</label>
-        //         <input onChange={(e)=>{handleChangeName(e.target.value)}} type="text"></input>
-        //         <div className="flex-row">
-        //             <div className="flex-column">
-        //             <label>CEP:</label>                    
-        //                 <input style={{marginRight: '-15px'}} onChange={(e)=> handleAdress(e.target.value)} type='number' />
-        //             </div>
-
-                    
-
-        //         </div>
-                
-        //         <label>TELEFONE:</label>
-        //             <InputMask onChange={(e)=>{handlePhone(e.target.value)}} mask="+55 (99) 9 9999 9999" />
-                
-        //     </form>
-
-            
-        //     <p>Entrega: R$ {frete.toFixed(2)}</p>
-        //     <h3>Total: R$ {final.toFixed(2)}</h3>
-
-            
-        //     <form onChange={(e)=>{handlePaymentMethod(e.target.value)}}>
-        //         <label>Metodo de pagamento:</label>
-        //         <label>
-        //             <input type="radio" name="pay" value="credit" id="credit" />
-        //             Online: Cartão de Crédito
-        //         </label>
-        //         <label>
-        //             <input type="radio" name="pay" value="debit" id="debit" />
-        //             Online: Cartão de Débito
-        //         </label>
-        //         <label>
-        //             <input type="radio" name="pay" value="motoboy" id="motoboy" />
-        //             Pagar ao Motoboy
-        //         </label>
-        //     </form>
-
-      
-            
-        //     <form className="debit-card" style={{display: debit? 'flex' : 'none'}}>
-        //         <h3>Cartão de Débito</h3>
-        //         <div className="flex-row">
-        //             <div className="flex-column">
-        //                 <label>Número do seu cartão</label>
-        //                 <InputMask onChange={(e)=> handleCardNumberChange(e.target.value)} mask="9999-9999-9999-9999" required/>
-        //             </div>
-        //             <div className="flex-column">
-        //                 <label>CVV</label>
-        //                 <InputMask onChange={(e)=> handleSecureCodeChange(e.target.value)} id="cvv" mask="999" required/>
-        //             </div>
-        //         </div>
-
-        //         <div className="flex-row">
-        //             <div className="flex-column">
-        //                 <label>Nome impresso no cartão</label>
-        //                 <input onChange={(e)=> handleNameChange(e.target.value)} type="text" />
-        //             </div>
-
-        //             <div className="flex-column">
-        //             <label>Vencimento:</label>
-        //                 <div className="flex-row">
-        //                     <select onChange={(e)=> handleExpMonthChange(e.target.value)}>
-        //                         <option value="" selected="selected">-</option>
-        //                         <option value="1">Jan</option>
-        //                         <option value="2">Fev</option>
-        //                         <option value="3">Mar</option>
-        //                         <option value="4">Abr</option>
-        //                         <option value="5">Mai</option>
-        //                         <option value="6">Jun</option>
-        //                         <option value="7">Jul</option>
-        //                         <option value="8">Ago</option>
-        //                         <option value="9">Set</option>
-        //                         <option value="10">Out</option>
-        //                         <option value="11">Nov</option>
-        //                         <option value="12">Dez</option>
-        //                     </select>
-        //                     <select onChange={(e)=>{handleExpYearChange(e.target.value)}}>
-        //                         <option value="" selected="selected">-</option>
-        //                         <option value="2021">2021</option>
-        //                         <option value="2022">2022</option>
-        //                         <option value="2023">2023</option>
-        //                         <option value="2024">2024</option>
-        //                         <option value="2025">2025</option>
-        //                         <option value="2026">2026</option>
-        //                         <option value="2027">2027</option>
-        //                         <option value="2028">2028</option>
-        //                     </select>
-        //                 </div>                        
-        //             </div>                
-        //         </div>
-
-
-
-        //         <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission} />
-
-
-        //     </form>
-
-        //     <form className="motoboy" style={{display: motoboy? 'flex':'none'}}>
-        //         <form onChange={(e)=>{handleMotoboyOption(e.target.value)}}>
-        //             <label>Metodo de pagamento:</label>
-        //             <label>
-        //                 <input type="radio" name="motoboy-pay" value="motoboy-card" id="motoboy-card" />
-        //                 Cartão
-        //             </label>
-        //             <label>
-        //                 <input type="radio" name="motoboy-pay" value="motoboy-money" id="motoboy-money" />
-        //                 Dinheiro
-        //             </label>
-        //         </form>
-
-        //         <input className="submit-button" type="submit" value="Enviar" onClick={handlePaymentSubmission}  />
-        //     </form>
-
-        //     <span className="alert" style={{display: showAlert ? 'block' : 'none'}}>Pagamento Confirmado!</span>
-            
+        
         // </div>
     )
 }
